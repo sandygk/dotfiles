@@ -6,15 +6,16 @@
 # gitignore
 !.gitignore
 
+# bin
+!bin/
+
 # x
 !.xprofile
 
 # bash
 !.profile
 !.bashrc
-
-# bin
-!bin/
+!.bash_aliases
 
 # ranger
 !.config/ranger/
