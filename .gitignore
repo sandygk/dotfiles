@@ -1,0 +1,26 @@
+# ignore everything by default
+/*
+!.config/
+.config/*
+
+# gitignore
+!.gitignore
+
+# x
+!.xprofile
+
+# bash
+!.profile
+!.bashrc
+
+# bin
+!bin/
+
+# ranger
+!.config/ranger/
+
+# sxhkd
+!.config/sxhkd/
+
+# vim
+!.config/nvim/

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export NODE_ENV=local
+cd ~/Desktop/projects/graphiti
+npm run watch

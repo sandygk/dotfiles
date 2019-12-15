@@ -1,0 +1,13 @@
+#!/bin/bash
+
+case $1 in
+  --start)
+    f5fpc --start --nocheck --host https://amsterdam-linux.connectge.com
+    ;;
+  --stop)
+    f5fpc --stop
+    ;;
+  --status)
+    f5fpc --info
+    ;;
+esac

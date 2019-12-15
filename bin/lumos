@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/Desktop/projects/lumos
+npm start
