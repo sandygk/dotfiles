@@ -15,5 +15,5 @@ Print
     gnome-screenshot --interactive
 
 # power
-super + ctrl + alt {p,r,s}
+super + ctrl + alt {p,r,s,h}
     sudo {poweroff,reboot,systemctl suspend,systemctl hibernate}

@@ -25,3 +25,9 @@
 
 # vim
 !.config/nvim/
+
+# awesome
+!.config/awesome/
+
+# qtile
+!.config/qtile/
