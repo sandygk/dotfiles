@@ -95,9 +95,6 @@ awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
-    -- Create a promptbox for each screen
-    s.promptbox = awful.widget.prompt()
-
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     s.layoutbox = awful.widget.layoutbox(s)
@@ -115,10 +112,10 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create a tasklist widget
-    s.tasklist = awful.widget.tasklist {
-        screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
+     s.tasklist = awful.widget.tasklist {
+          screen  = s,
+      filter  = awful.widget.tasklist.filter.currenttags,
+     buttons = tasklist_buttons
     }
 
     -- Create the wibox
@@ -129,46 +126,31 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            launcher,
             s.taglist,
-            s.promptbox,
+            s.layoutbox,
         },
         s.tasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             textclock_widget,
-            s.layoutbox,
         },
     }
 end)
 
--- Mouse bindings
-root.buttons(gears.table.join(
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
-))
-
 -- Key bindings
 globalkeys = gears.table.join(
-    awful.key({ super,           }, "Left",   awful.tag.viewprev,
-              {description = "view previous", group = "tag"}),
-    awful.key({ super,           }, "Right",  awful.tag.viewnext,
-              {description = "view next", group = "tag"}),
-    awful.key({ super,           }, "Escape", awful.tag.history.restore,
-              {description = "go back", group = "tag"}),
-
+    awful.key({ super }, "Left",   awful.tag.viewprev),
+    awful.key({ super }, "Right",  awful.tag.viewnext),
     awful.key({ super,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
-        end,
-        {description = "focus next by index", group = "client"}
+        end
     ),
     awful.key({ super,           }, "k",
         function ()
             awful.client.focus.byidx(-1)
-        end,
-        {description = "focus previous by index", group = "client"}
+        end
     ),
 
     -- Layout manipulation
@@ -214,32 +196,6 @@ globalkeys = gears.table.join(
     awful.key({ super, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
-    awful.key({ super, "Control" }, "n",
-              function ()
-                  local c = awful.client.restore()
-                  -- Focus restored client
-                  if c then
-                    c:emit_signal(
-                        "request::activate", "key.unminimize", {raise = true}
-                    )
-                  end
-              end,
-              {description = "restore minimized", group = "client"}),
-
-    -- Prompt
-    awful.key({ super },            "r",     function () awful.screen.focused().promptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
-
-    awful.key({ super }, "x",
-              function ()
-                  awful.prompt.run {
-                    prompt       = "Run Lua code: ",
-                    textbox      = awful.screen.focused().promptbox.widget,
-                    exe_callback = awful.util.eval,
-                    history_path = awful.util.get_cache_dir() .. "/history_eval"
-                  }
-              end,
-              {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ super }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
