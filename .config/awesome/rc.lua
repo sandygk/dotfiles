@@ -6,7 +6,6 @@ require("awful.autofocus")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
-local menubar = require("menubar")
 
 -- Handle runtime errors after startup
 do
@@ -24,7 +23,7 @@ do
 end
 
 -- Set theme
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/custom/theme.lua")
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
@@ -40,7 +39,7 @@ awful.layout.layouts = {
 }
 
 -- Create textclock widget
-textclock = wibox.widget.textclock("%a %d-%b | %I:%M %p ")
+textclock = wibox.widget.textclock(" %a %d-%b | %I:%M %p ")
 
 -- Mouse bindings tag list
 local taglist_buttons = gears.table.join(
@@ -123,7 +122,6 @@ awful.screen.connect_for_each_screen(function(s)
         s.tasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
             textclock,
             s.layoutbox,
         },
