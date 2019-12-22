@@ -28,3 +28,6 @@
 
 # awesome
 !.config/awesome/
+
+# rofi
+!.config/rofi/
