@@ -1,6 +1,5 @@
-pcall(require, "luarocks.loader")
-
 -- Imports
+pcall(require, "luarocks.loader")
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
@@ -12,23 +11,24 @@ local menubar = require("menubar")
 -- Handle runtime errors after startup
 do
     local in_error = false
-    awesome.connect_signal("debug::error", function (err)
-        -- Avoid endless error loop
-        if in_error then return end
-        in_error = true
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Error",
-                         text = tostring(err) })
-        in_error = false
-    end)
+    awesome.connect_signal("debug::error", 
+        function (err)
+            -- Avoid endless error loop
+            if in_error then return end
+            in_error = true
+            naughty.notify({ preset = naughty.config.presets.critical,
+                             title = "Error",
+                             text = tostring(err) })
+            in_error = false
+        end)
 end
 
--- Select theme
+-- Set theme
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
--- Alias mod keys 
+-- Aliases for mod keys 
 super = "Mod4"
 alt = "Mod1"
 
@@ -40,47 +40,37 @@ awful.layout.layouts = {
 }
 
 -- Create textclock widget
-textclock = wibox.widget.textclock()
+textclock = wibox.widget.textclock("%a %d-%b | %I:%M %p ")
 
--- Create a wibox for each screen and add it
+-- Mouse bindings tag list
 local taglist_buttons = gears.table.join(
-                    awful.button({ }, 1, function(t) t:view_only() end),
-                    awful.button({ super }, 1, function(t)
-                                              if client.focus then
-                                                  client.focus:move_to_tag(t)
-                                              end
-                                          end),
-                    awful.button({ }, 3, awful.tag.viewtoggle),
-                    awful.button({ super }, 3, function(t)
-                                              if client.focus then
-                                                  client.focus:toggle_tag(t)
-                                              end
-                                          end),
-                    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-                    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
-                )
+    awful.button({ }, 1, function(t) t:view_only() end),
+    awful.button({ super }, 1, 
+        function(t)
+            if client.focus then
+                client.focus:move_to_tag(t)
+            end
+        end),
+    awful.button({ }, 3, awful.tag.viewtoggle),
+    awful.button({ super }, 3, 
+        function(t)
+            if client.focus then
+                client.focus:toggle_tag(t)
+            end
+        end)
+)
 
+-- Mouse bindings task list
 local tasklist_buttons = gears.table.join(
-                     awful.button({ }, 1, function (c)
-                                              if c == client.focus then
-                                                  c.minimized = true
-                                              else
-                                                  c:emit_signal(
-                                                      "request::activate",
-                                                      "tasklist",
-                                                      {raise = true}
-                                                  )
-                                              end
-                                          end),
-                     awful.button({ }, 3, function()
-                                              awful.menu.client_list({ theme = { width = 250 } })
-                                          end),
-                     awful.button({ }, 4, function ()
-                                              awful.client.focus.byidx(1)
-                                          end),
-                     awful.button({ }, 5, function ()
-                                              awful.client.focus.byidx(-1)
-                                          end))
+    awful.button({ }, 1, 
+        function (c)
+            c:emit_signal(
+                "request::activate",
+                "tasklist",
+                {raise = true}
+            )
+        end)
+)
 
 -- Define function to set the wallpaper
 local function set_wallpaper(s)
@@ -224,17 +214,20 @@ end
 
 -- Mouse bindings
 clientbuttons = gears.table.join(
-    awful.button({ }, 1, function (c)
-        c:emit_signal("request::activate", "mouse_click", { raise = true })
-    end),
-    awful.button({ super }, 1, function (c)
-        c:emit_signal("request::activate", "mouse_click", { raise = true })
-        awful.mouse.client.move(c)
-    end),
-    awful.button({ super }, 3, function (c)
-        c:emit_signal("request::activate", "mouse_click", { raise = true })
-        awful.mouse.client.resize(c)
-    end)
+    awful.button({ }, 1, 
+        function (c)
+            c:emit_signal("request::activate", "mouse_click", { raise = true })
+        end),
+    awful.button({ super }, 1, 
+        function (c)
+            c:emit_signal("request::activate", "mouse_click", { raise = true })
+            awful.mouse.client.move(c)
+        end),
+    awful.button({ super }, 3, 
+        function (c)
+            c:emit_signal("request::activate", "mouse_click", { raise = true })
+            awful.mouse.client.resize(c)
+        end)
 )
 
 -- Set global key bindings
@@ -271,6 +264,7 @@ awful.rules.rules = {
 }
 
 -- Focus follows mouse
-client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = false})
-end)
+client.connect_signal("mouse::enter", 
+    function(c)
+        c:emit_signal("request::activate", "mouse_enter", {raise = false})
+    end)
