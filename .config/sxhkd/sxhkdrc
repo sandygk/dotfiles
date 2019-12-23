@@ -1,8 +1,8 @@
 # ~/.config/sxhkd/sxhkdrc
 
 # launch apps 
-{_, shift +} super + ctrl + {Return,space,f,v,n,g,k,p}
-    {_, sudo} {gnome-terminal,google-chrome-beta,firefox,code,nautilus,gimp,krita,pinta}
+{_, shift +} super + ctrl + {Return,space,f,v,n,g,k,p,r}
+    {_, sudo} {gnome-terminal,google-chrome-beta,firefox,code,nautilus,gimp,krita,pinta,rofi -show run}
 
 {_, shift +} super + ctrl + {r}
     {_, sudo} gnome-terminal -e {ranger}
