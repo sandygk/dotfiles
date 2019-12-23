@@ -40,6 +40,32 @@ awful.layout.layouts = {
   awful.layout.suit.floating
 }
 
+-- Define function to set the wallpaper
+local function set_wallpaper(s)
+  gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+end
+
+-- Swap the content of tags
+function swap_tags(from, to)
+  local screen = awful.screen.focused()
+  to_clients = to:clients()
+  for i, c in ipairs(from:clients()) do
+    c:move_to_tag(to)
+  end
+  for i, c in ipairs(to_clients) do
+    c:move_to_tag(from)
+  end
+  to:view_only()
+end
+
+-- Get relative tag
+function tag_by_relative_index(index)
+  local screen = awful.screen.focused()
+  local tag_index = ((screen.selected_tag.index + index - 1) % #screen.tags) + 1
+  local tag = screen.tags[tag_index]
+  return tag
+end
+
 -- Create textclock widget
 textclock = wibox.widget.textclock(" %a %d-%b | %I:%M %p ")
 
@@ -82,11 +108,6 @@ local tasklist_buttons = gears.table.join(
   end)
 )
 
--- Define function to set the wallpaper
-local function set_wallpaper(s)
-  gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-end
-
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -101,14 +122,17 @@ awful.screen.connect_for_each_screen(
 
     -- Create layout indicator 
     s.layoutbox = awful.widget.layoutbox(s)
-    s.layoutbox:buttons(gears.table.join(
-      -- Change to next/previous layout with left/right click
-      awful.button({}, 1, function() awful.layout.inc( 1) end),
-      awful.button({}, 3, function() awful.layout.inc(-1) end),
+    s.layoutbox:buttons(
+      gears.table.join(
+        -- Change to next/previous layout with left/right click
+        awful.button({}, 1, function() awful.layout.inc( 1) end),
+        awful.button({}, 3, function() awful.layout.inc(-1) end),
 
-      -- Change layout with scroll wheel
-      awful.button({}, 4, function() awful.layout.inc( 1) end),
-      awful.button({}, 5, function() awful.layout.inc(-1) end)))
+        -- Change layout with scroll wheel
+        awful.button({}, 4, function() awful.layout.inc( 1) end),
+        awful.button({}, 5, function() awful.layout.inc(-1) end)
+      )
+    )
 
     -- Create a taglist widget
     s.taglist = awful.widget.taglist {
@@ -149,11 +173,21 @@ globalkeys = gears.table.join(
   -- Change next/previous workspace
   awful.key({ super }, "h",  awful.tag.viewprev),
   awful.key({ super }, "l", awful.tag.viewnext),
+  awful.key({ super, "Shift", "Control" }, "l",
+    function()
+      swap_tags(tag_by_relative_index(0), tag_by_relative_index(1))
+    end
+  ),
+  awful.key({ super, "Shift", "Control" }, "h",
+    function()
+      swap_tags(tag_by_relative_index(0), tag_by_relative_index(-1))
+    end
+  ),
 
   -- Focus next/previous client
   awful.key({ super }, "j", function() awful.client.focus.byidx( 1) end),
   awful.key({ super }, "k", function() awful.client.focus.byidx(-1) end),
-  awful.key({ super      }, "Tab", function() awful.client.focus.byidx( 1) end),
+  awful.key({ super          }, "Tab", function() awful.client.focus.byidx( 1) end),
   awful.key({ super, "Shift" }, "Tab", function() awful.client.focus.byidx(-1) end),
   
   -- Swapt with next/previous client
@@ -189,8 +223,8 @@ globalkeys = gears.table.join(
   -- Unminimize all clients in workspace in focused screen
   awful.key({ super, "Shift" }, "x", 
     function() 
-      local tag = awful.screen.focused().selected_tag
-      for _, c in ipairs(tag:clients()) do
+      local clients = awful.screen.focused().selected_tag:clients()
+      for _, c in ipairs(clients) do
         if c.minimized then
           c.minimized = false
           c:emit_signal(
@@ -204,6 +238,29 @@ globalkeys = gears.table.join(
   awful.key({ super }, "n", function() awful.screen.focus_relative( 1) end),
   awful.key({ super }, "p", function() awful.screen.focus_relative(-1) end)
 )
+
+-- Global key bindings per workspace
+for i = 1, 9 do
+  globalkeys = gears.table.join(globalkeys,
+    -- Select workspace
+    awful.key({ super }, tostring(i),
+      function()
+        local screen = awful.screen.focused()
+        local tag = screen.tags[i]
+        tag:view_only()
+      end),
+
+    -- Swap workspace
+    awful.key({ super, "Control", "Shift" }, tostring(i),
+      function()
+        local screen = awful.screen.focused()
+        local from = screen.selected_tag
+        local to = screen.tags[i]
+        swap_tags(from, to)
+      end
+    )
+  )
+end
 
 -- Client key bindings
 clientkeys = gears.table.join(
@@ -219,22 +276,12 @@ clientkeys = gears.table.join(
   -- Send client to a next/previus workspace
   awful.key({ super, "Shift" }, "l", 
     function(c) 
-        local tag_index = c.first_tag.index + 1
-        local last_index = #c.screen.tags
-        if tag_index > last_index then tag_index = 1 end
-
-        local tag = c.screen.tags[tag_index]
-        c:move_to_tag(tag)
+        c:move_to_tag(tag_by_relative_index(1))
     end),
 
   awful.key({ super, "Shift" }, "h", 
     function(c) 
-        local tag_index = c.first_tag.index - 1
-        local last_index = #c.screen.tags
-        if tag_index < 1 then tag_index = last_index end
-
-        local tag = c.screen.tags[tag_index]
-        c:move_to_tag(tag)
+        c:move_to_tag(tag_by_relative_index(-1))
     end),
 
   -- Send client to a next/previus screen
@@ -251,26 +298,17 @@ clientkeys = gears.table.join(
     end)
 )
 
--- Bind key numbers to workspaces
+-- Client key bindings per workspace
 for i = 1, 9 do
-  globalkeys = gears.table.join(globalkeys,
-    -- Select workspace
-    awful.key({ super }, tostring(i),
-      function()
-          local screen = awful.screen.focused()
-          local tag = screen.tags[i]
-          tag:view_only()
-      end),
-
-    -- Send client to workspace
-    awful.key({ super, "Shift" }, tostring(i),
-      function()
-        if client.focus then
-          local tag = client.focus.screen.tags[i]
-          client.focus:move_to_tag(tag)
-         end
-      end)
-  )
+    clientkeys = gears.table.join(clientkeys,
+      -- Send client to workspace
+      awful.key({ super, "Shift" }, tostring(i),
+        function(c)
+          local tag = c.screen.tags[i]
+          c:move_to_tag(tag)
+        end
+      )
+    )
 end
 
 -- Mouse bindings
