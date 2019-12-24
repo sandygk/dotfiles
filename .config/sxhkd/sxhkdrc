@@ -2,13 +2,13 @@
 
 # launch apps 
 {_, shift +} super + ctrl + {Return,space,f,v,n,g,k,p,r}
-    {_, sudo} {gnome-terminal,google-chrome-beta,firefox,code,nautilus,gimp,krita,pinta,rofi -show run}
+    {_, sudo} {$TERMINAL,google-chrome-beta,firefox,code,nautilus,gimp,krita,pinta,rofi -show run}
 
 {_, shift +} super + ctrl + {r}
-    {_, sudo} gnome-terminal -e {ranger}
+    {_, sudo} $TERMINAL -e {ranger}
     
 {_, shift +} super + alt + {v}
-    {_, sudo} gnome-terminal -e {nvim}
+    {_, sudo} $TERMINAL -e {nvim}
 
 # print screen
 Print

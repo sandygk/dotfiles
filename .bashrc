@@ -6,7 +6,7 @@
 
 # set default apps
 export EDITOR=nvim
-export TERMINAL=gnome-terminal
+export TERMINAL=alacritty
 
 # prompt
 PS1="[\[\e[32m\]\W\[\e[m\]]"

@@ -1,15 +1,11 @@
-" ~/.vimrc ~/.config/nvim/init.vim
-
 " Vundle
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomasiser/vim-code-dark'
-Plugin 'joshdick/onedark.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin '907th/vim-auto-save'
@@ -30,7 +26,7 @@ let g:NERDTreeWinSize=25
 
 " Set theme
 syntax on
-color onedark
+colorscheme codedark
 
 " Enable mouse
 set mouse=a

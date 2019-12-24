@@ -10,7 +10,7 @@
 !bin/
 
 # x
-!.xprofile
+!.xinitrc
 
 # bash
 !.profile
@@ -25,6 +25,9 @@
 
 # vim
 !.config/nvim/
+
+# alacritty
+!.config/alacritty/
 
 # awesome
 !.config/awesome/

@@ -40,25 +40,26 @@ awful.layout.layouts = {
   awful.layout.suit.floating
 }
 
--- Define function to set the wallpaper
+-- Set the wallpaper
 local function set_wallpaper(s)
   gears.wallpaper.maximized(beautiful.wallpaper, s, true)
 end
 
--- Swap the content of tags
-function swap_tags(from, to)
+-- Swap tags 
+function swap_tag(other_tag)
   local screen = awful.screen.focused()
-  to_clients = to:clients()
-  for i, c in ipairs(from:clients()) do
-    c:move_to_tag(to)
+  this_tag = screen.selected_tag
+  other_tag_clients = other_tag:clients()
+  for i, c in ipairs(this_tag:clients()) do
+    c:move_to_tag(other_tag)
   end
-  for i, c in ipairs(to_clients) do
-    c:move_to_tag(from)
+  for i, c in ipairs(other_tag_clients) do
+    c:move_to_tag(this_tag)
   end
-  to:view_only()
+  other_tag:view_only()
 end
 
--- Get relative tag
+-- Get tag by relative id
 function tag_by_relative_index(index)
   local screen = awful.screen.focused()
   local tag_index = ((screen.selected_tag.index + index - 1) % #screen.tags) + 1
@@ -175,12 +176,12 @@ globalkeys = gears.table.join(
   awful.key({ super }, "l", awful.tag.viewnext),
   awful.key({ super, "Shift", "Control" }, "l",
     function()
-      swap_tags(tag_by_relative_index(0), tag_by_relative_index(1))
+      swap_tag(tag_by_relative_index(1))
     end
   ),
   awful.key({ super, "Shift", "Control" }, "h",
     function()
-      swap_tags(tag_by_relative_index(0), tag_by_relative_index(-1))
+      swap_tag(tag_by_relative_index(-1))
     end
   ),
 
@@ -240,7 +241,7 @@ globalkeys = gears.table.join(
 )
 
 -- Global key bindings per workspace
-for i = 1, 9 do
+for i = 1, #screen.primary.tags do
   globalkeys = gears.table.join(globalkeys,
     -- Select workspace
     awful.key({ super }, tostring(i),
@@ -254,9 +255,8 @@ for i = 1, 9 do
     awful.key({ super, "Control", "Shift" }, tostring(i),
       function()
         local screen = awful.screen.focused()
-        local from = screen.selected_tag
-        local to = screen.tags[i]
-        swap_tags(from, to)
+        local other_tag = screen.tags[i]
+        swap_tag(other_tag)
       end
     )
   )
@@ -299,7 +299,7 @@ clientkeys = gears.table.join(
 )
 
 -- Client key bindings per workspace
-for i = 1, 9 do
+for i = 1, #screen.primary.tags do
     clientkeys = gears.table.join(clientkeys,
       -- Send client to workspace
       awful.key({ super, "Shift" }, tostring(i),
@@ -336,18 +336,19 @@ root.keys(globalkeys)
 awful.rules.rules = {
   -- All clients will match this rule
   { 
-     rule = {},
-     properties = { 
-       border_width = beautiful.border_width,
-       border_color = beautiful.border_normal,
-       focus = awful.client.focus.filter,
-       raise = true,
-       keys = clientkeys,
-       buttons = clientbuttons,
-       screen = awful.screen.preferred,
-       placement = awful.placement.no_overlap+awful.placement.no_offscreen,
-       size_hints_honor = false
-     }
+    rule = {},
+    properties = { 
+      maximized = false,
+      border_width = beautiful.border_width,
+      border_color = beautiful.border_normal,
+      focus = awful.client.focus.filter,
+      raise = true,
+      keys = clientkeys,
+      buttons = clientbuttons,
+      screen = awful.screen.preferred,
+      placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+      size_hints_honor = false
+    }
   },
 
   -- Floating clients
