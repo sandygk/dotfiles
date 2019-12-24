@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export XSECURELOCK_DISCARD_FIRST_KEYPRESS=0
+export XSECURELOCK_SHOW_DATETIME=1
+export XSECURELOCK_DATETIME_FORMAT="%a %d-%b | %I:%M %p"
+
+xsecurelock

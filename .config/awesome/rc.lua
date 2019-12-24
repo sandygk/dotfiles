@@ -68,7 +68,7 @@ function tag_by_relative_index(index)
 end
 
 -- Create textclock widget
-textclock = wibox.widget.textclock(" %a %d-%b | %I:%M %p ")
+textclock = wibox.widget.textclock(" %a %d-%b | %I:%M %p ", 1)
 
 -- Mouse bindings tag list
 local taglist_buttons = gears.table.join(
@@ -338,7 +338,6 @@ awful.rules.rules = {
   { 
     rule = {},
     properties = { 
-      maximized = false,
       border_width = beautiful.border_width,
       border_color = beautiful.border_normal,
       focus = awful.client.focus.filter,
@@ -346,7 +345,7 @@ awful.rules.rules = {
       keys = clientkeys,
       buttons = clientbuttons,
       screen = awful.screen.preferred,
-      placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+      placement = awful.placement.centered,
       size_hints_honor = false
     }
   },

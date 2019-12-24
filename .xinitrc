@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-#require to run gnome-terminal
-dbus-update-activation-environment --all
-
 # key bindings
 sxhkd -t 10 &
 
@@ -12,11 +9,11 @@ numlockx &
 # hide mouse if inactive
 unclutter &
 
-# picom
-picom &
-
 # automount usb
 udiskie &
+
+# screen locker
+xss-lock locker &
 
 # start awesome
 awesome

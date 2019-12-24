@@ -15,5 +15,10 @@ Print
     gnome-screenshot --interactive
 
 # power
-super + ctrl + alt {p,r,s,h}
-    sudo {poweroff,reboot,systemctl suspend,systemctl hibernate}
+super + ctrl + alt {p,r,s,h,l}
+    {poweroff,reboot,systemctl suspend,systemctl hibernate,locker}
+    
+# brightness
+XF86MonBrightness{Up,Down}
+    xbacklight -{inc,dec} 10
+

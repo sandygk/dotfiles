@@ -20,6 +20,8 @@ alias gb='cd ~/bin'
 # edit files
 alias eb='$EDITOR ~/.bashrc'
 alias eba='$EDITOR ~/.bash_aliases'
+alias ebp='$EDITOR ~/.bash_profile'
+alias ex='$EDITOR ~/.xinitrc'
 alias et='$EDITOR ~/Desktop/notes/todo'
 alias etp='$EDITOR ~/Desktop/notes/todo-portal'
 alias ev='$EDITOR ~/.config/nvim/init.vim'
