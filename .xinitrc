@@ -14,6 +14,10 @@ udiskie &
 
 # screen locker
 xss-lock locker &
+locker &
+
+# picom
+picom &
 
 # start awesome
 awesome

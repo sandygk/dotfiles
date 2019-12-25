@@ -3,34 +3,19 @@
 !.config/
 .config/*
 
-# gitignore
 !.gitignore
 
-# bin
 !bin/
-
-# x
 !.xinitrc
 
-# bash
 !.bash_profile
 !.bashrc
 !.bash_aliases
 
-# ranger
 !.config/ranger/
-
-# sxhkd
 !.config/sxhkd/
-
-# vim
 !.config/nvim/
-
-# alacritty
 !.config/alacritty/
-
-# awesome
 !.config/awesome/
-
-# rofi
 !.config/rofi/
+!.config/picom/
