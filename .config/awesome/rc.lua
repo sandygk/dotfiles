@@ -206,9 +206,10 @@ globalkeys = gears.table.join(
   awful.key({ super }, "0", function() awful.tag.setmwfact(0.5) end),
 
   -- Select layout
-  awful.key({ super }, "m", function() awful.layout.set(awful.layout.suit.max) end),
-  awful.key({ super }, "t", function() awful.layout.set(awful.layout.suit.tile) end),
-  awful.key({ super }, "f", function() awful.layout.set(awful.layout.suit.floating) end),
+  awful.key({ super          }, "m", function() awful.layout.set(awful.layout.suit.max) end),
+  awful.key({ super          }, "t", function() awful.layout.set(awful.layout.suit.tile) end),
+  awful.key({ super          }, "f", function() awful.layout.set(awful.layout.suit.floating) end),
+  awful.key({ super, "Shift" }, "f", function() awful.layout.set(awful.layout.suit.max.fullscreen) end),
 
   -- Quickly swap between max and tile
   awful.key({ super }, "grave", 
