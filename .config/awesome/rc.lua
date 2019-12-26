@@ -35,7 +35,8 @@ alt = "Mod1"
 awful.layout.layouts = {
   awful.layout.suit.max,
   awful.layout.suit.tile,
-  awful.layout.suit.floating
+  awful.layout.suit.floating,
+  awful.layout.suit.max.fullscreen
 }
 
 -- Set the wallpaper
