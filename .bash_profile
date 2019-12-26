@@ -11,8 +11,10 @@ if [ -f "$HOME/.bashrc" ]; then
 fi
 
 # define $XDG_CONFIG_HOME
-XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CONFIG_HOME
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Extend GTK theme to Qt
+export QT_QPA_PLATFORMTHEME=gtk2
 
 # start x
 exec startx 

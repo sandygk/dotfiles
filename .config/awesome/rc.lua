@@ -26,8 +26,6 @@ end
 
 -- Set theme
 beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/custom/theme.lua")
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- Aliases for mod keys 
 super = "Mod4"
@@ -47,7 +45,7 @@ end
 
 -- Swap tags 
 function swap_tag(other_tag)
-  local screen = awful.screen.focused()
+  local screen = awful.screen.focused({ client=true })
   this_tag = screen.selected_tag
   other_tag_clients = other_tag:clients()
   for i, c in ipairs(this_tag:clients()) do
@@ -224,7 +222,7 @@ globalkeys = gears.table.join(
   -- Unminimize all clients in workspace in focused screen
   awful.key({ super, "Shift" }, "x", 
     function() 
-      local clients = awful.screen.focused().selected_tag:clients()
+      local clients = awful.screen.focused( { client = true }).selected_tag:clients()
       for _, c in ipairs(clients) do
         if c.minimized then
           c.minimized = false
@@ -246,7 +244,7 @@ for i = 1, #screen.primary.tags do
     -- Select workspace
     awful.key({ super }, tostring(i),
       function()
-        local screen = awful.screen.focused()
+        local screen = awful.screen.focused( { client = true })
         local tag = screen.tags[i]
         tag:view_only()
       end),
@@ -254,7 +252,7 @@ for i = 1, #screen.primary.tags do
     -- Swap workspace
     awful.key({ super, "Control", "Shift" }, tostring(i),
       function()
-        local screen = awful.screen.focused()
+        local screen = awful.screen.focused( { client = true })
         local other_tag = screen.tags[i]
         swap_tag(other_tag)
       end
@@ -338,6 +336,9 @@ awful.rules.rules = {
   { 
     rule = {},
     properties = { 
+      maximized=false,
+      maximized_horizontal=false,
+      maximized_vertical=false,
       border_width = beautiful.border_width,
       border_color = beautiful.border_normal,
       focus = awful.client.focus.filter,
@@ -349,21 +350,8 @@ awful.rules.rules = {
       size_hints_honor = false
     }
   },
-
-  -- Floating clients
-  { 
-     rule_any = {
-       name = {
-         "Event Tester", -- xev.
-       },
-       role = {
-         "pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
-       }
-    }, properties = { floating = true }}
 }
 
--- Focus follows mouse
-client.connect_signal("mouse::enter", 
-  function(c)
-    c:emit_signal("request::activate", "mouse_enter", { raise = false })
-  end)
+-- Apply theme on focus/unfocus
+client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
