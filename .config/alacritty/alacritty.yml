@@ -2,7 +2,7 @@ env:
   WINIT_HIDPI_FACTOR: '1' 
 
 font:
-  size: 15.5
+  size: 16
 
 # Colors (One Dark)
 colors:

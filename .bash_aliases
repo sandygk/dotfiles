@@ -31,7 +31,7 @@ alias ev='$EDITOR ~/.config/nvim/init.vim'
 alias er='$EDITOR ~/.config/ranger/rc.conf'
 alias es='$EDITOR ~/.config/sxhkd/sxhkdrc'
 alias ea='$EDITOR ~/.config/awesome/rc.lua'
-alias eat='$EDITOR ~/.config/awesome/themes/custom/theme.lua'
+alias eat='$EDITOR ~/.config/awesome/theme/theme.lua'
 
 # ls
 alias ls='ls --color=auto --group-directories-first'

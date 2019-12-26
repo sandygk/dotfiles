@@ -25,7 +25,7 @@ do
 end
 
 -- Set theme
-beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/custom/theme.lua")
+beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
 -- Aliases for mod keys 
 super = "Mod4"
