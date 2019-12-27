@@ -15,9 +15,12 @@ theme.wallpaper = "~/wallpaper"
 
 theme.font          = "sans 9"
 
+theme.useless_gap   = dpi(0)
+theme.border_width  = dpi(2)
+
 theme.bg_normal     = "#232729"
-theme.bg_focus      = "#17426f"
-theme.bg_urgent     = "theme.bg_normal"
+theme.bg_focus      = "#215d9c"
+theme.bg_urgent     = theme.bg_normal
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
@@ -26,11 +29,8 @@ theme.fg_focus      = theme.fg_normal
 theme.fg_urgent     = theme.fg_normal
 theme.fg_minimize   = theme.fg_normal
 
-theme.useless_gap   = dpi(0)
-theme.border_width  = dpi(2)
-
 theme.border_normal = "#1b1f20" 
-theme.border_focus  = "#215d9c"
+theme.border_focus  = theme.bg_focus
 theme.border_marked = theme.border_normal
 
 -- Generate taglist squares
