@@ -19,7 +19,7 @@ Print
 
 # power
 super + ctrl + alt {p,r,s,h,l}
-    {poweroff,reboot,systemctl suspend,systemctl hibernate,locker}
+    {poweroff,reboot,systemctl suspend,systemctl hibernate,xset s activate}
     
 # brightness
 XF86MonBrightness{Up,Down}

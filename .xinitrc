@@ -13,11 +13,9 @@ unclutter &
 udiskie &
 
 # screen locker
+xset s on &
+xset s 600 &
 xss-lock locker &
-locker &
-
-# picom
-picom &
 
 # start awesome
 awesome
