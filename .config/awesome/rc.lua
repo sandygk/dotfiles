@@ -80,11 +80,7 @@ local taglist_buttons = gears.table.join(
       if client.focus then
         client.focus:move_to_tag(t)
       end
-    end),
-
-  -- Change workspace with scroll wheel
-  awful.button({}, 4, function(t) awful.tag.viewnext(t.screen) end),
-  awful.button({}, 5, function(t) awful.tag.viewprev(t.screen) end)
+    end)
 )
 
 -- Mouse bindings task list
@@ -97,15 +93,7 @@ local tasklist_buttons = gears.table.join(
         "tasklist",
         { raise = true }
       )
-    end),
-
-  -- Change client with scroll wheel
-  awful.button({}, 4, function()
-    awful.client.focus.byidx(1)
-  end),
-  awful.button({}, 5, function()
-    awful.client.focus.byidx(-1)
-  end)
+    end)
 )
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -126,11 +114,7 @@ awful.screen.connect_for_each_screen(
       gears.table.join(
         -- Change to next/previous layout with left/right click
         awful.button({}, 1, function() awful.layout.inc( 1) end),
-        awful.button({}, 3, function() awful.layout.inc(-1) end),
-
-        -- Change layout with scroll wheel
-        awful.button({}, 4, function() awful.layout.inc( 1) end),
-        awful.button({}, 5, function() awful.layout.inc(-1) end)
+        awful.button({}, 3, function() awful.layout.inc(-1) end)
       )
     )
 

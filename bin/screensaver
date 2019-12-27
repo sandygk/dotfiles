@@ -1,0 +1,37 @@
+#!/bin/sh
+#
+# Copyright 2014 Google Inc. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+: ${XSECURELOCK_LIST_VIDEOS_COMMAND:=find ~/Videos -type f}
+: ${XSECURELOCK_IMAGE_DURATION_SECONDS:=1}
+
+# Run mpv in a loop so we can quickly restart mpv in case it exits (has shown
+# the last picture/video).
+while true; do
+  sh -c "$XSECURELOCK_LIST_VIDEOS_COMMAND" | shuf | head -n 256 |\
+  /usr/bin/mpv \
+    --no-input-terminal \
+    --really-quiet \
+    --no-stop-screensaver \
+    --wid="${XSCREENSAVER_WINDOW}" \
+    --no-audio \
+    --image-display-duration="${XSECURELOCK_IMAGE_DURATION_SECONDS}" \
+    --shuffle \
+    --playlist=- &
+  # Avoid spinning if mpv exits immediately, but don't wait to restart mpv in
+  # the common case.
+  sleep 1
+  wait
+done

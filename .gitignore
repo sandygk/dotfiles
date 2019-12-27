@@ -1,16 +1,14 @@
-# ignore everything by default
 /*
 !.config/
 .config/*
 
 !.gitignore
 
-!bin/
-!.xinitrc
-
 !.bash_profile
 !.bashrc
 !.bash_aliases
+!.xinitrc
+!bin/
 
 !.config/ranger/
 !.config/sxhkd/
