@@ -9,6 +9,7 @@
 !.bash_aliases
 !.xinitrc
 !bin/
+!wallpaper
 
 !.config/ranger/
 !.config/sxhkd/
