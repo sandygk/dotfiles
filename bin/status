@@ -1,0 +1,12 @@
+#!/bin/bash
+
+date='date +"%b-%d %a"'
+time='date +"%I:%M %p"'
+mute='pamixer --get-mute'
+volume='pamixer --get-volume'
+audio='[ "$(eval $mute)" == true ] && echo "mute" || echo "vol: $(eval $volume)%"'
+battery='echo "bat: $(eval "cat /sys/class/power_supply/BAT0/capacity")%"'
+
+# I put spaces before and after the info so it looks nice 
+# in the status bar. It's hacky but it works for now.
+echo "  $(eval $battery)  |  $(eval $audio)  |  $(eval $date)  |  $(eval $time) "

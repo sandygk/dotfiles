@@ -43,6 +43,7 @@ alias la='ls -A'
 # applications
 alias e='$EDITOR'
 alias r='ranger'
+alias p='pcmanfm'
 
 #misc
 alias q=exit

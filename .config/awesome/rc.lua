@@ -66,8 +66,12 @@ function tag_by_relative_index(index)
   return tag
 end
 
--- Create textclock widget
-textclock = wibox.widget.textclock(" %a %d-%b | %I:%M %p ", 1)
+-- Create status widget
+statusbox = awful.widget.watch("status", 0.5,
+  function(widget, stdout)
+      widget:set_text(stdout)
+  end
+)
 
 -- Mouse bindings tag list
 local taglist_buttons = gears.table.join(
@@ -145,7 +149,7 @@ awful.screen.connect_for_each_screen(
       s.tasklist, -- Middle widget
       { -- Right widgets
         layout = wibox.layout.fixed.horizontal,
-        textclock,
+        statusbox,
         s.layoutbox,
       },
     }
@@ -183,11 +187,11 @@ globalkeys = gears.table.join(
   awful.key({ super, "Control", alt  }, "q", awesome.quit),
 
   -- Change master width
-  awful.key({ super }, "equal", function() awful.tag.incmwfact( 0.01) end),
-  awful.key({ super }, "minus", function() awful.tag.incmwfact(-0.01) end),
-  awful.key({ super, "Shift" }, "equal", function() awful.tag.incmwfact( 0.05) end),
-  awful.key({ super, "Shift" }, "minus", function() awful.tag.incmwfact(-0.05) end),
-  awful.key({ super }, "0", function() awful.tag.setmwfact(0.5) end),
+  awful.key({ super }, "comma", function() awful.tag.incmwfact(-0.01) end),
+  awful.key({ super }, "period", function() awful.tag.incmwfact( 0.01) end),
+  awful.key({ super, "Shift" }, "comma", function() awful.tag.incmwfact(-0.05) end),
+  awful.key({ super, "Shift" }, "period", function() awful.tag.incmwfact( 0.05) end),
+  awful.key({ super }, "slash", function() awful.tag.setmwfact(0.5) end),
 
   -- Select layout
   awful.key({ super          }, "m", function() awful.layout.set(awful.layout.suit.max) end),
@@ -206,7 +210,7 @@ globalkeys = gears.table.join(
     end),
 
   -- Unminimize all clients in workspace in focused screen
-  awful.key({ super, "Shift" }, "x", 
+  awful.key({ super }, "equal", 
     function() 
       local clients = awful.screen.focused( { client = true }).selected_tag:clients()
       for _, c in ipairs(clients) do
@@ -252,7 +256,7 @@ clientkeys = gears.table.join(
   awful.key({ super }, "q", function(c) c:kill() end),
 
   -- Minimize client
-  awful.key({ super }, "x", function(c) c.minimized = true end),
+  awful.key({ super }, "minus", function(c) c.minimized = true end),
 
   -- Move client to master
   awful.key({ super }, "Return", function(c) c:swap(awful.client.getmaster()) end),
