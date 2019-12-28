@@ -12,10 +12,14 @@ unclutter &
 # automount usb
 udiskie &
 
+# picom
+picom &
+
 # screen locker
 xset s on &
 xset s 600 &
 xss-lock locker &
+locker &
 
 # start awesome
 awesome

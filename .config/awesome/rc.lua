@@ -341,7 +341,3 @@ awful.rules.rules = {
 -- Apply theme on focus/unfocus
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-
--- Autorun commands
-awful.spawn.once("xset s activate")
-awful.spawn.once("picom")
