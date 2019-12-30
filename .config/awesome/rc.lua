@@ -259,8 +259,11 @@ clientkeys = gears.table.join(
   -- Minimize client
   awful.key({ super }, "minus", function(c) c.minimized = true end),
 
-  -- Toggle client.floating
+  -- Toggle client's floating state
   awful.key({ super, "Shift" }, "f", function(c) c.floating = not c.floating end),
+
+  -- Toggle client's maximized state
+  awful.key({ super, "Shift" }, "m", function(c) c.maximized = not c.maximized end),
 
   -- Move client to master
   awful.key({ super }, "Return", function(c) c:swap(awful.client.getmaster()) end),
@@ -350,11 +353,8 @@ awful.rules.rules = {
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
--- Show borders only if needed
+-- Hide borders if the client is maximized or fullscreen
 screen.connect_signal("arrange", function (s)
-  local max_enabled = s.selected_tag.layout.name == "max"
-  local fullscreen_enabled = s.selected_tag.layout.name == "fullscreen"
-  local one_tiled_client = #s.tiled_clients == 1
   for _, c in pairs(s.clients) do
     if (
       s.selected_tag.layout.name == "max" or 
