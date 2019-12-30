@@ -1,14 +1,10 @@
 #!/bin/bash
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+PATH="$HOME/bin:$PATH"
 
 # include .bashrc if it exists
-if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-fi
+. "$HOME/.bashrc"
 
 # define $XDG_CONFIG_HOME
 export XDG_CONFIG_HOME="$HOME/.config"

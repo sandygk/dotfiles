@@ -21,5 +21,5 @@ xset s 600 &
 xss-lock locker &
 locker &
 
-# start awesome
+# window manager 
 awesome

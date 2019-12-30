@@ -49,12 +49,17 @@ function swap_tag(other_tag)
   local screen = awful.screen.focused({ client=true })
   this_tag = screen.selected_tag
   other_tag_clients = other_tag:clients()
+  other_tag_layout = other_tag.layout
+
   for i, c in ipairs(this_tag:clients()) do
     c:move_to_tag(other_tag)
   end
+  other_tag.layout = this_tag.layout
+
   for i, c in ipairs(other_tag_clients) do
     c:move_to_tag(this_tag)
   end
+  this_tag.layout = other_tag_layout
   other_tag:view_only()
 end
 
@@ -67,11 +72,7 @@ function tag_by_relative_index(index)
 end
 
 -- Create status widget
-statusbox = awful.widget.watch("status", 0.5,
-  function(widget, stdout)
-      widget:set_text(stdout)
-  end
-)
+statusbox = awful.widget.watch("status", 0.5)
 
 -- Mouse bindings tag list
 local taglist_buttons = gears.table.join(
@@ -194,10 +195,10 @@ globalkeys = gears.table.join(
   awful.key({ super }, "slash", function() awful.tag.setmwfact(0.5) end),
 
   -- Select layout
-  awful.key({ super          }, "m", function() awful.layout.set(awful.layout.suit.max) end),
-  awful.key({ super          }, "t", function() awful.layout.set(awful.layout.suit.tile) end),
-  awful.key({ super          }, "f", function() awful.layout.set(awful.layout.suit.floating) end),
-  awful.key({ super, "Shift" }, "f", function() awful.layout.set(awful.layout.suit.max.fullscreen) end),
+  awful.key({ super }, "m", function() awful.layout.set(awful.layout.suit.max) end),
+  awful.key({ super }, "t", function() awful.layout.set(awful.layout.suit.tile) end),
+  awful.key({ super }, "f", function() awful.layout.set(awful.layout.suit.floating) end),
+  awful.key({ super }, "F11", function() awful.layout.set(awful.layout.suit.max.fullscreen) end),
 
   -- Quickly swap between max and tile
   awful.key({ super }, "grave", 
@@ -257,6 +258,9 @@ clientkeys = gears.table.join(
 
   -- Minimize client
   awful.key({ super }, "minus", function(c) c.minimized = true end),
+
+  -- Toggle client.floating
+  awful.key({ super, "Shift" }, "f", function(c) c.floating = not c.floating end),
 
   -- Move client to master
   awful.key({ super }, "Return", function(c) c:swap(awful.client.getmaster()) end),
@@ -345,3 +349,23 @@ awful.rules.rules = {
 -- Apply theme on focus/unfocus
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+-- Show borders only if needed
+screen.connect_signal("arrange", function (s)
+  local max_enabled = s.selected_tag.layout.name == "max"
+  local fullscreen_enabled = s.selected_tag.layout.name == "fullscreen"
+  local one_tiled_client = #s.tiled_clients == 1
+  for _, c in pairs(s.clients) do
+    if (
+      s.selected_tag.layout.name == "max" or 
+      s.selected_tag.layout.name == "fullscreen" or 
+      #s.tiled_clients == 1) 
+    and ( 
+      not c.floating or c.maximized) 
+    then
+      c.border_width = 0
+    else
+      c.border_width = beautiful.border_width
+    end
+  end
+end)

@@ -51,6 +51,6 @@ theme.menu_width  = dpi(100)
 theme.layout_floating  = theme_path.."images/floating.png"
 theme.layout_max = theme_path.."images/max.png"
 theme.layout_tile = theme_path.."images/tile.png"
-theme.layout_fullscreen = theme_path.."images/max.png"
+theme.layout_fullscreen = theme_path.."images/fullscreen.png"
 
 return theme
