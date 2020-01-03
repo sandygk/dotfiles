@@ -4,14 +4,18 @@
 {_, shift +} super + ctrl + {Return,space,f,v,n,g,k,p,r,a}
     {_, sudo} {$TERMINAL,google-chrome-beta,firefox,code,nautilus,gimp,krita,pcmanfm,rofi -show run, arandr}
 
-{_, shift +} super + alt + {p}
-    {_, sudo} {pinta}
+{_, shift +} super + alt + {a,p}
+    {_, sudo} {pavucontrol,pinta}
 
 {_, shift +} super + ctrl + {r}
     {_, sudo} $TERMINAL -e {ranger}
     
 {_, shift +} super + alt + {v}
     {_, sudo} $TERMINAL -e {nvim}
+
+# screen layout
+super + s ; {m,l,b}
+    screen-layout --{monitor,laptop,both}
 
 # print screen
 Print

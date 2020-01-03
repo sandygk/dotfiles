@@ -1,8 +1,15 @@
+# enable aliases for sudo
+alias sudo='sudo '
+
 # refresh bash
 alias rb='source ~/.bashrc'
 
 # refresh sxhkd
 alias rs="pkill -USR1 -x sxhkd"
+
+# conect to work networks
+alias cb="nmcli connection up id BLUESSO"
+alias ci="nmcli connection up id Internet"
 
 # change directory
 alias gu='cd ..'
@@ -48,5 +55,4 @@ alias p='pcmanfm'
 #misc
 alias q=exit
 alias cl=clear
-alias please='sudo !!'
-alias fuck='sudo !!'
+alias please='sudo "$BASH" -c "$(history -p !!)"'
