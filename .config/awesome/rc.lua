@@ -42,7 +42,6 @@ awful.layout.layouts = {
 -- Set the wallpaper
 local function set_wallpaper(s)
   gears.wallpaper.set(beautiful.wallpaper_color)
-  -- gears.wallpaper.maximized(beautiful.wallpaper, s, true)
 end
 
 -- Swap tags 
