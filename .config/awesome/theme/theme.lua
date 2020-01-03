@@ -11,8 +11,6 @@ local theme_path = gfs.get_configuration_dir() .. "theme/"
 
 local theme = {}
 
-theme.wallpaper = "~/wallpaper"
-
 theme.font          = "sans 9"
 
 theme.useless_gap   = dpi(0)
@@ -32,6 +30,8 @@ theme.fg_minimize   = theme.fg_normal
 theme.border_normal = "#1b1f20" 
 theme.border_focus  = theme.bg_focus
 theme.border_marked = theme.border_normal
+
+theme.wallpaper_color = "#33393b"
 
 -- Generate taglist squares
 local taglist_square_size = dpi(4)
