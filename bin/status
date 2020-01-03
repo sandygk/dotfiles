@@ -2,8 +2,8 @@
 
 date='date +"%b-%d %a"'
 time='date +"%I:%M %p"'
-mute='pamixer --get-mute'
-volume='pamixer --get-volume'
+mute='pamixer --sink 0 --get-mute'
+volume='pamixer --sink 0 --get-volume'
 audio='[ "$(eval $mute)" == true ] && echo "vol: mute" || echo "vol: $(eval $volume)%"'
 battery='echo "bat: $(eval "cat /sys/class/power_supply/BAT0/capacity")%"'
 

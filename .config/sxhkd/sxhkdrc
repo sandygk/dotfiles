@@ -24,14 +24,11 @@ Print
 # power
 super + ctrl + alt {p,r,s,h,l}
     {poweroff,reboot,systemctl suspend,systemctl hibernate,xset s activate}
-    
-# brightness
-XF86MonBrightness{Up,Down}
     xbacklight -{inc,dec} 10
 
 # volume
 XF86Audio{Raise,Lower}Volume
-    pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%; status-bar --refresh
+    pactl -- set-sink-volume 0 {+,-}5%
 
 XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle; status-bar --refresh
+    pactl -- set-sink-mute 0 toggle 
