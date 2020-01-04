@@ -2,6 +2,11 @@
 !.config/
 .config/*
 
+!.local/
+.local/*
+!.local/share/
+.local/share/*
+
 !.gitignore
 
 !.bash_profile
@@ -18,3 +23,5 @@
 !.config/awesome/
 !.config/rofi/
 !.config/picom/
+!.local/share/file-manager/
+
