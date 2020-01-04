@@ -14,8 +14,8 @@ alias ci="nmcli connection up id Internet"
 # change directory
 alias gu='cd ..'
 alias gh='cd ~'
-alias gp='cd ~/Desktop/projects'
-alias gP='cd ~/Desktop/projects/portal'
+alias gP='cd ~/Desktop/projects'
+alias gp='cd ~/Desktop/projects/portal'
 alias gg='cd ~/Desktop/projects/graphiti'
 alias gl='cd ~/Desktop/projects/lumos'
 alias gn='cd ~/Desktop/notes'
@@ -49,8 +49,7 @@ alias la='ls -A'
 
 # applications
 alias e='$EDITOR'
-alias r='ranger'
-alias p='pcmanfm'
+alias o='open'
 
 #misc
 alias q=exit
