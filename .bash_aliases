@@ -21,8 +21,8 @@ alias gl='cd ~/Desktop/projects/lumos'
 alias gn='cd ~/Desktop/notes'
 alias gt='cd ~/Desktop/temp'
 alias gT='cd ~/Desktop/to-do'
-alias gd='cd ~/Desktop'
-alias gD='cd ~/Downloads'
+alias gD='cd ~/Desktop'
+alias gd='cd ~/Downloads'
 alias gb='cd ~/bin'
 
 # edit files
