@@ -1,0 +1,14 @@
+#!/bin/bash
+
+open() {
+  if [[ -e $1 ]] 
+  then
+    mimetype=$(file -b --mime-type "$1")
+    if   [[ $mimetype == inode/directory ]]; then cd "$1" 
+    elif [[ $mimetype == text/plain      ]]; then nvim "$1"
+    elif [[ $mimetype == image/*         ]]; then feh -Z "$1"
+    else echo "Unsupported file format"; fi
+  else 
+    echo "The argument must be a file"
+  fi
+}

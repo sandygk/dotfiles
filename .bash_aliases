@@ -5,15 +5,16 @@ alias sudo='sudo '
 alias rb='source ~/.bashrc'
 
 # refresh sxhkd
-alias rs="pkill -USR1 -x sxhkd"
+alias rs='pkill -USR1 -x sxhkd'
 
 # conect to work networks
-alias cb="nmcli connection up id BLUESSO"
-alias ci="nmcli connection up id Internet"
+alias cb='nmcli connection up id BLUESSO'
+alias ci='nmcli connection up id Internet'
 
 # change directory
 alias gu='cd ..'
 alias gh='cd ~'
+alias gb='cd - &> /dev/null'
 alias gP='cd ~/Desktop/projects'
 alias gp='cd ~/Desktop/projects/portal'
 alias gg='cd ~/Desktop/projects/graphiti'
@@ -23,7 +24,7 @@ alias gt='cd ~/Desktop/temp'
 alias gT='cd ~/Desktop/to-do'
 alias gD='cd ~/Desktop'
 alias gd='cd ~/Downloads'
-alias gb='cd ~/bin'
+alias gB='cd ~/bin'
 
 # edit files
 alias eb='$EDITOR ~/.bashrc'
@@ -39,6 +40,7 @@ alias er='$EDITOR ~/.config/ranger/rc.conf'
 alias es='$EDITOR ~/.config/sxhkd/sxhkdrc'
 alias ea='$EDITOR ~/.config/awesome/rc.lua'
 alias eat='$EDITOR ~/.config/awesome/theme/theme.lua'
+alias eo='$EDITOR ~/bin/open'
 
 # ls
 alias ls='ls --color=auto --group-directories-first'
@@ -48,8 +50,9 @@ alias la='ls -A'
 . package_management_aliases
 
 # applications
+alias g='cd'
 alias e='$EDITOR'
-alias o='open'
+alias o=open
 
 #misc
 alias q=exit
