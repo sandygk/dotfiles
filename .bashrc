@@ -21,11 +21,16 @@ shopt -s checkwinsize
 
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
-# append to the history file, don't overwrite it
+
+# append to the history file
 shopt -s histappend
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+
+# set history size
+HISTSIZE=10000
+HISTFILESIZE=10000
+
+# autocorrect cd mispellings
+shopt -s cdspell
 
 # vim bindings
 set -o vi
