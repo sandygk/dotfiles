@@ -19,7 +19,7 @@ super + s ; {m,l,b}
 
 # print screen
 Print
-    gnome-screenshot --interactive
+    gnome-screenshot -ia
 
 # power
 super + ctrl + alt {p,r,s,h,l}
@@ -28,7 +28,7 @@ super + ctrl + alt {p,r,s,h,l}
 
 # volume
 XF86Audio{Raise,Lower}Volume
-    pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
+    pactl set-sink-mute @DEFAULT_SINK@ 0; pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
 
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle
