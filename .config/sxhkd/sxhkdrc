@@ -1,11 +1,11 @@
 # ~/.config/sxhkd/sxhkdrc
 
 # launch apps 
-{_, shift +} super + ctrl + {Return,space,f,v,n,g,k,r,a}
-    {_, sudo} {$TERMINAL,google-chrome-beta,firefox,code,nautilus,gimp,krita,rofi -show run, arandr}
+{_, shift +} super + ctrl + {Return,space,f,v,n,g,k,r,a,p}
+    {_, sudo} {$TERMINAL,google-chrome-beta,firefox,code,nautilus,gimp,krita,rofi -show run, arandr,pinta}
 
-{_, shift +} super + alt + {a,p}
-    {_, sudo} {pavucontrol,pinta}
+{_, shift +} super + alt + {a}
+    {_, sudo} {pavucontrol}
 
 {_, shift +} super + ctrl + {}
     {_, sudo} $TERMINAL -e {}
@@ -14,7 +14,7 @@
     {_, sudo} $TERMINAL -e {nvim}
 
 # screen layout
-super + s ; {m,l,b}
+super + ctrl + s ; {m,l,b}
     screen-layout --{monitor,laptop,both}
 
 # print screen

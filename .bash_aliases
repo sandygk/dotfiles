@@ -3,13 +3,18 @@ alias sudo='sudo '
 
 # refresh bash
 alias rb='source ~/.bashrc'
-
 # refresh sxhkd
 alias rs='pkill -USR1 -x sxhkd'
+# refresh all
+alias ra='rb;rs'
 
-# conect to work networks
-alias cb='nmcli connection up id BLUESSO'
-alias ci='nmcli connection up id Internet'
+# conect to wifi using NetworkManager
+# alias cb='nmcli connection up id BLUESSO'
+# alias ci='nmcli connection up id Internet'
+
+# conect to wifi using netctl
+alias cb='netctl start work-internet'
+alias ch='netctl start home'
 
 # change directory
 alias gu='cd ..'
@@ -41,6 +46,7 @@ alias es='$EDITOR ~/.config/sxhkd/sxhkdrc'
 alias ea='$EDITOR ~/.config/awesome/rc.lua'
 alias eat='$EDITOR ~/.config/awesome/theme/theme.lua'
 alias eo='$EDITOR ~/bin/open'
+alias ee='$EDITOR ~/Desktop/notes/evaluation'
 
 # ls
 alias ls='ls --color=auto --group-directories-first'
