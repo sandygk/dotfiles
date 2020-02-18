@@ -12,8 +12,11 @@ unclutter &
 # automount usb
 udiskie &
 
-# picom
+# fix screen tearing
 picom &
+
+# notifications
+dunst &
 
 # screen locker
 xset s on &

@@ -13,7 +13,7 @@ alias ra='rb;rs'
 # alias ci='nmcli connection up id Internet'
 
 # conect to wifi using netctl
-alias cb='netctl start work-internet'
+alias ci='netctl start work-internet'
 alias ch='netctl start home'
 
 # change directory
@@ -47,6 +47,8 @@ alias ea='$EDITOR ~/.config/awesome/rc.lua'
 alias eat='$EDITOR ~/.config/awesome/theme/theme.lua'
 alias eo='$EDITOR ~/bin/open'
 alias ee='$EDITOR ~/Desktop/notes/evaluation'
+alias ec='$EDITOR ~/Desktop/notes/chores'
+alias eT='$EDITOR ~/Desktop/temp/temp'
 
 # ls
 alias ls='ls --color=auto --group-directories-first'

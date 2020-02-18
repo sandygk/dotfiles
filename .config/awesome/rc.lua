@@ -5,24 +5,6 @@ local awful = require("awful")
 require("awful.autofocus")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
-local naughty = require("naughty")
-
--- Handle runtime errors after startup
-do
-  local in_error = false
-  awesome.connect_signal("debug::error", 
-    function(err)
-      -- Avoid endless error loop
-      if in_error then return end
-      in_error = true
-      naughty.notify({ 
-        preset = naughty.config.presets.critical,
-        title = "Error",
-        text = tostring(err) 
-      })
-      in_error = false
-    end)
-end
 
 -- Set theme
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
