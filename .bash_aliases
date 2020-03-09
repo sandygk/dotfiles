@@ -36,10 +36,11 @@ alias eb='$EDITOR ~/.bashrc'
 alias eba='$EDITOR ~/.bash_aliases'
 alias ebp='$EDITOR ~/.bash_profile'
 alias ex='$EDITOR ~/.xinitrc'
-alias et='$EDITOR ~/Desktop/to-do/today'
-alias etp='$EDITOR ~/Desktop/to-do/portal'
-alias etw='$EDITOR ~/Desktop/to-do/woof'
-alias etl='$EDITOR ~/Desktop/to-do/lumos'
+alias et='$EDITOR ~/Desktop/todo/work'
+alias eth='$EDITOR ~/Desktop/todo/home'
+alias etp='$EDITOR ~/Desktop/todo/portal'
+alias etw='$EDITOR ~/Desktop/todo/woof'
+alias etl='$EDITOR ~/Desktop/todo/lumos'
 alias ev='$EDITOR ~/.config/nvim/init.vim'
 alias er='$EDITOR ~/.config/ranger/rc.conf'
 alias es='$EDITOR ~/.config/sxhkd/sxhkdrc'
@@ -53,6 +54,7 @@ alias eT='$EDITOR ~/Desktop/temp/temp'
 # ls
 alias ls='ls --color=auto --group-directories-first'
 alias la='ls -A'
+alias ll='ls -l'
 
 # package management
 . package_management_aliases
@@ -63,6 +65,7 @@ alias e='$EDITOR'
 alias o=open
 
 #misc
+alias rm='rm -i'
 alias q=exit
 alias cl=clear
 alias please='sudo "$BASH" -c "$(history -p !!)"'

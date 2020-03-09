@@ -8,12 +8,12 @@ font:
 colors:
   # Default colors
   primary:
-    background: '0x262626'
+    background: '0x232729'
     foreground: '0xabb2bf'
 
   # Normal colors
   normal:
-    black:   '0x262626'
+    black:   '0x232729'
     red:     '0xe06c75'
     green:   '0x98c379'
     yellow:  '0xd19a66'

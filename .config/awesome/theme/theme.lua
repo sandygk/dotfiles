@@ -31,7 +31,7 @@ theme.border_normal = "#1b1f20"
 theme.border_focus  = theme.bg_focus
 theme.border_marked = theme.border_normal
 
-theme.wallpaper_color = "#33393b"
+theme.wallpaper_color = theme.bg_normal 
 
 -- Generate taglist squares
 local taglist_square_size = dpi(4)
