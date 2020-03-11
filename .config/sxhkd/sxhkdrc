@@ -13,6 +13,9 @@
 {_, shift +} super + alt + {v}
     {_, sudo} $TERMINAL -e {nvim}
 
+super + ctrl + t 
+  google-chrome-stable --app=https://teams.microsoft.com/_#/conversations/19:meeting_ZmEzZjM0YWQtZGY3My00YjEzLWJkMzUtMDA1ZGE2OWMxZDA5@thread.v2?ctx=chat
+
 # screen layout
 super + ctrl + s ; {m,l,b}
     screen-layout --{monitor,laptop,both}
