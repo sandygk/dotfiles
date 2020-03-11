@@ -9,9 +9,10 @@
 
 !.gitignore
 
-!.bash_profile
 !.bashrc
+!.bash_profile
 !.bash_aliases
+
 !.xinitrc
 !bin/
 !wallpaper
