@@ -16,6 +16,9 @@
 super + ctrl + t 
   google-chrome-stable --app=https://teams.microsoft.com/_#/conversations/19:meeting_ZmEzZjM0YWQtZGY3My00YjEzLWJkMzUtMDA1ZGE2OWMxZDA5@thread.v2?ctx=chat
 
+super + ctrl + m 
+  google-chrome-stable --app=https://www.youtube.com/watch?v=yUuJrpP0Mak&list=PL0RI0aN8LyWDoAhOY6SMw4axBG_fNQLYe
+
 # screen layout
 super + ctrl + s ; {m,l,b}
     screen-layout --{monitor,laptop,both}
