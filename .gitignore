@@ -16,6 +16,7 @@
 !.xinitrc
 !bin/
 !wallpaper
+!.screenlayout/
 
 !.config/ranger/
 !.config/sxhkd/

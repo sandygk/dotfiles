@@ -1,28 +1,45 @@
+" --- PLUGIN SETTINGS --- 
+
 " Vundle
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
+" plugin manager
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
+
+" theme
 Plugin 'joshdick/onedark.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'easymotion/vim-easymotion'
+
+" autosave
 Plugin '907th/vim-auto-save'
-Plugin 'ap/vim-buftabline'
+
+" quickly move around
+Plugin 'easymotion/vim-easymotion'
+
+" syntax highlight for typescript 
+Plugin 'leafgarland/typescript-vim'
+
+" syntax highlight for tsx 
+Plugin 'ianks/vim-tsx'
 
 call vundle#end()
 filetype plugin indent on
 
+" Autosave
+let g:auto_save       =1
+let g:auto_save_silent=1
+let g:auto_save_events=["InsertLeave", "TextChanged", "FocusLost"]
+
+" With this option set, v will match both v and V, but V will match V only.
+let g:EasyMotion_smartcase=1
+
+" --- REGULAR VIM SETTINGS ---
+
 " change the mapleader from \ to space
 " NOTE: This has to be set before <leader> is used.
 let mapleader=" "
-
-" Show hidden files in NERDTree
-let g:NERDTreeShowHidden=1
-
-" Set the size of NERDTree
-let g:NERDTreeWinSize=25
 
 " Set theme
 syntax on
@@ -45,25 +62,8 @@ nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 " Hide welcome message
 set shortmess=I
 
-" Autosave
-let g:auto_save       =1
-let g:auto_save_silent=1
-let g:auto_save_events=["InsertLeave", "TextChanged", "FocusLost"]
-
 " Navigate to another buffer without saving the current one
 set hidden
-
-" Set airline theme
-let g:airline_theme='minimalist'
-
-" Remove separators for empty sections
-let g:airline_skip_empty_sections=1
-
-" Search hidden files with ctrlp
-let g:ctrlp_show_hidden=1
-
-" With this option set, v will match both v and V, but V will match V only.
-let g:EasyMotion_smartcase=1
 
 " Save 1,000 items in history
 set history=1000
