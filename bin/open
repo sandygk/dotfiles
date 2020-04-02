@@ -9,6 +9,6 @@ open() {
     elif [[ $mimetype == application/pdf ]]; then zathura "$1"
     else nvim "$1"; fi
   else 
-    echo "The argument must be a file"
+    echo "Unable to locate: $1"
   fi
 }
