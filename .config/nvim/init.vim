@@ -13,7 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'joshdick/onedark.vim'
 
 " autosave
-Plugin '907th/vim-auto-save'
+"Plugin '907th/vim-auto-save'
 
 " quickly move around
 Plugin 'easymotion/vim-easymotion'

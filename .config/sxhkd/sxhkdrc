@@ -1,11 +1,11 @@
 # ~/.config/sxhkd/sxhkdrc
 
 # launch apps 
-{_, shift +} super + ctrl + {Return,space,f,v,n,g,k,r,a,p}
-    {_, sudo} {$TERMINAL,google-chrome-stable,firefox,code,nautilus,gimp,krita,rofi -show run, arandr,pinta}
+{_, shift +} super + ctrl + {Return,space,f,n,g,k,r,a,p}
+    {_, sudo} {$TERMINAL,google-chrome-stable,firefox,nautilus,gimp,krita,rofi -show run, arandr,pinta}
 
-{_, shift +} super + alt + {a}
-    {_, sudo} {pavucontrol}
+{_, shift +} super + alt + {a,v}
+    {_, sudo} {pavucontrol,code}
 
 {_, shift +} super + ctrl + {}
     {_, sudo} $TERMINAL -e {}
@@ -15,6 +15,9 @@
 
 super + ctrl + t 
     google-chrome-stable --app=https://teams.microsoft.com/_#/conversations/19:meeting_ZmEzZjM0YWQtZGY3My00YjEzLWJkMzUtMDA1ZGE2OWMxZDA5@thread.v2?ctx=chat
+
+super + ctrl + v ; {h,p,l,g} 
+    code {~,~/projects/portal,~/projects/lumos,~projects/graphiti}
 
 super + ctrl + m 
     google-chrome-stable --app=https://www.youtube.com/watch?v=yUuJrpP0Mak&list=PL0RI0aN8LyWDoAhOY6SMw4axBG_fNQLYe

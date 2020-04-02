@@ -24,8 +24,9 @@ xset s 600 &
 xss-lock locker &
 locker &
 
-# sync folder
-rclone mount remote: ~/Desktop/sync &
+# sync folders
+rclone mount remote:notes ~/notes &
+rclone mount remote:todo ~/todo &
 
 # window manager 
 awesome
