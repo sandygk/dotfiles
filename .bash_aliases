@@ -68,3 +68,8 @@ alias rm='rm -i'
 alias q=exit
 alias cl=clear
 alias please='sudo "$BASH" -c "$(history -p !!)"'
+kill-port() {
+  fuser -k $1/tcp
+}
+alias prettier='prettier --write "**/*.ts"'
+alias apollo='npm run apollo:generate'
