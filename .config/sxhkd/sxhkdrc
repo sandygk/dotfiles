@@ -26,6 +26,10 @@ super + ctrl + m
 super + ctrl + s ; {l,m,t,e}
     ~/.screenlayout/{laptop,work-monitor,home-tv,work-extended}.sh 
 
+# toggle dunst
+super + ctrl + d
+    [ $(pidof dunst) ] && pkill dunst || dunst
+
 # print screen
 Print
     gnome-screenshot -ia
