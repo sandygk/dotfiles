@@ -24,13 +24,13 @@ alias gB='cd - &> /dev/null'
 alias gb='cd ~/bin'
 alias gd='cd ~/downloads'
 alias gn='cd ~/notes'
-alias gp='cd ~/projects'
+alias gr='cd ~/repos'
 alias gt='cd ~/temp'
 alias gT='cd ~/todo'
 
-alias gP='cd ~/projects/portal'
-alias gg='cd ~/projects/graphiti'
-alias gl='cd ~/projects/lumos'
+alias gp='cd ~/repos/portal'
+alias gg='cd ~/repos/graphiti'
+alias gl='cd ~/repos/lumos'
 
 # edit files
 alias eb=' $EDITOR ~/.bashrc'
@@ -58,6 +58,9 @@ alias ec=' $EDITOR ~/notes/chores'
 alias ls='ls --color=auto --group-directories-first'
 alias la='ls -A'
 alias ll='ls -l'
+
+# spell
+alias sp="fzf < /usr/share/dict/words | xclip -selection clipboard"
 
 # package management
 . package_management_aliases

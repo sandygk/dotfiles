@@ -1,11 +1,11 @@
 # ~/.config/sxhkd/sxhkdrc
 
 # launch apps 
-{_, shift +} super + ctrl + {Return,space,f,n,g,k,r,a,p}
-    {_, sudo} {$TERMINAL,google-chrome-stable,firefox,nautilus,gimp,krita,rofi -show run, arandr,pinta}
+{_, shift +} super + ctrl + {Return,space,c,f,g,k,r,a,p}
+    {_, sudo} {$TERMINAL,google-chrome-stable,code,firefox,gimp,krita,rofi -show run, arandr,pinta}
 
-{_, shift +} super + alt + {a,v}
-    {_, sudo} {pavucontrol,code}
+{_, shift +} super + alt + {a}
+    {_, sudo} {pavucontrol}
 
 {_, shift +} super + ctrl + {}
     {_, sudo} $TERMINAL -e {}
@@ -16,8 +16,9 @@
 super + ctrl + t 
     google-chrome-stable --app=https://teams.microsoft.com/_#/conversations/19:meeting_ZmEzZjM0YWQtZGY3My00YjEzLWJkMzUtMDA1ZGE2OWMxZDA5@thread.v2?ctx=chat
 
-super + ctrl + v ; {h,p,l,g} 
-    code {~,~/projects/portal,~/projects/lumos,~projects/graphiti}
+# open repos with visual studio
+super + alt + c ; {h,p,l,g} 
+    code {~,~/repos/portal,~/repos/lumos,~repos/graphiti}
 
 super + ctrl + m 
     google-chrome-stable --app=https://www.youtube.com/watch?v=yUuJrpP0Mak&list=PL0RI0aN8LyWDoAhOY6SMw4axBG_fNQLYe
@@ -27,7 +28,7 @@ super + ctrl + s ; {l,m,t,e}
     ~/.screenlayout/{laptop,work-monitor,home-tv,work-extended}.sh 
 
 # toggle dunst
-super + ctrl + d
+super + ctrl + n
     [ $(pidof dunst) ] && pkill dunst || dunst
 
 # print screen
