@@ -47,9 +47,9 @@ alias ed=' $EDITOR ~/.config/dunst/dunstrc'
 
 alias eo=' $EDITOR ~/bin/open'
 
-alias et=' $EDITOR ~/todo/work'
-alias eth='$EDITOR ~/todo/home'
-alias etl='$EDITOR ~/todo/linux'
+alias et=' $EDITOR ~/notes/todo/work'
+alias eth='$EDITOR ~/notes/todo/home'
+alias etl='$EDITOR ~/notes/todo/linux'
 
 alias ee=' $EDITOR ~/notes/evaluation'
 alias ec=' $EDITOR ~/notes/chores'
@@ -58,9 +58,6 @@ alias ec=' $EDITOR ~/notes/chores'
 alias ls='ls --color=auto --group-directories-first'
 alias la='ls -A'
 alias ll='ls -l'
-
-# spell
-alias sp="fzf < /usr/share/dict/words | xclip -selection clipboard"
 
 # package management
 . package_management_aliases

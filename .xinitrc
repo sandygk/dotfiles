@@ -26,7 +26,6 @@ locker &
 
 # sync folders
 rclone mount remote:notes ~/notes &
-rclone mount remote:todo ~/todo &
 
 # window manager 
 awesome

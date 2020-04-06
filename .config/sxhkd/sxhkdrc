@@ -4,14 +4,14 @@
 {_, shift +} super + ctrl + {Return,space,c,f,g,k,r,a,p}
     {_, sudo} {$TERMINAL,google-chrome-stable,code,firefox,gimp,krita,rofi -show run, arandr,pinta}
 
-{_, shift +} super + alt + {a}
-    {_, sudo} {pavucontrol}
+{_, shift +} super + alt + {a,s}
+    {_, sudo} {pavucontrol,spell_checker}
 
-{_, shift +} super + ctrl + {}
-    {_, sudo} $TERMINAL -e {}
-    
-{_, shift +} super + alt + {v}
+{_, shift +} super + ctrl + {v}
     {_, sudo} $TERMINAL -e {nvim}
+    
+{_, shift +} super + alt + {}
+    {_, sudo} $TERMINAL -e {}
 
 super + ctrl + t 
     google-chrome-stable --app=https://teams.microsoft.com/_#/conversations/19:meeting_ZmEzZjM0YWQtZGY3My00YjEzLWJkMzUtMDA1ZGE2OWMxZDA5@thread.v2?ctx=chat
