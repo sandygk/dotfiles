@@ -1,0 +1,87 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": 1,
+    "files.autoSave": "onFocusChange",
+    "editor.tabSize": 2,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "references.preferredLocation": "view",
+    "editor.gotoLocation.multiple": "goto",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "git.autofetch": true,
+    "explorer.confirmDragAndDrop": false,
+    "git.enableSmartCommit": true,
+    "explorer.confirmDelete": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.formatOnSave": true,
+    "prettier.requireConfig": true,
+    "cSpell.userWords": [
+        "Lumos",
+        "actioned",
+        "etag",
+        "graphiti",
+        "hardcoded",
+        "skus"
+    ],
+    "gitlens.codeLens.enabled": false,
+    "gitlens.hovers.avatars": false,
+    "gitlens.views.repositories.location": "scm",
+    "gitlens.views.fileHistory.location": "explorer",
+    "gitlens.views.search.location": "gitlens",
+    "gitlens.hovers.enabled": false,
+    "gitlens.views.lineHistory.location": "explorer",
+    "gitlens.views.compare.location": "gitlens",
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": false,
+    "gitlens.views.search.enabled": false,
+    "gitlens.menus": {
+        "editorGroup": {
+            "blame": true,
+            "compare": true
+        },
+        "editorTab": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "explorer": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "scmGroup": {
+            "compare": true,
+            "openClose": true,
+            "stash": true,
+            "stashInline": true
+        },
+        "scmItem": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true,
+            "stash": true
+        }
+    },
+    "workbench.sideBar.location": "left",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.autoClosingQuotes": "never",
+    "editor.autoClosingBrackets": "never",
+    "git.postCommitCommand": "push",
+    "gitlens.views.compare.files.layout": "list",
+    "vscode-neovim.neovimPath": "/usr/bin/nvim",
+    "vscode-neovim.neovimInitPath": " /home/sandy/.config/nvim/init.vim",
+    "editor.gotoLocation.multipleDeclarations": "goto",
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleImplementations": "goto",
+    "editor.gotoLocation.multipleReferences": "goto",
+    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    "explorer.sortOrder": "filesFirst",
+    "gitlens.views.repositories.files.layout": "tree",
+    "editor.lineNumbers": "relative",
+    "vscode-neovim.useCtrlKeysForNormalMode": false,
+    "sync.gist": "e7042cffc7f26a7e350be325f7dbbb8f"
+}

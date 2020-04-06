@@ -26,3 +26,13 @@
 !.config/rofi/
 !.config/picom/
 !.config/dunst/
+
+#vscode
+!.config/Code - OSS/
+.config/Code - OSS/*
+!.config/Code - OSS/User/
+.config/Code - OSS/User/*
+!.config/Code - OSS/User/keybindings.json
+!.config/Code - OSS/User/settings.json
+!.config/Code - OSS/User/snippets/
+!.config/Code - OSS/User/extensions

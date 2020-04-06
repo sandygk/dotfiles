@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Save the current list of extensions to
+# ~/.config/Code - OSS/User/extensions
+# This is a file I created to be able to sync 
+# vscode extensions across different PCs
+#
+# See here for more on command line extension 
+# management for vscode
+# https://code.visualstudio.com/docs/editor/extension-gallery#_command-line-extension-management
+
+code --list-extensions > ~/.config/'Code - OSS'/User/extensions
