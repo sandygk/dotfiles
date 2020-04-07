@@ -82,6 +82,6 @@
     "explorer.sortOrder": "filesFirst",
     "gitlens.views.repositories.files.layout": "tree",
     "editor.lineNumbers": "relative",
-    "vscode-neovim.useCtrlKeysForNormalMode": false,
-    "sync.gist": "e7042cffc7f26a7e350be325f7dbbb8f"
+    "sync.gist": "e7042cffc7f26a7e350be325f7dbbb8f",
+    "workbench.colorTheme": "Default Dark+"
 }

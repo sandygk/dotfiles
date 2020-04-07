@@ -16,6 +16,9 @@
 super + ctrl + t 
     google-chrome-stable --app=https://teams.microsoft.com/_#/conversations/19:meeting_ZmEzZjM0YWQtZGY3My00YjEzLWJkMzUtMDA1ZGE2OWMxZDA5@thread.v2?ctx=chat
 
+super + alt + t ; {d,l}
+    set_theme_vscode {--dark,--light}
+
 # open repos with visual studio
 super + alt + c ; {h,p,l,g} 
     code {~,~/repos/portal,~/repos/lumos,~repos/graphiti}
