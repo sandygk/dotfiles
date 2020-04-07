@@ -19,10 +19,10 @@ picom &
 dunst &
 
 # screen locker
-xset s on &
-xset s 600 &
-xss-lock locker &
-locker &
+xset s on & # enable the screensaver
+xset s 600 & # launch screensaver after 10 mins of inactivity
+xss-lock slock & # start slock as a locker when the screensaver is triggered 
+slock & # run locker on start
 
 # sync folders
 rclone mount remote:notes ~/notes &
