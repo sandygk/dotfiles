@@ -47,12 +47,9 @@ alias ed=' $EDITOR ~/.config/dunst/dunstrc'
 
 alias eo=' $EDITOR ~/bin/open'
 
-alias et=' $EDITOR ~/notes/todo/work'
-alias eth='$EDITOR ~/notes/todo/home'
-alias etl='$EDITOR ~/notes/todo/linux'
-
-alias ee=' $EDITOR ~/notes/evaluation'
-alias ec=' $EDITOR ~/notes/chores'
+alias ew=' $EDITOR ~/notes/todo/work'
+alias ece='$EDITOR ~/notes/todo/chores_and_errands'
+alias eh=' $EDITOR ~/notes/todo/hobbies'
 
 # ls
 alias ls='ls --color=auto --group-directories-first'
