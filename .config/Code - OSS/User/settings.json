@@ -81,7 +81,11 @@
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
     "explorer.sortOrder": "filesFirst",
     "gitlens.views.repositories.files.layout": "tree",
-    "editor.lineNumbers": "relative",
     "sync.gist": "e7042cffc7f26a7e350be325f7dbbb8f",
-    "workbench.colorTheme": "Default Dark+"
+    "workbench.colorTheme": "Default Dark+",
+    "diffEditor.renderSideBySide": true,
+    "C_Cpp.formatting": "Disabled",
+    "editor.lineNumbers": "relative",
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.enabled": false
 }

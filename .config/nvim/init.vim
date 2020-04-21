@@ -9,14 +9,14 @@ call vundle#begin()
 " plugin manager
 Plugin 'VundleVim/Vundle.vim'
 
-" theme
-Plugin 'joshdick/onedark.vim'
-
 " autosave
 "Plugin '907th/vim-auto-save'
 
 " quickly move around
 Plugin 'easymotion/vim-easymotion'
+
+" vscode theme
+Plugin 'tomasiser/vim-code-dark'
 
 " syntax highlight for typescript 
 Plugin 'leafgarland/typescript-vim'
@@ -35,15 +35,14 @@ let g:auto_save_events=["InsertLeave", "TextChanged", "FocusLost"]
 " With this option set, v will match both v and V, but V will match V only.
 let g:EasyMotion_smartcase=1
 
+" set theme
+colorscheme codedark
+
 " --- REGULAR VIM SETTINGS ---
 
 " change the mapleader from \ to space
 " NOTE: This has to be set before <leader> is used.
 let mapleader=" "
-
-" Set theme
-syntax on
-colorscheme onedark
 
 " Enable mouse
 set mouse=a

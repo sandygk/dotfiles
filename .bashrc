@@ -11,7 +11,7 @@
 
 # set default apps
 export EDITOR=nvim
-export TERMINAL=alacritty
+export TERMINAL=st
 
 # prompt
 PS1="[\[\e[32m\]\W\[\e[m\]]"

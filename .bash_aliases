@@ -27,10 +27,12 @@ alias gn='cd ~/notes'
 alias gr='cd ~/repos'
 alias gt='cd ~/temp'
 alias gT='cd ~/todo'
+alias gU='cd /run/media/sandy/USB'
 
 alias gp='cd ~/repos/portal'
 alias gg='cd ~/repos/graphiti'
 alias gl='cd ~/repos/lumos'
+alias gD='cd ~/repos/dwm'
 
 # edit files
 alias eb=' $EDITOR ~/.bashrc'
@@ -50,6 +52,7 @@ alias eo=' $EDITOR ~/bin/open'
 alias ew=' $EDITOR ~/notes/todo/work'
 alias ece='$EDITOR ~/notes/todo/chores_and_errands'
 alias eh=' $EDITOR ~/notes/todo/hobbies'
+alias esa='$EDITOR ~/notes/work/std/agenda'
 
 # ls
 alias ls='ls --color=auto --group-directories-first'
@@ -64,6 +67,10 @@ alias g='cd'
 alias e='$EDITOR'
 alias o=open
 
+# file manager
+. file_manager
+alias n=navigate_folders
+
 #misc
 alias rm='rm -i'
 alias q=exit
@@ -74,3 +81,4 @@ kill-port() {
 }
 alias prettier='prettier --write "**/*.ts"'
 alias apollo='npm run apollo:generate'
+alias mi='sudo make install'

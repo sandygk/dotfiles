@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ~/bin
+script=$(ls | dmenu)
+[[ -f $script ]] && $TERMINAL -e nvim $script 

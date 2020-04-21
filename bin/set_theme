@@ -1,0 +1,12 @@
+#!/bin/bash
+
+case $1 in
+  --dark | -d | --light | --l)
+    set_theme_wallpaper $1
+    set_theme_vscode $1
+    set_theme_gtk $1
+    ;;
+  --)
+    echo "Invalid use" 1>&2
+    ;;
+esac

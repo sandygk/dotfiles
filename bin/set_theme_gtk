@@ -1,0 +1,15 @@
+#!/bin/bash
+
+case $1 in
+  --dark | -d)
+    xfconf-query --create -c xsettings -p /Net/ThemeName -t string -s Adwaita-dark
+    xfconf-query --create -c xsettings -p /Net/IconThemeName -t string -s Papirus-Dark 
+    ;;
+  --light | -l)
+    xfconf-query --create -c xsettings -p /Net/ThemeName -t string -s Adwaita
+    xfconf-query --create -c xsettings -p /Net/IconThemeName -t string -s Papirus 
+    ;;
+  --)
+    echo "Invalid use" 1>&2
+    ;;
+esac

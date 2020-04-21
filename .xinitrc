@@ -27,5 +27,16 @@ slock & # run locker on start
 # sync folders
 rclone mount remote:notes ~/notes &
 
+# start daemon to switch gtk theme on the fly
+xfsettingsd &
+
+# set theme
+set_theme --light
+
+# Start status bar
+status --loop &
+
 # window manager 
-awesome
+while :; do
+	dwm
+done

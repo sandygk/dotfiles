@@ -8,6 +8,19 @@ notifications='[ $(pidof dunst) ] && echo "not: on" || echo "not: off"'
 audio='[ "$(eval $mute)" == true ] && echo "vol: mute" || echo "vol: $(eval $volume)%"'
 battery='echo "bat: $(eval "cat /sys/class/power_supply/BAT0/capacity")%"'
 
-# I put spaces before and after the info so it looks nice 
-# in the status bar. It's hacky but it works for now.
-echo "  $(eval $notifications)  | $(eval $audio)  |  $(eval $battery)  |  $(eval $date)  |  $(eval $time) "
+set_status() {
+  xsetroot -name "  $(eval $notifications)  | $(eval $audio)  |  $(eval $battery)  |  $(eval $date)  |  $(eval $time)  "
+}
+
+case $1 in
+  --loop)
+    while set_status
+    do 
+        sleep 0.3 
+    done &
+    ;;
+
+  --refresh)
+    set_status
+    ;;
+esac

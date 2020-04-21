@@ -16,7 +16,7 @@ else if(arg === "--light" || arg=== "-l")
   settings["workbench.colorTheme"] = "Default Light+";
 
 else {
-  console.error("Invalid argument");
+  console.error("Invalid use");
   return;
 }
 

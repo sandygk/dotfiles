@@ -1,51 +1,63 @@
-# ~/.config/sxhkd/sxhkdrc
-
 # launch apps 
 {_, shift +} super + ctrl + {Return,space,c,f,g,k,r,a,p}
-    {_, sudo} {$TERMINAL,google-chrome-stable,code,firefox,gimp,krita,rofi -show run, arandr,pinta}
+  {_, sudo} {$TERMINAL,google-chrome-stable,code,firefox,gimp,krita,dmenu_run, arandr,pinta}
 
 {_, shift +} super + alt + {a,s}
-    {_, sudo} {pavucontrol,spell_checker}
+  {_, sudo} {pavucontrol,spell_checker}
 
 {_, shift +} super + ctrl + {v}
-    {_, sudo} $TERMINAL -e {nvim}
-    
+  {_, sudo} $TERMINAL -e {nvim}
+  
 {_, shift +} super + alt + {}
-    {_, sudo} $TERMINAL -e {}
+  {_, sudo} $TERMINAL -e {}
+
+super + ctrl + d; {b,r,n}
+  dmenu_{bin,repos,notes}
 
 super + ctrl + t 
-    google-chrome-stable --app=https://teams.microsoft.com/_#/conversations/19:meeting_ZmEzZjM0YWQtZGY3My00YjEzLWJkMzUtMDA1ZGE2OWMxZDA5@thread.v2?ctx=chat
+  google-chrome-stable --app=https://teams.microsoft.com/_#/conversations/19:meeting_ZmEzZjM0YWQtZGY3My00YjEzLWJkMzUtMDA1ZGE2OWMxZDA5@thread.v2?ctx=chat
 
 super + alt + t ; {d,l}
-    set_theme_vscode {--dark,--light}
+  set_theme {--dark,--light}
 
 # open repos with visual studio
 super + alt + c ; {h,p,l,g} 
-    code {~,~/repos/portal,~/repos/lumos,~repos/graphiti}
+  code {~,~/repos/portal,~/repos/lumos,~/repos/graphiti}
 
 super + ctrl + m 
-    google-chrome-stable --app=https://www.youtube.com/watch?v=yUuJrpP0Mak&list=PL0RI0aN8LyWDoAhOY6SMw4axBG_fNQLYe
+  google-chrome-stable --app=https://www.youtube.com/watch?v=yUuJrpP0Mak&list=PL0RI0aN8LyWDoAhOY6SMw4axBG_fNQLYe
 
 # screen layout
 super + ctrl + s ; {l,m,t,e}
-    ~/.screenlayout/{laptop,work-monitor,home-tv,work-extended}.sh 
+  ~/.screenlayout/{laptop,work-monitor,home-tv,work-extended}.sh 
 
 # toggle dunst
 super + ctrl + n
-    [ $(pidof dunst) ] && pkill dunst || dunst
+  ([ $(pidof dunst) ] && pkill dunst || dunst &); status --refresh
 
-# print screen
-Print
-    gnome-screenshot -ia
+# screenshot
+{_,ctrl,super,shift,shift + ctrl} + Print 
+  maim { ,-s,-i $(xdotool getactivewindow),-d 3, -sd 3} | xclip -selection clipboard -t image/png; notify-send "Screenshot taken" "Image saved to clipboard" 
+
+# screencast
+alt + Print
+  deepin-screen-recorder
 
 # power
 super + ctrl + alt {p,r,s,h,l}
-    {poweroff,reboot,systemctl suspend,systemctl hibernate,xset s activate}
-    xbacklight -{inc,dec} 10
+  {poweroff,reboot,systemctl suspend,systemctl hibernate,xset s activate}
 
 # volume
 XF86Audio{Raise,Lower}Volume
-    pactl set-sink-mute @DEFAULT_SINK@ 0; pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
+  pactl set-sink-mute @DEFAULT_SINK@ 0; pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%; status --refresh
 
 XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
+  pactl set-sink-mute @DEFAULT_SINK@ toggle; status --refresh
+
+# kill dwm (it runs in a loop so it restarts)
+super + r
+  pkill dwm
+
+# kill Xorg
+super + ctrl + alt + q
+  pkill Xorg
