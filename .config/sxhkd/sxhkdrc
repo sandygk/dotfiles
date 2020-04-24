@@ -5,39 +5,42 @@
 {_, shift +} super + alt + {a,s}
   {_, sudo} {pavucontrol,spell_checker}
 
+# launch with sudo
 {_, shift +} super + ctrl + {v}
   {_, sudo} $TERMINAL -e {nvim}
   
 {_, shift +} super + alt + {}
   {_, sudo} $TERMINAL -e {}
 
+# dmenu
 super + ctrl + d; {b,r,n}
   dmenu_{bin,repos,notes}
 
-super + ctrl + t 
+# teams
+super + alt + t 
   google-chrome-stable --app=https://teams.microsoft.com/_#/conversations/19:meeting_ZmEzZjM0YWQtZGY3My00YjEzLWJkMzUtMDA1ZGE2OWMxZDA5@thread.v2?ctx=chat
 
-super + alt + t ; {d,l}
+# set theme
+super + ctrl + t ; {d,l}
   set_theme {--dark,--light}
-
-# open repos with visual studio
-super + alt + c ; {h,p,l,g} 
   code {~,~/repos/portal,~/repos/lumos,~/repos/graphiti}
-
-super + ctrl + m 
-  google-chrome-stable --app=https://www.youtube.com/watch?v=yUuJrpP0Mak&list=PL0RI0aN8LyWDoAhOY6SMw4axBG_fNQLYe
 
 # screen layout
 super + ctrl + s ; {l,m,t,e}
   ~/.screenlayout/{laptop,work-monitor,home-tv,work-extended}.sh 
 
-# toggle dunst
+# toggle notifications
 super + ctrl + n
   ([ $(pidof dunst) ] && pkill dunst || dunst &); status --refresh
 
-# screenshot
-{_,ctrl,super,shift,shift + ctrl} + Print 
-  maim { ,-s,-i $(xdotool getactivewindow),-d 3, -sd 3} | xclip -selection clipboard -t image/png; notify-send "Screenshot taken" "Image saved to clipboard" 
+# screenshot 
+#   Print + 
+#     _     : entire screen
+#     ctrl  : selecting a portion of the screen
+#     super : current windows
+#     shift : deleying for 3 seconds, it can be combined with ctrl and super
+Print + {_,ctrl,super,shift,shift + ctrl, shift + super}
+  mispipe "maim { ,-s,-i $(xdotool getactivewindow),-d 3,-sd 3,-i $(xdotool getactivewindow) -d 3}" "ifne xclip -selection clipboard -t image/png" && notify-send "Screenshot taken" "Image saved to clipboard"
 
 # screencast
 alt + Print

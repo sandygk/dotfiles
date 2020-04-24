@@ -3,8 +3,6 @@ alias sudo='sudo '
 
 # refresh bash
 alias rb='source ~/.bashrc'
-# refresh sxhkd
-alias rs='pkill -USR1 -x sxhkd'
 # refresh all
 alias ra='rb;rs'
 
@@ -66,6 +64,7 @@ alias ll='ls -l'
 alias g='cd'
 alias e='$EDITOR'
 alias o=open
+alias r=ranger
 
 # file manager
 . file_manager

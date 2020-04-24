@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while inotifywait -e close_write ~/.config/sxhkd/sxhkdrc; do 
+  pkill -USR1 -x sxhkd; 
+  notify-send "sxhkdrc changed" "sxhkd has restarted"
+done

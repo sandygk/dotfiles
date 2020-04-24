@@ -7,7 +7,7 @@ case $1 in
   --light | -l)
     hsetroot -solid '#FFFFFF' &
     ;;
-  --)
+  *)
     echo "Invalid use" 1>&2
     ;;
 esac

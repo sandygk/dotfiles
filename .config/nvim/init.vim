@@ -16,7 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'easymotion/vim-easymotion'
 
 " vscode theme
-Plugin 'tomasiser/vim-code-dark'
+"Plugin 'tomasiser/vim-code-dark'
 
 " syntax highlight for typescript 
 Plugin 'leafgarland/typescript-vim'
@@ -36,7 +36,7 @@ let g:auto_save_events=["InsertLeave", "TextChanged", "FocusLost"]
 let g:EasyMotion_smartcase=1
 
 " set theme
-colorscheme codedark
+"colorscheme codedark
 
 " --- REGULAR VIM SETTINGS ---
 

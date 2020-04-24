@@ -2,6 +2,7 @@
 
 # key bindings
 sxhkd -t 10 &
+auto_restart_sxhkd &
 
 # activate numlock
 numlockx &
@@ -31,7 +32,7 @@ rclone mount remote:notes ~/notes &
 xfsettingsd &
 
 # set theme
-set_theme --light
+set_theme --dark
 
 # Start status bar
 status --loop &

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd ~/Desktop/projects/lumos
+cd ~/repos/lumos
 npm start

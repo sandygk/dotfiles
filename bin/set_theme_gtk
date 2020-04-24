@@ -2,14 +2,16 @@
 
 case $1 in
   --dark | -d)
-    xfconf-query --create -c xsettings -p /Net/ThemeName -t string -s Adwaita-dark
-    xfconf-query --create -c xsettings -p /Net/IconThemeName -t string -s Papirus-Dark 
+    xfconf-query -n -c xsettings -p /Net/ThemeName -t string -s Adwaita-dark
+    xfconf-query -n -c xsettings -p /Net/IconThemeName -t string -s Papirus-Dark 
+    xfconf-query -n -c xsettings -p /Gtk/CursorThemeName -t string -s Breeze_Snow
     ;;
   --light | -l)
-    xfconf-query --create -c xsettings -p /Net/ThemeName -t string -s Adwaita
-    xfconf-query --create -c xsettings -p /Net/IconThemeName -t string -s Papirus 
+    xfconf-query -n -c xsettings -p /Net/ThemeName -t string -s Adwaita
+    xfconf-query -n -c xsettings -p /Net/IconThemeName -t string -s Papirus 
+    xfconf-query -n -c xsettings -p /Gtk/CursorThemeName -t string -s Breeze_Obsidian
     ;;
-  --)
+  *)
     echo "Invalid use" 1>&2
     ;;
 esac
