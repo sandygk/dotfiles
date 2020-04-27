@@ -1,0 +1,13 @@
+#!/bin/bash
+
+case $1 in
+  --dark | -d)
+    nvim_send_all "colorscheme onehalfdark" 
+    ;;
+  --light | -l)
+    nvim_send_all "colorscheme onehalflight" 
+    ;;
+  *)
+    echo "Invalid use" 1>&2
+    ;;
+esac

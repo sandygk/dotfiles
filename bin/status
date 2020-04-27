@@ -8,19 +8,4 @@ notifications='[ $(pidof dunst) ] && echo "not: on" || echo "not: off"'
 audio='[ "$(eval $mute)" == true ] && echo "vol: mute" || echo "vol: $(eval $volume)%"'
 battery='echo "bat: $(eval "cat /sys/class/power_supply/BAT0/capacity")%"'
 
-set_status() {
-  xsetroot -name "  $(eval $notifications)  | $(eval $audio)  |  $(eval $battery)  |  $(eval $date)  |  $(eval $time)  "
-}
-
-case $1 in
-  --loop)
-    while set_status
-    do 
-        sleep 0.3 
-    done &
-    ;;
-
-  --refresh)
-    set_status
-    ;;
-esac
+echo "  $(eval $notifications)  | $(eval $audio)  |  $(eval $battery)  |  $(eval $date)  |  $(eval $time)  "

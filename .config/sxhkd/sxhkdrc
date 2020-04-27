@@ -22,8 +22,7 @@ super + alt + t
 
 # set theme
 super + ctrl + t ; {d,l}
-  set_theme {--dark,--light}
-  code {~,~/repos/portal,~/repos/lumos,~/repos/graphiti}
+  set_theme_all {--dark,--light}
 
 # screen layout
 super + ctrl + s ; {l,m,t,e}
@@ -56,11 +55,3 @@ XF86Audio{Raise,Lower}Volume
 
 XF86AudioMute
   pactl set-sink-mute @DEFAULT_SINK@ toggle; status --refresh
-
-# kill dwm (it runs in a loop so it restarts)
-super + r
-  pkill dwm
-
-# kill Xorg
-super + ctrl + alt + q
-  pkill Xorg

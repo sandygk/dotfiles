@@ -3,8 +3,6 @@ alias sudo='sudo '
 
 # refresh bash
 alias rb='source ~/.bashrc'
-# refresh all
-alias ra='rb;rs'
 
 # conect to wifi using NetworkManager
 # alias cb='nmcli connection up id BLUESSO'
@@ -81,3 +79,5 @@ kill-port() {
 alias prettier='prettier --write "**/*.ts"'
 alias apollo='npm run apollo:generate'
 alias mi='sudo make install'
+alias nrt='npm run test'
+alias nrtc='npm run test:ci'

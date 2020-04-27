@@ -38,6 +38,4 @@ set_theme --dark
 status --loop &
 
 # window manager 
-while :; do
-	dwm
-done
+awesome

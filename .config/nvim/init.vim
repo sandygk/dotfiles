@@ -15,9 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
 " quickly move around
 Plugin 'easymotion/vim-easymotion'
 
-" vscode theme
-"Plugin 'tomasiser/vim-code-dark'
-
 " syntax highlight for typescript 
 Plugin 'leafgarland/typescript-vim'
 
@@ -35,10 +32,16 @@ let g:auto_save_events=["InsertLeave", "TextChanged", "FocusLost"]
 " With this option set, v will match both v and V, but V will match V only.
 let g:EasyMotion_smartcase=1
 
-" set theme
-"colorscheme codedark
+colorscheme onehalfdark
 
 " --- REGULAR VIM SETTINGS ---
+
+" enable true colors
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 " change the mapleader from \ to space
 " NOTE: This has to be set before <leader> is used.

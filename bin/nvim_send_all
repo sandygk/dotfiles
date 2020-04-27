@@ -1,0 +1,3 @@
+#!/bin/bash
+
+find /tmp -path '/tmp/nvim*' -type s -exec nvim_send_instance {} "$1" \;
