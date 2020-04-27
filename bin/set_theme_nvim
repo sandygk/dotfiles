@@ -1,11 +1,14 @@
 #!/bin/bash
+cd ~/.config/nvim/colors/
 
 case $1 in
   --dark | -d)
-    nvim_send_all "colorscheme onehalfdark" 
+    ln -sf onehalfdark.vim theme.vim
+    nvim_send_all "colorscheme theme" 
     ;;
   --light | -l)
-    nvim_send_all "colorscheme onehalflight" 
+    ln -sf onehalflight.vim theme.vim
+    nvim_send_all "colorscheme theme" 
     ;;
   *)
     echo "Invalid use" 1>&2

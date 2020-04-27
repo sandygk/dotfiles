@@ -20,12 +20,14 @@
 
 !.config/ranger/
 !.config/sxhkd/
-!.config/nvim/
 !.config/alacritty/
 !.config/awesome/
 !.config/rofi/
 !.config/picom/
 !.config/dunst/
+
+!.config/nvim/
+.config/nvim/colors/theme.vim
 
 !.config/deepin/
 .config/deepin/*

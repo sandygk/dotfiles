@@ -32,7 +32,7 @@ let g:auto_save_events=["InsertLeave", "TextChanged", "FocusLost"]
 " With this option set, v will match both v and V, but V will match V only.
 let g:EasyMotion_smartcase=1
 
-colorscheme onehalfdark
+colorscheme theme
 
 " --- REGULAR VIM SETTINGS ---
 
