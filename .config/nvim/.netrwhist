@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/sandy/.config/fish/abbreviations'
+let g:netrw_dirhist_5='/bin'
 let g:netrw_dirhist_4='/home/sandy/.config/deepin/deepin-screen-recorder'
 let g:netrw_dirhist_3='/home/sandy/bin'
 let g:netrw_dirhist_2='/sys/class/backlight/intel_backlight'

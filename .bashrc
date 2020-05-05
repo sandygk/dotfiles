@@ -6,9 +6,6 @@
 # aliases
 . ~/.bash_aliases
 
-# source the open script to be able to cd from it
-. ~/bin/open
-
 # set default apps
 export EDITOR=nvim
 export TERMINAL=st

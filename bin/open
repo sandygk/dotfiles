@@ -1,14 +1,9 @@
 #!/bin/bash
 
-open() {
-  if [[ -e $1 ]] 
-  then
-    mimetype=$(file -b --mime-type "$1")
-    if   [[ $mimetype == inode/directory ]]; then cd "$1" 
-    elif [[ $mimetype == image/*         ]]; then feh -Z "$1"
-    elif [[ $mimetype == application/pdf ]]; then zathura "$1"
-    else nvim "$1"; fi
-  else 
-    echo "Unable to locate: $1"
-  fi
-}
+if [[ -f $1 ]] 
+then
+  mimetype=$(file -b --mime-type "$1")
+  if   [[ $mimetype == image/*         ]]; then feh -Z "$1"
+  elif [[ $mimetype == application/pdf ]]; then zathura "$1"
+  else nvim "$1"; fi
+fi

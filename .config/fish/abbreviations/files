@@ -1,0 +1,30 @@
+#!/usr/bin/env fish
+
+abbr -g ex  '$EDITOR ~/.xinitrc'
+
+# fish
+abbr -g efc '$EDITOR ~/.config/fish/config.fish'
+abbr -g efp '$EDITOR ~/.config/fish/functions/fish_prompt.fish'
+abbr -g efa '$EDITOR ~/.config/fish/abbreviations'
+
+# bash
+abbr -g eb  '$EDITOR ~/.bashrc'
+abbr -g eba '$EDITOR ~/.bash_aliases'
+abbr -g ebp '$EDITOR ~/.bash_profile'
+
+# configs
+abbr -g ev  '$EDITOR ~/.config/nvim/init.vim'
+abbr -g er  '$EDITOR ~/.config/ranger/rc.conf'
+abbr -g es  '$EDITOR ~/.config/sxhkd/sxhkdrc'
+abbr -g ea  '$EDITOR ~/.config/awesome/rc.lua'
+abbr -g eat '$EDITOR ~/.config/awesome/theme/theme.lua'
+abbr -g ed  '$EDITOR ~/.config/dunst/dunstrc'
+
+# scripts
+abbr -g eo '$EDITOR ~/bin/open'
+
+# notes
+abbr -g ew  '$EDITOR ~/notes/todo/work'
+abbr -g ece '$EDITOR ~/notes/todo/chores_and_errands'
+abbr -g eh  '$EDITOR ~/notes/todo/hobbies'
+abbr -g esa '$EDITOR ~/notes/work/std/agenda'

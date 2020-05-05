@@ -25,8 +25,8 @@ super + ctrl + t ; {d,l}
   set_theme_all {--dark,--light}
 
 # screen layout
-super + ctrl + s ; {l,m,t,e}
-  ~/.screenlayout/{laptop,work-monitor,home-tv,work-extended}.sh 
+super + ctrl + s ; {l,w,h}
+  ~/.screenlayout/{laptop,work,home}.sh 
 
 # toggle notifications
 super + ctrl + n

@@ -1,0 +1,4 @@
+#!/usr/bin/env fish
+
+abbr -g nrt 'npm run test'
+abbr -g nrtc 'npm run test:ci'

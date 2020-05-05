@@ -244,9 +244,6 @@ clientkeys = gears.table.join(
   -- Toggle client's floating state
   awful.key({ super, "Shift" }, "f", function(c) c.floating = not c.floating end),
 
-  -- Toggle client's maximized state
-  awful.key({ super, "Shift" }, "m", function(c) c.maximized = not c.maximized end),
-
   -- Move client to master
   awful.key({ super }, "Return", function(c) c:swap(awful.client.getmaster()) end),
 
@@ -330,6 +327,11 @@ awful.rules.rules = {
     }
   },
 }
+
+-- Focus follows mouse.
+client.connect_signal("mouse::enter", function(c)
+    c:emit_signal("request::activate", "mouse_enter", {raise = true})
+end)
 
 -- Apply theme on focus/unfocus
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)

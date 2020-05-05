@@ -86,5 +86,6 @@
     "diffEditor.renderSideBySide": true,
     "C_Cpp.formatting": "Disabled",
     "editor.minimap.renderCharacters": false,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "terminal.integrated.shell.linux": "/usr/bin/fish"
 }

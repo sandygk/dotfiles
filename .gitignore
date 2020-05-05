@@ -25,6 +25,7 @@
 !.config/rofi/
 !.config/picom/
 !.config/dunst/
+!.config/fish/
 
 !.config/nvim/
 .config/nvim/colors/theme.vim
