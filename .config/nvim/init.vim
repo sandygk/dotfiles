@@ -21,6 +21,9 @@ Plugin 'leafgarland/typescript-vim'
 " syntax highlight for tsx 
 Plugin 'ianks/vim-tsx'
 
+" syntax highlight for fish 
+Plugin 'dag/vim-fish'
+
 call vundle#end()
 filetype plugin indent on
 
