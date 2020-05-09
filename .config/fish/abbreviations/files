@@ -1,11 +1,16 @@
 #!/usr/bin/env fish
 
+# x
 abbr -g ex  '$EDITOR ~/.xinitrc'
 
 # fish
-abbr -g efc '$EDITOR ~/.config/fish/config.fish'
-abbr -g efp '$EDITOR ~/.config/fish/functions/fish_prompt.fish'
-abbr -g efa '$EDITOR ~/.config/fish/abbreviations'
+abbr -g efc  '$EDITOR ~/.config/fish/config.fish'
+abbr -g efp  '$EDITOR ~/.config/fish/functions/fish_prompt.fish'
+abbr -g efmp  '$EDITOR ~/.config/fish/functions/fish_mode_prompt.fish'
+abbr -g efaf '$EDITOR ~/.config/fish/abbreviations/files'
+abbr -g efad '$EDITOR ~/.config/fish/abbreviations/directories'
+abbr -g efa  'edit_file_in_dir ~/.config/fish/abbreviations'
+abbr -g eff 'edit_file_in_dir ~/.config/fish/functions'
 
 # bash
 abbr -g eb  '$EDITOR ~/.bashrc'

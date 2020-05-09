@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/sandy/.config/fish/functions'
+let g:netrw_dirhist_8='/home/sandy/.config/fish/abbreviations'
+let g:netrw_dirhist_7='/home/sandy/.config/fish/functions'
 let g:netrw_dirhist_6='/home/sandy/.config/fish/abbreviations'
 let g:netrw_dirhist_5='/bin'
 let g:netrw_dirhist_4='/home/sandy/.config/deepin/deepin-screen-recorder'

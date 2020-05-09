@@ -39,5 +39,9 @@
   {
     "key": "ctrl+alt+-",
     "command": "-workbench.action.navigateBack"
+  },
+  {
+    "key": "ctrl+f11",
+    "command": "workbench.action.toggleMaximizedPanel"
   }
 ]

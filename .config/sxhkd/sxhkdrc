@@ -1,4 +1,4 @@
-# launch apps 
+unch apps 
 {_, shift +} super + ctrl + {Return,space,c,f,g,k,r,a,p}
   {_, sudo} {$TERMINAL,google-chrome-stable,code,firefox,gimp,krita,dmenu_run, arandr,pinta}
 
@@ -18,7 +18,7 @@ super + ctrl + d; {b,r,n}
 
 # teams
 super + alt + t 
-  google-chrome-stable --app=https://teams.microsoft.com/_#/conversations/19:meeting_ZmEzZjM0YWQtZGY3My00YjEzLWJkMzUtMDA1ZGE2OWMxZDA5@thread.v2?ctx=chat
+  google-chrome-stable --app='https://teams.microsoft.com/_#/conversations/19:meeting_ZmEzZjM0YWQtZGY3My00YjEzLWJkMzUtMDA1ZGE2OWMxZDA5@thread.v2?ctx=chat'
 
 # set theme
 super + ctrl + t ; {d,l}
@@ -30,12 +30,11 @@ super + ctrl + s ; {l,w,h}
 
 # toggle notifications
 super + ctrl + n
-  ([ $(pidof dunst) ] && pkill dunst || dunst &); status --refresh
+  test (pidof dunst) && pkill dunst || dunst &
 
 # screenshot 
 #   Print + 
-#     _     : entire screen
-#     ctrl  : selecting a portion of the screen
+#     _     : entire screek     ctrl  : selecting a portion of the screen
 #     super : current windows
 #     shift : deleying for 3 seconds, it can be combined with ctrl and super
 Print + {_,ctrl,super,shift,shift + ctrl, shift + super}
