@@ -64,10 +64,6 @@ alias e='$EDITOR'
 alias o=open
 alias r=ranger
 
-# file manager
-. file_manager
-alias n=navigate_folders
-
 #misc
 alias rm='rm -i'
 alias q=exit

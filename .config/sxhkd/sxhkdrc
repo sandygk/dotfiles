@@ -1,32 +1,42 @@
-unch apps 
-{_, shift +} super + ctrl + {Return,space,c,f,g,k,r,a,p}
-  {_, sudo} {$TERMINAL,google-chrome-stable,code,firefox,gimp,krita,dmenu_run, arandr,pinta}
+# APPS
 
-{_, shift +} super + alt + {a,s}
-  {_, sudo} {pavucontrol,spell_checker}
+# launch apps 
+{_, shift +} super + ctrl + {Return,space,v,f,g,k,m,a,p}
+  {_, sudo} {$TERM,google-chrome-stable,code,firefox,gimp,krita,arandr,pavucontrol,pinta}
 
-# launch with sudo
-{_, shift +} super + ctrl + {v}
-  {_, sudo} $TERMINAL -e {nvim}
-  
-{_, shift +} super + alt + {}
-  {_, sudo} $TERMINAL -e {}
-
-# dmenu
-super + ctrl + d; {b,r,n}
-  dmenu_{bin,repos,notes}
+# launch terminal apps
+{_, shift +} super + ctrl + {n,r}
+  {_, sudo} $TERM -e {nvim,ranger}
 
 # teams
-super + alt + t 
+super + ctrl + t 
   google-chrome-stable --app='https://teams.microsoft.com/_#/conversations/19:meeting_ZmEzZjM0YWQtZGY3My00YjEzLWJkMzUtMDA1ZGE2OWMxZDA5@thread.v2?ctx=chat'
 
+# SELECTIONS
+
+{_, shift +} super + alt + {b,n}
+  {_, sudo} $TERM -e fish -c "edit_file_in_dir {~/bin,-r ~/notes}"
+
+{_, shift +} super + alt + r 
+  {_, sudo} $TERM -e fish -c open_repo
+
+{_, shift +} super + alt + l
+  {_, sudo} $TERM -e fish -c launcher
+
+{_, shift +} super + alt + s 
+  {_, sudo} $TERM -e fish -c spell_checker
+
+# SEQUENCES
+
 # set theme
-super + ctrl + t ; {d,l}
+super + alt + t ; {d,l}
   set_theme_all {--dark,--light}
 
 # screen layout
-super + ctrl + s ; {l,w,h}
+super + alt + s ; {l,w,h}
   ~/.screenlayout/{laptop,work,home}.sh 
+
+# MISC
 
 # toggle notifications
 super + ctrl + n
@@ -44,13 +54,14 @@ Print + {_,ctrl,super,shift,shift + ctrl, shift + super}
 alt + Print
   deepin-screen-recorder
 
+# volume up/down
+XF86Audio{Raise,Lower}Volume
+  pactl set-sink-mute @DEFAULT_SINK@ 0; pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%
+
+# volume togle mute
+XF86AudioMute
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+
 # power
 super + ctrl + alt {p,r,s,h,l}
   {poweroff,reboot,systemctl suspend,systemctl hibernate,xset s activate}
-
-# volume
-XF86Audio{Raise,Lower}Volume
-  pactl set-sink-mute @DEFAULT_SINK@ 0; pactl set-sink-volume @DEFAULT_SINK@ {+,-}5%; status --refresh
-
-XF86AudioMute
-  pactl set-sink-mute @DEFAULT_SINK@ toggle; status --refresh

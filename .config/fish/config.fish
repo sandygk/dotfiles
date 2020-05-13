@@ -3,14 +3,14 @@
 # add bin to PATH
 set -gx PATH $PATH ~/bin
 
-# abbreviations
+# abbreviations and aliases
 for f in ~/.config/fish/abbreviations/*
-    source $f
+  source $f
 end
 
 # set env variables
 set -gx EDITOR nvim
-set -gx TERMINAL st
+set -gx TERM st
 
 # set vi key bindings
 #fish_vi_key_bindings
@@ -30,7 +30,7 @@ set -gx LESS_TERMCAP_ue (printf "\033[0m")
 set -gx LESS_TERMCAP_us (printf "\033[01;31m")
 
 # fzf
-set -gx FZF_DEFAULT_OPTS '--height=50% --reverse --info=inline'
+set -gx FZF_DEFAULT_OPTS '--reverse --info=inline'
 
 # start x
 if status is-login

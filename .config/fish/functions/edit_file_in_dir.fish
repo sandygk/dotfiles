@@ -1,4 +1,5 @@
 function edit_file_in_dir
-  set selection (ls -p $argv[1] | grep -v / | fzf)
-  test $selection && $EDITOR "$argv[1]/$selection"
+  set dir $argv[-1] 
+  set selection (find $dir (test $argv[1] != -r && echo -maxdepth\n1) -type f -printf '%P\n' | fzf)
+  test $selection && $EDITOR "$dir/$selection"
 end

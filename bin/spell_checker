@@ -1,3 +1,0 @@
-#!/bin/bash
-
-dmenu -i < /usr/share/dict/words | tr -d '\n' | xclip -selection clipboard

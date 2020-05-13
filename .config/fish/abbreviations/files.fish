@@ -13,23 +13,24 @@ abbr -g efa  'edit_file_in_dir ~/.config/fish/abbreviations'
 abbr -g eff 'edit_file_in_dir ~/.config/fish/functions'
 
 # bash
-abbr -g eb  '$EDITOR ~/.bashrc'
+abbr -g ebc '$EDITOR ~/.bashrc'
 abbr -g eba '$EDITOR ~/.bash_aliases'
 abbr -g ebp '$EDITOR ~/.bash_profile'
 
 # configs
-abbr -g ev  '$EDITOR ~/.config/nvim/init.vim'
-abbr -g er  '$EDITOR ~/.config/ranger/rc.conf'
-abbr -g es  '$EDITOR ~/.config/sxhkd/sxhkdrc'
-abbr -g ea  '$EDITOR ~/.config/awesome/rc.lua'
+abbr -g evc '$EDITOR ~/.config/nvim/init.vim'
+abbr -g erc '$EDITOR ~/.config/ranger/rc.conf'
+abbr -g esc '$EDITOR ~/.config/sxhkd/sxhkdrc'
+abbr -g eac '$EDITOR ~/.config/awesome/rc.lua'
 abbr -g eat '$EDITOR ~/.config/awesome/theme/theme.lua'
-abbr -g ed  '$EDITOR ~/.config/dunst/dunstrc'
+abbr -g edc '$EDITOR ~/.config/dunst/dunstrc'
 
 # scripts
-abbr -g eo '$EDITOR ~/bin/open'
+abbr -g eb 'edit_file_in_dir ~/bin'
 
 # notes
 abbr -g ew  '$EDITOR ~/notes/todo/work'
 abbr -g ece '$EDITOR ~/notes/todo/chores_and_errands'
 abbr -g eh  '$EDITOR ~/notes/todo/hobbies'
 abbr -g esa '$EDITOR ~/notes/work/std/agenda'
+abbr -g en 'edit_file_in_dir -r ~/notes/'

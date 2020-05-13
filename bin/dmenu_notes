@@ -1,5 +1,0 @@
-#!/bin/bash
-
-cd ~/notes
-script=$(find -type f | sed 's/\.\///' | dmenu)
-[[ -f $script ]] && $TERMINAL -e nvim $script 

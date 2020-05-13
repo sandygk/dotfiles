@@ -5,3 +5,4 @@ abbr -g rm 'rm -i'
 abbr -g q exit
 abbr -g cl clear
 abbr -g mi 'sudo make install'
+abbr -g terme '$TERM -e fish -c' 

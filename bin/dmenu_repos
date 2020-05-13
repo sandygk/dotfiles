@@ -1,5 +1,0 @@
-#!/bin/bash
-
-cd ~/repos
-selection=$(ls | dmenu)
-[[ -d $selection ]] && code $selection 
