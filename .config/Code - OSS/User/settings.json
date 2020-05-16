@@ -89,5 +89,6 @@
     "C_Cpp.formatting": "Disabled",
     "editor.minimap.renderCharacters": false,
     "editor.minimap.enabled": false,
-    "terminal.integrated.shell.linux": "/usr/bin/fish"
+    "terminal.integrated.shell.linux": "/usr/bin/fish",
+    "editor.lineNumbers": "relative"
 }

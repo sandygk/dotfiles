@@ -10,7 +10,7 @@ end
 
 # set env variables
 set -gx EDITOR nvim
-set -gx TERM st
+set -gx TERM alacritty
 
 # set vi key bindings
 #fish_vi_key_bindings

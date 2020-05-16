@@ -1,0 +1,14 @@
+#!/bin/bash
+cd ~/.config/alacritty
+
+case $1 in
+  --dark | -d)
+    cat alacritty_common.yml alacritty_dark.yml > alacritty.yml    
+    ;;
+  --light | -l)
+    cat alacritty_common.yml alacritty_light.yml > alacritty.yml    
+    ;;
+  *)
+    echo "Invalid use" 1>&2
+    ;;
+esac

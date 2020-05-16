@@ -1,0 +1,11 @@
+env:
+  WINIT_X11_SCALE_FACTOR: "1.0"
+
+font:
+  size: 16 
+
+window:
+  padding:
+    x: 8 
+    y: 8 
+

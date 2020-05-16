@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 # x
-abbr -g ex  '$EDITOR ~/.xinitrc'
+abbr -g exc '$EDITOR ~/.xinitrc'
 
 # fish
 abbr -g efc  '$EDITOR ~/.config/fish/config.fish'
@@ -29,8 +29,7 @@ abbr -g edc '$EDITOR ~/.config/dunst/dunstrc'
 abbr -g eb 'edit_file_in_dir ~/bin'
 
 # notes
-abbr -g ew  '$EDITOR ~/notes/todo/work'
-abbr -g ece '$EDITOR ~/notes/todo/chores_and_errands'
-abbr -g eh  '$EDITOR ~/notes/todo/hobbies'
+abbr -g ewt '$EDITOR ~/notes/todo/work'
+abbr -g eht '$EDITOR ~/notes/todo/hobbies'
 abbr -g esa '$EDITOR ~/notes/work/std/agenda'
 abbr -g en 'edit_file_in_dir -r ~/notes/'

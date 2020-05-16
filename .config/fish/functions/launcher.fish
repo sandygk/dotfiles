@@ -1,4 +1,3 @@
 function launcher
-  fish -c (dmenu_path | fzf) &
-  disown
+  stest -flx $PATH | sort -u | fzf | begin nohup fish & end >/dev/null 2>&1
 end

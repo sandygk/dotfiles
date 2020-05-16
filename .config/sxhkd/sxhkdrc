@@ -1,11 +1,11 @@
 # APPS
 
 # launch apps 
-{_, shift +} super + ctrl + {Return,space,v,f,g,k,m,a,p}
+{_, shift +} super + ctrl + {Return,space,c,f,g,k,m,a,p}
   {_, sudo} {$TERM,google-chrome-stable,code,firefox,gimp,krita,arandr,pavucontrol,pinta}
 
 # launch terminal apps
-{_, shift +} super + ctrl + {n,r}
+{_, shift +} super + ctrl + {v,r}
   {_, sudo} $TERM -e {nvim,ranger}
 
 # teams
@@ -14,17 +14,8 @@ super + ctrl + t
 
 # SELECTIONS
 
-{_, shift +} super + alt + {b,n}
-  {_, sudo} $TERM -e fish -c "edit_file_in_dir {~/bin,-r ~/notes}"
-
-{_, shift +} super + alt + r 
-  {_, sudo} $TERM -e fish -c open_repo
-
-{_, shift +} super + alt + l
-  {_, sudo} $TERM -e fish -c launcher
-
-{_, shift +} super + alt + s 
-  {_, sudo} $TERM -e fish -c spell_checker
+{_, shift +} super + alt + {l,r,w,e,b,n}
+  {_, sudo} $TERM -e fish -c '{launcher, open_repo, spell_checker, select_emoji, edit_file_in_dir ~/bin, edit_file_in_dir -r ~/notes}'
 
 # SEQUENCES
 
@@ -48,7 +39,7 @@ super + ctrl + n
 #     super : current windows
 #     shift : deleying for 3 seconds, it can be combined with ctrl and super
 Print + {_,ctrl,super,shift,shift + ctrl, shift + super}
-  mispipe "maim { ,-s,-i $(xdotool getactivewindow),-d 3,-sd 3,-i $(xdotool getactivewindow) -d 3}" "ifne xclip -selection clipboard -t image/png" && notify-send "Screenshot taken" "Image saved to clipboard"
+  mispipe 'maim { ,-s,-i $(xdotool getactivewindow),-d 3,-sd 3,-i $(xdotool getactivewindow) -d 3}' 'ifne xclip -selection clipboard -t image/png' && notify-send 'Screenshot taken' 'Image saved to clipboard'
 
 # screencast
 alt + Print
@@ -63,5 +54,5 @@ XF86AudioMute
   pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # power
-super + ctrl + alt {p,r,s,h,l}
-  {poweroff,reboot,systemctl suspend,systemctl hibernate,xset s activate}
+super + ctrl + alt {p,r,s,h,l,q}
+  {poweroff,reboot,systemctl suspend,systemctl hibernate,xset s activate,pkill Xorg}

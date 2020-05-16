@@ -17,6 +17,7 @@
 !bin/
 !wallpaper
 !.screenlayout/
+!.emoji_list
 
 !.config/ranger/
 !.config/sxhkd/

@@ -1,3 +1,5 @@
 function spell_checker
-  fzf < /usr/share/dict/words | tr -d '\n' | cat | xclip -selection clipboard
+  # using xsel because xclip was not working when
+  # launched with $TERM -e
+  fzf < /usr/share/dict/words --print0 | xsel -b 
 end

@@ -167,7 +167,6 @@ globalkeys = gears.table.join(
 
   -- Reload/quit awesome 
   awful.key({ super }, "r", awesome.restart),
-  awful.key({ super, "Control", alt  }, "q", awesome.quit),
 
   -- Change master width
   awful.key({ super }, "comma", function() awful.tag.incmwfact(-0.01) end),
@@ -327,11 +326,6 @@ awful.rules.rules = {
     }
   },
 }
-
--- Focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = true})
-end)
 
 -- Apply theme on focus/unfocus
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
