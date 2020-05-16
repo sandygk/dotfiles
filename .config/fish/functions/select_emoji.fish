@@ -1,6 +1,6 @@
 function select_emoji
   set selection (fzf --color=bw < ~/.emoji_list | sed "s/ .*//")
-  if test $selection
+  if test -n "$selection"
     echo -n $selection | xsel -b
     notify-send "'$selection' copied to clipboard" &
   end
