@@ -3,6 +3,9 @@
 # x
 abbr -g exc '$EDITOR ~/.xinitrc'
 
+# kakoune
+abbr -g ekc '$EDITOR ~/.config/kak/kakrc'
+
 # fish
 abbr -g efc  '$EDITOR ~/.config/fish/config.fish'
 abbr -g efp  '$EDITOR ~/.config/fish/functions/fish_prompt.fish'

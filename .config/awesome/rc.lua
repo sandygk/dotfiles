@@ -240,6 +240,9 @@ clientkeys = gears.table.join(
   -- Minimize client
   awful.key({ super }, "minus", function(c) c.minimized = true end),
 
+  -- Toggle client's maximized state
+  awful.key({ super, "Shift" }, "m", function(c) c.maximized = not c.maximized end),
+
   -- Toggle client's floating state
   awful.key({ super, "Shift" }, "f", function(c) c.floating = not c.floating end),
 

@@ -5,5 +5,5 @@ then
   mimetype=$(file -b --mime-type "$1")
   if   [[ $mimetype == image/*         ]]; then feh -Z "$1"
   elif [[ $mimetype == application/pdf ]]; then zathura "$1"
-  else nvim "$1"; fi
+  else $EDITOR "$1"; fi
 fi

@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 # add bin to PATH
-set -gx PATH $PATH ~/bin
+set -x PATH $PATH ~/bin
 
 # abbreviations and aliases
 for f in ~/.config/fish/abbreviations/*
@@ -9,28 +9,20 @@ for f in ~/.config/fish/abbreviations/*
 end
 
 # set env variables
-set -gx EDITOR nvim
-set -gx TERM alacritty
-
-# set vi key bindings
-#fish_vi_key_bindings
-
-# cursor
-set -gx fish_cursor_insert line
-set -gx fish_cursor_default block
-set -gx fish_cursor_visual block
+set -x EDITOR nvim
+set -x TERM alacritty
 
 # less colors
-set -gx LESS_TERMCAP_mb (printf "\033[01;32m")
-set -gx LESS_TERMCAP_md (printf "\033[01;32m")
-set -gx LESS_TERMCAP_me (printf "\033[0m")
-set -gx LESS_TERMCAP_se (printf "\033[0m")
-set -gx LESS_TERMCAP_so (printf "\033[01;44;33m")
-set -gx LESS_TERMCAP_ue (printf "\033[0m")
-set -gx LESS_TERMCAP_us (printf "\033[01;31m")
+set -x LESS_TERMCAP_mb (printf "\033[01;32m")
+set -x LESS_TERMCAP_md (printf "\033[01;32m")
+set -x LESS_TERMCAP_me (printf "\033[0m")
+set -x LESS_TERMCAP_se (printf "\033[0m")
+set -x LESS_TERMCAP_so (printf "\033[01;44;33m")
+set -x LESS_TERMCAP_ue (printf "\033[0m")
+set -x LESS_TERMCAP_us (printf "\033[01;31m")
 
 # fzf
-set -gx FZF_DEFAULT_OPTS '--reverse --info=inline'
+set -x FZF_DEFAULT_OPTS '--reverse --info=inline'
 
 # start x
 if status is-login

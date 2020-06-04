@@ -1,10 +1,8 @@
 {
-    "workbench.startupEditor": "newUntitledFile",
+    "workbench.startupEditor": "none",
     "window.zoomLevel": 1,
     "files.autoSave": "onFocusChange",
     "editor.tabSize": 2,
-    "workbench.editor.enablePreview": false,
-    "workbench.editor.enablePreviewFromQuickOpen": false,
     "references.preferredLocation": "view",
     "editor.gotoLocation.multiple": "goto",
     "typescript.updateImportsOnFileMove.enabled": "always",
@@ -27,14 +25,9 @@
     ],
     "gitlens.codeLens.enabled": false,
     "gitlens.hovers.avatars": false,
-    "gitlens.views.repositories.location": "scm",
-    "gitlens.views.fileHistory.location": "explorer",
     "gitlens.views.search.location": "gitlens",
     "gitlens.hovers.enabled": false,
-    "gitlens.views.lineHistory.location": "explorer",
     "gitlens.views.compare.location": "gitlens",
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": false,
     "gitlens.views.search.enabled": false,
     "gitlens.menus": {
         "editorGroup": {
@@ -67,8 +60,6 @@
             "stash": true
         }
     },
-    "workbench.sideBar.location": "left",
-    "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "editor.autoClosingQuotes": "never",
     "editor.autoClosingBrackets": "never",
@@ -85,10 +76,87 @@
     "gitlens.views.repositories.files.layout": "tree",
     "sync.gist": "e7042cffc7f26a7e350be325f7dbbb8f",
     "workbench.colorTheme": "Default Dark+",
-    "diffEditor.renderSideBySide": true,
-    "C_Cpp.formatting": "Disabled",
     "editor.minimap.renderCharacters": false,
     "editor.minimap.enabled": false,
     "terminal.integrated.shell.linux": "/usr/bin/fish",
-    "editor.lineNumbers": "relative"
+    "customizeUI.activityBar": "wide",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.autoClosingOvertype": "never",
+    "editor.comments.insertSpace": false,
+    "editor.foldingHighlight": false,
+    "editor.renameOnType": true,
+    "editor.renderIndentGuides": false,
+    "editor.renderWhitespace": "none",
+    "editor.tabCompletion": "on",
+    "editor.unfoldOnClickAfterEndOfLine": true,
+    "editor.find.autoFindInSelection": "multiline",
+    "editor.hover.delay": 200,
+    "editor.fontLigatures": null,
+    "editor.suggest.maxVisibleSuggestions": 10,
+    "editor.suggest.insertMode": "replace",
+    "editor.suggest.shareSuggestSelections": true,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "workbench.list.keyboardNavigation": "filter",
+    "breadcrumbs.symbolPath": "off",
+    "workbench.editor.labelFormat": "short",
+    "zenMode.centerLayout": false,
+    "zenMode.fullScreen": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.silentNotifications": false,
+    "window.customMenuBarAltFocus": false,
+    "window.enableMenuBarMnemonics": false,
+    "window.title": "${rootName}",
+    "explorer.compactFolders": false,
+    "explorer.incrementalNaming": "smart",
+    "editor.suggestSelection": "first",
+    "search.quickOpen.includeSymbols": true,
+    "search.smartCase": true,
+    "timeline.pageSize": 0,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "peacock.favoriteColors": [
+        {
+            "name": "Red",
+            "value": "#FF859E"
+        },
+        {
+            "name": "Green",
+            "value": "#80DBB0"
+        },
+        {
+            "name": "Blue",
+            "value": "#88C6FF"
+        },
+        {
+            "name": "Yellow",
+            "value": "#F0E998"
+        },
+        {
+            "name": "Orange",
+            "value": "#EDB887"
+        },
+        {
+            "name": "Violet",
+            "value": "#DDB9F6"
+        }
+    ],
+    "peacock.affectTitleBar": false,
+    "editor.lineNumbers": "relative",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.colorDecorators": false,
+    "turboConsoleLog.insertEnclosingClass": false,
+    "turboConsoleLog.quote": "'",
+    "polacode.transparentBackground": true,
+    "polacode.target": "snippet"
 }

@@ -7,7 +7,7 @@
 # Note: This is a file I created to be able to sync 
 # vscode extensions across different PCs. This
 # script works in conjunction with the
-# vscode_import_extensions script
+# vscode_export_extensions script
 
 # remove all installed extensions
 code --list-extensions | 
