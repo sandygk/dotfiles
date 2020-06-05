@@ -75,12 +75,11 @@
     "explorer.sortOrder": "filesFirst",
     "gitlens.views.repositories.files.layout": "tree",
     "sync.gist": "e7042cffc7f26a7e350be325f7dbbb8f",
-    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorTheme": "Default Light+",
     "editor.minimap.renderCharacters": false,
     "editor.minimap.enabled": false,
     "terminal.integrated.shell.linux": "/usr/bin/fish",
     "customizeUI.activityBar": "wide",
-    "editor.multiCursorModifier": "ctrlCmd",
     "editor.autoClosingOvertype": "never",
     "editor.comments.insertSpace": false,
     "editor.foldingHighlight": false,
@@ -158,5 +157,10 @@
     "turboConsoleLog.insertEnclosingClass": false,
     "turboConsoleLog.quote": "'",
     "polacode.transparentBackground": true,
-    "polacode.target": "snippet"
+    "polacode.target": "snippet",
+    "workbench.activityBar.visible": true,
+    "workbench.editor.showTabs": true,
+    "gitlens.mode.active": "zen",
+    "zenMode.hideTabs": false,
+    "favorites.storageFilePath": ".vscode/.favorites.json"
 }
