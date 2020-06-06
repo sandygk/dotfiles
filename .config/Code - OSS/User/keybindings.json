@@ -1173,5 +1173,15 @@
   {
     "key": "alt+t q",
     "command": "workbench.action.tasks.terminate"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "bookmarks.toggle",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+k",
+    "command": "-bookmarks.toggle",
+    "when": "editorTextFocus"
   }
 ]

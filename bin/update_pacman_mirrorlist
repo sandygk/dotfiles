@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# save a backup
+sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+
+# sorts the 200 mirrors most recently updated by speed
+sudo reflector --latest 200 --sort rate --save /etc/pacman.d/mirrorlist
