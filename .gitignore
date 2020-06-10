@@ -28,6 +28,7 @@
 !.config/picom/
 !.config/dunst/
 !.config/fish/
+!.config/zathura/
 
 !.config/nvim/
 .config/nvim/colors/theme.vim
