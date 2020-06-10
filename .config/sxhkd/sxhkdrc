@@ -1,8 +1,8 @@
 # APPS
 
 # launch apps
-{_, shift +} super + ctrl + {Return,space,c,f,g,k,m,a,p}
-  {_, sudo} {$TERM,google-chrome-stable,code,firefox,gimp,krita,arandr,pavucontrol,pinta}
+{_, shift +} super + ctrl + {Return,space,c,f,g,k,m,a,p,e}
+  {_, sudo} {$TERM,google-chrome-stable,code,firefox,gimp,krita,arandr,pavucontrol,pinta,pcmanfm}
 
 # launch terminal apps
 {_, shift +} super + ctrl + {v,r}
@@ -12,14 +12,18 @@
 super + ctrl + t
   google-chrome-stable --app='https://teams.microsoft.com'
 
+# cracking the coding interview
+super + ctrl + i
+  zathura ~/books/cracking-the-coding-interview.pdf
+
 # work todos
 super + ctrl + w
   $TERM -e fish -c '$EDITOR ~/notes/todo/work'
 
 # SELECTIONS
 
-{_, shift +} super + alt + {l,r,w,e,b,n}
-  {_, sudo} $TERM -e fish -c '{launcher, open_repo, spell_checker, select_emoji, edit_file_in_dir ~/bin, edit_file_in_dir -r ~/notes}'
+{_, shift +} super + alt + {l,r,s,e}
+  {_, sudo} $TERM -e fish -c '{launcher, open_repo, spell_checker, select_emoji}'
 
 # SEQUENCES
 
@@ -28,7 +32,7 @@ super + alt + t ; {d,l}
   set_theme_all {--dark,--light}
 
 # screen layout
-super + alt + s ; {l,w,h}
+super + alt + m ; {l,w,h}
   ~/.screenlayout/{laptop,work,home}.sh
 
 # MISC

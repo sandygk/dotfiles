@@ -19,6 +19,7 @@ abbr -g eff 'edit_file_in_dir ~/.config/fish/functions'
 abbr -g ebc '$EDITOR ~/.bashrc'
 abbr -g eba '$EDITOR ~/.bash_aliases'
 abbr -g ebp '$EDITOR ~/.bash_profile'
+abbr -g ebs 'edit_file_in_dir ~/bin'
 
 # configs
 abbr -g evc '$EDITOR ~/.config/nvim/init.vim'

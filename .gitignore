@@ -12,6 +12,7 @@
 !.bashrc
 !.bash_profile
 !.bash_aliases
+!.bash_script_template
 
 !.xinitrc
 !bin/

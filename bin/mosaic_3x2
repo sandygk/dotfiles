@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Receives an input image in the first argument and an output path
+# in the second argument, generates a 3x2 mosaic of the received image
+
+# Note: The US passport picture is 2" by 2", CVS prints a 6" by 4" picture
+# for $0.35. This script was created to print 6 passport pictures for just $0.35
+
+magick montage $1 $1 $1 $1 $1 $1 -tile 3x2 -geometry +0+0 $2

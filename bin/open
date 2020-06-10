@@ -3,7 +3,7 @@
 if [[ -f $1 ]] 
 then
   mimetype=$(file -b --mime-type "$1")
-  if   [[ $mimetype == image/*         ]]; then feh -Z "$1"
+  if   [[ $mimetype == image/*         ]]; then sxiv "$1"
   elif [[ $mimetype == application/pdf ]]; then zathura "$1"
   else $EDITOR "$1"; fi
 fi
