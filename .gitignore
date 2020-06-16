@@ -30,6 +30,9 @@
 !.config/fish/
 !.config/zathura/
 
+!.config/cheat/
+.config/cheat/cheatsheets/community
+
 !.config/nvim/
 .config/nvim/colors/theme.vim
 
