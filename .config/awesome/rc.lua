@@ -9,7 +9,7 @@ local beautiful = require("beautiful")
 -- Set theme
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
--- Aliases for mod keys 
+-- Aliases for mod keys
 super = "Mod4"
 alt = "Mod1"
 
@@ -26,7 +26,7 @@ local function set_wallpaper(s)
   gears.wallpaper.set(beautiful.wallpaper_color)
 end
 
--- Swap tags 
+-- Swap tags
 function swap_tag(other_tag)
   local screen = awful.screen.focused({ client=true })
   this_tag = screen.selected_tag
@@ -62,7 +62,7 @@ local taglist_buttons = gears.table.join(
   awful.button({}, 1, function(t) t:view_only() end),
 
   -- Send client to workspace with super + click
-  awful.button({ super }, 1, 
+  awful.button({ super }, 1,
     function(t)
       if client.focus then
         client.focus:move_to_tag(t)
@@ -73,7 +73,7 @@ local taglist_buttons = gears.table.join(
 -- Mouse bindings task list
 local tasklist_buttons = gears.table.join(
   -- Focus client with click
-  awful.button({}, 1, 
+  awful.button({}, 1,
     function(c)
       c:emit_signal(
         "request::activate",
@@ -95,7 +95,7 @@ awful.screen.connect_for_each_screen(
     -- Set tags per screen
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
-    -- Create layout indicator 
+    -- Create layout indicator
     s.layoutbox = awful.widget.layoutbox(s)
     s.layoutbox:buttons(
       gears.table.join(
@@ -160,12 +160,12 @@ globalkeys = gears.table.join(
   awful.key({ super }, "k", function() awful.client.focus.byidx(-1) end),
   awful.key({ super          }, "Tab", function() awful.client.focus.byidx( 1) end),
   awful.key({ super, "Shift" }, "Tab", function() awful.client.focus.byidx(-1) end),
-  
+
   -- Swapt with next/previous client
   awful.key({ super, "Shift" }, "j", function() awful.client.swap.byidx( 1) end),
   awful.key({ super, "Shift" }, "k", function() awful.client.swap.byidx(-1) end),
 
-  -- Reload/quit awesome 
+  -- Reload/quit awesome
   awful.key({ super }, "r", awesome.restart),
 
   -- Change master width
@@ -182,18 +182,18 @@ globalkeys = gears.table.join(
   awful.key({ super }, "F11", function() awful.layout.set(awful.layout.suit.max.fullscreen) end),
 
   -- Quickly swap between max and tile
-  awful.key({ super }, "grave", 
-    function() 
+  awful.key({ super }, "grave",
+    function()
       if awful.layout.get() ~= awful.layout.suit.max then
-        awful.layout.set(awful.layout.suit.max) 
+        awful.layout.set(awful.layout.suit.max)
       else
-        awful.layout.set(awful.layout.suit.tile) 
+        awful.layout.set(awful.layout.suit.tile)
       end
     end),
 
   -- Unminimize all clients in workspace in focused screen
-  awful.key({ super }, "equal", 
-    function() 
+  awful.key({ super }, "equal",
+    function()
       local clients = awful.screen.focused( { client = true }).selected_tag:clients()
       for _, c in ipairs(clients) do
         if c.minimized then
@@ -250,27 +250,27 @@ clientkeys = gears.table.join(
   awful.key({ super }, "Return", function(c) c:swap(awful.client.getmaster()) end),
 
   -- Send client to a next/previus workspace
-  awful.key({ super, "Shift" }, "l", 
-    function(c) 
+  awful.key({ super, "Shift" }, "l",
+    function(c)
         c:move_to_tag(tag_by_relative_index(1))
     end),
 
-  awful.key({ super, "Shift" }, "h", 
-    function(c) 
+  awful.key({ super, "Shift" }, "h",
+    function(c)
         c:move_to_tag(tag_by_relative_index(-1))
     end),
 
   -- Send client to a next/previus screen
-  awful.key({ super, "Shift" }, "n", 
-    function(c) 
+  awful.key({ super, "Shift" }, "n",
+    function(c)
       c:move_to_screen(c.screen.index + 1)
-      awful.screen.focus_relative(-1) 
+      awful.screen.focus_relative(-1)
     end),
 
-  awful.key({ super, "Shift" }, "p", 
-    function(c) 
+  awful.key({ super, "Shift" }, "p",
+    function(c)
       c:move_to_screen(c.screen.index - 1)
-      awful.screen.focus_relative(1) 
+      awful.screen.focus_relative(1)
     end)
 )
 
@@ -289,16 +289,16 @@ end
 
 -- Mouse bindings
 clientbuttons = gears.table.join(
-  awful.button({}, 1, 
+  awful.button({}, 1,
     function(c)
       c:emit_signal("request::activate", "mouse_click", { raise = true })
     end),
-  awful.button({ super }, 1, 
+  awful.button({ super }, 1,
     function(c)
       c:emit_signal("request::activate", "mouse_click", { raise = true })
       awful.mouse.client.move(c)
     end),
-  awful.button({ super }, 3, 
+  awful.button({ super }, 3,
     function(c)
       c:emit_signal("request::activate", "mouse_click", { raise = true })
       awful.mouse.client.resize(c)
@@ -311,9 +311,9 @@ root.keys(globalkeys)
 -- Rules to apply to new clients
 awful.rules.rules = {
   -- All clients will match this rule
-  { 
+  {
     rule = {},
-    properties = { 
+    properties = {
       maximized=false,
       maximized_horizontal=false,
       maximized_vertical=false,
@@ -338,11 +338,11 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 screen.connect_signal("arrange", function (s)
   for _, c in pairs(s.clients) do
     if (
-      s.selected_tag.layout.name == "max" or 
-      s.selected_tag.layout.name == "fullscreen" or 
-      #s.tiled_clients == 1) 
-    and ( 
-      not c.floating or c.maximized) 
+      s.selected_tag.layout.name == "max" or
+      s.selected_tag.layout.name == "fullscreen" or
+      #s.tiled_clients == 1)
+    and (
+      not c.floating or c.maximized)
     then
       c.border_width = 0
     else
