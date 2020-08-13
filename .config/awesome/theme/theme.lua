@@ -14,7 +14,7 @@ local theme = {}
 theme.font          = "sans 9"
 
 theme.useless_gap   = dpi(0)
-theme.border_width  = dpi(2)
+theme.border_width  = dpi(4)
 
 theme.bg_normal     = "#232729"
 theme.bg_focus      = "#215d9c"

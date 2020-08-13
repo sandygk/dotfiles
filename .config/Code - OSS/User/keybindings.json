@@ -1187,5 +1187,25 @@
   {
     "key": "alt+s p",
     "command": "workbench.action.openSnippets"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.pinEditor",
+    "when": "config.workbench.editor.showTabs && !editorSticky"
+  },
+  {
+    "key": "ctrl+k shift+enter",
+    "command": "-workbench.action.pinEditor",
+    "when": "config.workbench.editor.showTabs && !editorSticky"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.unpinEditor",
+    "when": "config.workbench.editor.showTabs && editorSticky"
+  },
+  {
+    "key": "ctrl+k shift+enter",
+    "command": "-workbench.action.unpinEditor",
+    "when": "config.workbench.editor.showTabs && editorSticky"
   }
 ]

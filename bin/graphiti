@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/bin/fish
 
+killport 4000
 cd ~/repos/graphiti
-export NODE_ENV=local
-npm run watch
+npm start 

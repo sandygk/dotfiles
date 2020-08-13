@@ -10,7 +10,8 @@
 
 # teams
 super + ctrl + t
-  google-chrome-stable --app='https://teams.microsoft.com'
+  teams
+  #google-chrome-stable --app='https://teams.microsoft.com'
 
 # cracking the coding interview
 super + ctrl + i
@@ -18,7 +19,7 @@ super + ctrl + i
 
 # work todos
 super + ctrl + w
-  $TERM -e fish -c '$EDITOR ~/notes/todo/work'
+  $TERM -e fish -c '$EDITOR ~/notes/work/todo'
 
 # SELECTIONS
 
@@ -32,8 +33,8 @@ super + alt + t ; {d,l}
   set_theme_all {--dark,--light}
 
 # screen layout
-super + alt + m ; {l,w,h}
-  ~/.screenlayout/{laptop,work,home}.sh
+super + alt + m ; {l,w,t}
+  ~/.screenlayout/{laptop,work,tv}.sh
 
 # MISC
 
@@ -49,9 +50,9 @@ super + ctrl + n
 Print + {_,ctrl,super,shift,shift + ctrl, shift + super}
   mispipe 'maim -u { ,-s,-i $(xdotool getactivewindow),-d 3,-sd 3,-i $(xdotool getactivewindow) -d 3}' 'ifne xclip -selection clipboard -t image/png' && notify-send 'Screenshot taken' 'Image saved to clipboard'
 
-# screencast
-alt + Print
-  deepin-screen-recorder
+# screen brightness up/down 
+XF86MonBrightness{Up,Down}
+    sudo xbacklight -{inc,dec} 5
 
 # volume up/down
 XF86Audio{Raise,Lower}Volume

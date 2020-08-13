@@ -13,6 +13,9 @@ unclutter &
 # automount usb
 udiskie &
 
+#power manager
+mate-power-manager &
+
 # fix screen tearing
 picom &
 
@@ -20,10 +23,10 @@ picom &
 dunst &
 
 # screen locker
-xset s on & # enable the screensaver
-xset s 600 & # launch screensaver after 10 mins of inactivity
-xss-lock slock & # start slock as a locker when the screensaver is triggered 
-slock & # run locker on start
+#xset s on & # enable the screensaver
+#xset s 6 & # launch screensaver after 10 mins of inactivity
+#xss-lock slock & # start slock as a locker when the screensaver is triggered 
+#slock & # run locker on start
 
 # sync folders
 rclone mount remote:notes ~/notes &

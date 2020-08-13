@@ -16,6 +16,7 @@ abbr -g pr 'sudo pacman -Rns'
 # y: Update the database.
 # u: Upgrades all packages that are out-of-date.
 abbr -g pu 'sudo pacman -Syu'
+abbr -g yu 'yay -Syu'
 
 # Search each package in the sync databases for names or descriptions that match regexp. 
 # When you include multiple search terms, only packages with descriptions matching ALL

@@ -237,6 +237,15 @@ clientkeys = gears.table.join(
   -- Close client
   awful.key({ super }, "q", function(c) c:kill() end),
 
+  -- Force quit client
+  awful.key({ super, "Shift"   }, "q",
+      function (c)
+          if c.pid then
+              awful.spawn("kill -9 " .. c.pid)
+          end
+      end
+  ),
+
   -- Minimize client
   awful.key({ super }, "minus", function(c) c.minimized = true end),
 
@@ -337,12 +346,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Hide borders if the client is maximized or fullscreen
 screen.connect_signal("arrange", function (s)
   for _, c in pairs(s.clients) do
-    if (
-      s.selected_tag.layout.name == "max" or
-      s.selected_tag.layout.name == "fullscreen" or
-      #s.tiled_clients == 1)
-    and (
-      not c.floating or c.maximized)
+    if (s.selected_tag.layout.name == "max" or
+        s.selected_tag.layout.name == "fullscreen")
+      and not c.floating
     then
       c.border_width = 0
     else

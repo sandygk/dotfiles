@@ -33,7 +33,9 @@ abbr -g edc '$EDITOR ~/.config/dunst/dunstrc'
 abbr -g eb 'edit_file_in_dir ~/bin'
 
 # notes
-abbr -g ewt '$EDITOR ~/notes/todo/work'
-abbr -g eht '$EDITOR ~/notes/todo/hobbies'
-abbr -g esa '$EDITOR ~/notes/work/std/agenda'
+abbr -g ewt '$EDITOR ~/notes/work/todo'
+abbr -g eh '$EDITOR ~/notes/personal/hobbies'
+abbr -g ec '$EDITOR ~/notes/personal/chores'
+abbr -g es '$EDITOR ~/notes/work/std/agenda'
+abbr -g ed '$EDITOR ~/notes/work/demo'
 abbr -g en 'edit_file_in_dir -r ~/notes/'

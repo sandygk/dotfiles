@@ -17,54 +17,18 @@
         "Lumos",
         "actioned",
         "autocompletions",
+        "downlevel",
         "etag",
         "graphiti",
         "hardcode",
         "hardcoded",
-        "skus"
+        "skus",
+        "tenantid"
     ],
-    "gitlens.codeLens.enabled": false,
-    "gitlens.hovers.avatars": false,
-    "gitlens.views.search.location": "gitlens",
-    "gitlens.hovers.enabled": false,
-    "gitlens.views.compare.location": "gitlens",
-    "gitlens.views.search.enabled": false,
-    "gitlens.menus": {
-        "editorGroup": {
-            "blame": true,
-            "compare": true
-        },
-        "editorTab": {
-            "clipboard": true,
-            "compare": true,
-            "history": true,
-            "remote": true
-        },
-        "explorer": {
-            "clipboard": true,
-            "compare": true,
-            "history": true,
-            "remote": true
-        },
-        "scmGroup": {
-            "compare": true,
-            "openClose": true,
-            "stash": true,
-            "stashInline": true
-        },
-        "scmItem": {
-            "clipboard": true,
-            "compare": true,
-            "history": true,
-            "remote": true,
-            "stash": true
-        }
-    },
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "editor.autoClosingQuotes": "never",
     "editor.autoClosingBrackets": "never",
     "git.postCommitCommand": "push",
-    "gitlens.views.compare.files.layout": "list",
     "vscode-neovim.neovimPath": "/usr/bin/nvim",
     "vscode-neovim.neovimInitPath": " /home/sandy/.config/nvim/init.vim",
     "editor.gotoLocation.multipleDeclarations": "goto",
@@ -73,18 +37,16 @@
     "editor.gotoLocation.multipleReferences": "goto",
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
     "explorer.sortOrder": "filesFirst",
-    "gitlens.views.repositories.files.layout": "tree",
     "sync.gist": "e7042cffc7f26a7e350be325f7dbbb8f",
     "workbench.colorTheme": "Default Light+",
     "editor.minimap.renderCharacters": false,
     "editor.minimap.enabled": false,
-    "terminal.integrated.shell.linux": "/usr/bin/fish",
+    "terminal.integrated.shell.linux": "/bin/fish",
     "customizeUI.activityBar": "wide",
     "editor.autoClosingOvertype": "never",
     "editor.comments.insertSpace": false,
     "editor.foldingHighlight": false,
     "editor.renameOnType": true,
-    "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "none",
     "editor.tabCompletion": "on",
     "editor.unfoldOnClickAfterEndOfLine": true,
@@ -159,7 +121,17 @@
     "polacode.target": "snippet",
     "workbench.activityBar.visible": true,
     "workbench.editor.showTabs": true,
-    "gitlens.mode.active": "zen",
     "zenMode.hideTabs": false,
-    "favorites.storageFilePath": ".vscode/.favorites.json"
+    "favorites.storageFilePath": ".vscode/.favorites.json",
+    "C_Cpp.updateChannel": "Insiders",
+    "leetcode.workspaceFolder": "/home/sandy/repos/leetcode",
+    "leetcode.defaultLanguage": "python3",
+    "leetcode.hint.configWebviewMarkdown": false,
+    "leetcode.hint.commentDescription": false,
+    "leetcode.enableSideMode": false,
+    "javascript.preferences.useAliasesForRenames": false,
+    "typescript.preferences.useAliasesForRenames": false,
+    "diffEditor.renderSideBySide": true,
+    "gitlens.defaultGravatarsStyle": "mp",
+    "gitlens.advanced.telemetry.enabled": false
 }
