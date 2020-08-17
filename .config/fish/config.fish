@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
-# add bin to PATH
-set -x PATH $PATH ~/bin
+# add to PATH
+set -x PATH $PATH ~/bin ~/.npm/bin
 
 # abbreviations and aliases
 for f in ~/.config/fish/abbreviations/*
@@ -28,3 +28,4 @@ set -x FZF_DEFAULT_OPTS '--reverse --info=inline'
 if status is-login
     exec startx -- -keeptty
 end
+

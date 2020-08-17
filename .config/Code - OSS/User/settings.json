@@ -133,5 +133,7 @@
     "typescript.preferences.useAliasesForRenames": false,
     "diffEditor.renderSideBySide": true,
     "gitlens.defaultGravatarsStyle": "mp",
-    "gitlens.advanced.telemetry.enabled": false
+    "gitlens.advanced.telemetry.enabled": false,
+    "vim.useSystemClipboard": true,
+    "markdown.extension.toc.levels": "2..6"
 }

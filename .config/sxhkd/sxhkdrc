@@ -44,13 +44,17 @@ super + ctrl + n
 
 # screenshot
 #   Print +
-#     _     : entire screek     ctrl  : selecting a portion of the screen
+#     _     : entire screen
+#     ctrl  : selecting a portion of the screen
 #     super : current windows
 #     shift : deleying for 3 seconds, it can be combined with ctrl and super
+#     alt   : open flameshot gui
 Print + {_,ctrl,super,shift,shift + ctrl, shift + super}
   mispipe 'maim -u { ,-s,-i $(xdotool getactivewindow),-d 3,-sd 3,-i $(xdotool getactivewindow) -d 3}' 'ifne xclip -selection clipboard -t image/png' && notify-send 'Screenshot taken' 'Image saved to clipboard'
+Print + alt
+  flameshot gui
 
-# screen brightness up/down 
+# screen brightness up/down
 XF86MonBrightness{Up,Down}
     sudo xbacklight -{inc,dec} 5
 

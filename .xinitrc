@@ -22,10 +22,13 @@ picom &
 # notifications
 dunst &
 
+# flameshot 
+flameshot &
+
 # screen locker
 #xset s on & # enable the screensaver
 #xset s 6 & # launch screensaver after 10 mins of inactivity
-#xss-lock slock & # start slock as a locker when the screensaver is triggered 
+#xss-lock slock & # start slock as a locker when the screensaver is triggered
 #slock & # run locker on start
 
 # sync folders
@@ -40,5 +43,5 @@ set_theme --dark
 # Start status bar
 status --loop &
 
-# window manager 
+# window manager
 awesome
