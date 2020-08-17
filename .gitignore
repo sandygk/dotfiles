@@ -30,17 +30,18 @@
 !.config/fish/
 !.config/zathura/
 
+# flameshot
+!.config/Dharkael/
+
+# cheat
 !.config/cheat/
 .config/cheat/cheatsheets/community
 
+# nvim
 !.config/nvim/
 .config/nvim/colors/theme.vim
 
-!.config/deepin/
-.config/deepin/*
-!.config/deepin/deepin-screen-recorder
-
-#vscode
+# vscode
 !.config/Code - OSS/
 .config/Code - OSS/*
 !.config/Code - OSS/User/
