@@ -4,8 +4,7 @@
 
 !.local/
 .local/*
-!.local/share/
-.local/share/*
+.local/bin/*
 
 !.gitignore
 
