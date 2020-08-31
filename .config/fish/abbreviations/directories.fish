@@ -1,5 +1,6 @@
 #!/usr/bin/env fish
 
+abbr -g j 'cd'
 abbr -g jR 'cd /'
 abbr -g ju 'cd ..'
 abbr -g jh 'cd ~'

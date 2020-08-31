@@ -1,0 +1,40 @@
+# Disable Clippy
+set global ui_options ncurses_assistant=none
+
+#Swap comma with space
+map global normal <space> ,
+map global normal , <space>
+
+# Theme
+  colorscheme custom
+
+# Change cursor color on insert
+hook global ModeChange ".*:insert" %{
+  face global PrimaryCursor black,green+fg
+  face global PrimaryCursorEol black,green+fg
+}
+
+hook global ModeChange ".*:normal" %{
+  # Restore colors from theme
+  face global PrimaryCursor black,yellow+fg
+  face global PrimaryCursorEol black,yellow+fg
+}
+
+# Enable relative line numbers
+add-highlighter global/ number-lines -relative
+
+# Yank to clipboard
+hook global RegisterModified '"' %{ nop %sh{
+  printf %s "$kak_main_reg_dquote" | xsel --input --clipboard
+}}
+
+# Paste form clipboard
+map global user P '!xsel --output --clipboard<ret>'
+map global user p '<a-!>xsel --output --clipboard<ret>'
+
+# Enable contextual help
+set -add global autoinfo normal
+
+# Set indentation to 2 spaces
+set global tabstop 2
+set global indentwidth 2

@@ -22,12 +22,17 @@ abbr -g ebp '$EDITOR ~/.bash_profile'
 abbr -g ebs 'edit_file_in_dir ~/bin'
 
 # configs
-abbr -g evc '$EDITOR ~/.config/nvim/init.vim'
 abbr -g erc '$EDITOR ~/.config/ranger/rc.conf'
 abbr -g esc '$EDITOR ~/.config/sxhkd/sxhkdrc'
 abbr -g eac '$EDITOR ~/.config/awesome/rc.lua'
 abbr -g eat '$EDITOR ~/.config/awesome/theme/theme.lua'
 abbr -g edc '$EDITOR ~/.config/dunst/dunstrc'
+
+# vim
+abbr -g evi '$EDITOR ~/.config/nvim/init.vim'
+abbr -g evr '$EDITOR ~/.config/nvim/regular.vim'
+abbr -g evc '$EDITOR ~/.config/nvim/coc.vim'
+abbr -g evp '$EDITOR ~/.config/nvim/plugins.vim'
 
 # scripts
 abbr -g eb 'edit_file_in_dir ~/bin'

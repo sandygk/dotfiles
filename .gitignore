@@ -28,6 +28,7 @@
 !.config/dunst/
 !.config/fish/
 !.config/zathura/
+!.config/kak/
 
 # flameshot
 !.config/Dharkael/

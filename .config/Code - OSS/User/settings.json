@@ -22,6 +22,7 @@
         "graphiti",
         "hardcode",
         "hardcoded",
+        "humanlike",
         "skus",
         "tenantid"
     ],
@@ -38,7 +39,7 @@
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
     "explorer.sortOrder": "filesFirst",
     "sync.gist": "e7042cffc7f26a7e350be325f7dbbb8f",
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "Default Dark+",
     "editor.minimap.renderCharacters": false,
     "editor.minimap.enabled": false,
     "terminal.integrated.shell.linux": "/bin/fish",

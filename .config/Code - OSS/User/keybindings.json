@@ -794,7 +794,7 @@
     "command": "-workbench.view.scm"
   },
   {
-    "key": "ctrl+`",
+    "key": "ctrl+t",
     "command": "workbench.action.terminal.toggleTerminal"
   },
   {
@@ -1155,10 +1155,6 @@
     "command": "gitlens.views.unstar"
   },
   {
-    "key": "ctrl+t",
-    "command": "workbench.action.tasks.runTask"
-  },
-  {
     "key": "alt+t r",
     "command": "workbench.action.tasks.restartTask"
   },
@@ -1189,7 +1185,7 @@
     "command": "workbench.action.openSnippets"
   },
   {
-    "key": "ctrl+l",
+    "key": "ctrl+`",
     "command": "workbench.action.pinEditor",
     "when": "config.workbench.editor.showTabs && !editorSticky"
   },
@@ -1199,7 +1195,7 @@
     "when": "config.workbench.editor.showTabs && !editorSticky"
   },
   {
-    "key": "ctrl+l",
+    "key": "ctrl+`",
     "command": "workbench.action.unpinEditor",
     "when": "config.workbench.editor.showTabs && editorSticky"
   },

@@ -36,6 +36,10 @@ super + alt + t ; {d,l}
 super + alt + m ; {l,w,t}
   ~/.screenlayout/{laptop,work,tv}.sh
 
+# open projecs
+super + alt + p ; {p,l,g}
+  code ~/repos/{portal,lumos,graphiti}
+
 # MISC
 
 # toggle notifications
