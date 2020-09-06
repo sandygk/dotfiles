@@ -2,4 +2,4 @@
 
 killport 4000
 cd ~/repos/graphiti
-npm start 
+npm run watch

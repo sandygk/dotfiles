@@ -1,3 +1,7 @@
+" change the mapleader from \ to space
+" NOTE: This has to be set before <leader> is used.
+let mapleader=" "
+
 " Set my custom theme
 colorscheme theme
 
@@ -11,11 +15,23 @@ autocmd BufWritePre * %s/\s\+$//e
 vmap < <gv
 vmap > >gv
 
+" Alternate way to save
+nnoremap <C-s> :w<CR>
+
+" Alternate way to quit
+nnoremap <C-Q> :wq!<CR>
+
 " Shortcutting split navigation
-map <A-h> <C-w>h
-map <A-j> <C-w>j
-map <A-k> <C-w>k
-map <A-l> <C-w>l
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Escape insert mode with jj
+inoremap jj <Esc>
+
+" hide highlight
+map <Leader>/ :nohl<CR>
 
 " enable true colors
 if exists('+termguicolors')
@@ -24,9 +40,9 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-" change the mapleader from \ to space
-" NOTE: This has to be set before <leader> is used.
-let mapleader=" "
+" command to rerun config (I run :nohl because for
+" some reason it highlights the linebreaks)
+map <Leader>r :so $MYVIMRC<CR> :nohl<CR>
 
 " Enable mouse
 set mouse=a
@@ -34,13 +50,11 @@ set mouse=a
 " Disable continuation of comments to the next line
 autocmd BufReadPost * set fo-=c fo-=r fo-=o
 
-" Insert and delete empty lines in Normal mode
-" Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
-" source: https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_lines
-nnoremap <silent><A-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><A-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
-nnoremap <silent><C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+" Insert and delete empty lines
+map <silent><A-n> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+map <silent><A-m> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+map <silent><C-n> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+map <silent><C-m> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " Hide welcome message
 set shortmess=I

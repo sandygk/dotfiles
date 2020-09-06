@@ -12,6 +12,15 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ ]
 
+" Go to definition
+map <F12> <Plug>(coc-definition)
+
+" Rename symbol
+map <F2> <Plug>(coc-rename)
+
+" Run Prettier on save
+:autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx,*.json :CocCommand prettier.formatFile
+
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -92,9 +101,6 @@ endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)

@@ -1,9 +1,15 @@
 # Disable Clippy
 set global ui_options ncurses_assistant=none
 
-#Swap comma with space
+# Swap comma with space
 map global normal <space> ,
 map global normal , <space>
+
+# Exit insert mode with jj
+hook global InsertChar j %{ try %{
+  exec -draft hH <a-k>jj<ret> d
+  exec <esc>
+}}
 
 # Theme
   colorscheme custom

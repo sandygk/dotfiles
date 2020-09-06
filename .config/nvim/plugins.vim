@@ -4,14 +4,14 @@ call plug#begin('~/.vim/plugged')
   " nerdtree
   Plug 'preservim/nerdtree'
 
-  " quickly move around
-  Plug 'easymotion/vim-easymotion'
+  " syntax highlight for tsx
+  Plug 'ianks/vim-tsx'
 
   " syntax highlight for typescript
   Plug 'leafgarland/typescript-vim'
 
-  " syntax highlight for tsx
-  Plug 'ianks/vim-tsx'
+  " syntax highlight for javascript
+  Plug 'pangloss/vim-javascript'
 
   " syntax highlight for fish
   Plug 'dag/vim-fish'
@@ -21,13 +21,35 @@ call plug#begin('~/.vim/plugged')
 
   " fzf
   Plug 'junegunn/fzf.vim'
+
+  " sneak
+  Plug 'justinmk/vim-sneak'
+
 call plug#end()
 
-" With this option set, v will match both v and V, but V will match V only.
-let g:EasyMotion_smartcase=1
+" Add labels to sneak motions
+let g:sneak#label = 1
+
+" Make sneak case insensitive
+let g:sneak#use_ic_scs = 1
+
+" Open files with fzf
+map <C-p> :Files<CR>
+
+" Open git tracked files with fzf
+map <A-p> :GFiles<CR>
+
+" Search across project
+map <C-f> :Rg<space>
+
+" set fzf layout
+let g:fzf_layout = { 'down': '~25%' }
+
+" ignore node_modules by using ag
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " Toggle nerdtree
-map <C-n> :NERDTreeToggle<CR>
+map <C-e> :NERDTreeToggle<CR>
 
 " Coc configuration
 source $HOME/.config/nvim/coc.vim
