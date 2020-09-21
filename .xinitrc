@@ -22,7 +22,7 @@ picom &
 # notifications
 dunst &
 
-# flameshot 
+# flameshot
 flameshot &
 
 # screen locker
@@ -32,7 +32,7 @@ flameshot &
 #slock & # run locker on start
 
 # sync folders
-rclone mount remote:notes ~/notes &
+rclone mount remote: ~/sync &
 
 # start daemon to switch gtk theme on the fly
 xfsettingsd &

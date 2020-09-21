@@ -136,5 +136,6 @@
     "gitlens.defaultGravatarsStyle": "mp",
     "gitlens.advanced.telemetry.enabled": false,
     "vim.useSystemClipboard": true,
-    "markdown.extension.toc.levels": "2..6"
+    "markdown.extension.toc.levels": "2..6",
+    "files.eol": "\n"
 }

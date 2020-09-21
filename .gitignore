@@ -30,6 +30,9 @@
 !.config/zathura/
 !.config/kak/
 
+# XDG user directories
+!.config/user-dirs.dirs
+
 # flameshot
 !.config/Dharkael/
 
