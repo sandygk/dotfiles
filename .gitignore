@@ -34,7 +34,7 @@
 !.config/user-dirs.dirs
 
 # flameshot
-!.config/Dharkael/
+!.config/flameshot/
 
 # cheat
 !.config/cheat/

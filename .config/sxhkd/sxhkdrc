@@ -10,8 +10,8 @@
 
 # teams
 super + ctrl + t
-  teams
-  #google-chrome-stable --app='https://teams.microsoft.com'
+  google-chrome-stable --app='https://teams.microsoft.com'
+  #teams
 
 # cracking the coding interview
 super + ctrl + i
