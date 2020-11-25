@@ -1,8 +1,8 @@
 # APPS
 
 # launch apps
-{_, shift +} super + ctrl + {Return,space,c,f,g,k,m,a,p,e}
-  {_, sudo} {$TERM,google-chrome-stable,code,firefox,gimp,krita,arandr,pavucontrol,pinta,pcmanfm}
+{_, shift +} super + ctrl + {Return,space,b,c,f,g,k,m,a,p,e}
+  {_, sudo} {$TERM,google-chrome-stable,google-chrome-stable,code,firefox,gimp,krita,arandr,pavucontrol,pinta,pcmanfm}
 
 # launch terminal apps
 {_, shift +} super + ctrl + {v,r}
@@ -10,8 +10,8 @@
 
 # teams
 super + ctrl + t
-  google-chrome-stable --app='https://teams.microsoft.com'
-  #teams
+  teams
+  #google-crome-stable --app='https://teams.microsoft.com'
 
 # cracking the coding interview
 super + ctrl + i
@@ -23,8 +23,8 @@ super + ctrl + w
 
 # SELECTIONS
 
-{_, shift +} super + alt + {l,r,s,e}
-  {_, sudo} $TERM -e fish -c '{launcher, open_repo, spell_checker, select_emoji}'
+{_, shift +} super + alt + {l,r,w,s,e}
+  {_, sudo} $TERM -e fish -c '{launcher, open_repo, open_wiki, spell_checker, select_emoji}'
 
 # SEQUENCES
 

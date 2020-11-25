@@ -14,8 +14,12 @@
     "editor.formatOnSave": true,
     "prettier.requireConfig": true,
     "cSpell.userWords": [
+        "Cheatsheet",
         "Lumos",
+        "Simplicity",
+        "Ultrawide",
         "actioned",
+        "architecting",
         "autocompletions",
         "downlevel",
         "etag",
@@ -39,7 +43,6 @@
     "editor.gotoLocation.multipleTypeDefinitions": "goto",
     "explorer.sortOrder": "filesFirst",
     "sync.gist": "e7042cffc7f26a7e350be325f7dbbb8f",
-    "workbench.colorTheme": "Default Light+",
     "editor.minimap.renderCharacters": false,
     "editor.minimap.enabled": false,
     "terminal.integrated.shell.linux": "/bin/fish",
@@ -125,17 +128,36 @@
     "zenMode.hideTabs": false,
     "favorites.storageFilePath": ".vscode/.favorites.json",
     "C_Cpp.updateChannel": "Insiders",
-    "leetcode.workspaceFolder": "/home/sandy/repos/leetcode",
-    "leetcode.defaultLanguage": "python3",
-    "leetcode.hint.configWebviewMarkdown": false,
-    "leetcode.hint.commentDescription": false,
-    "leetcode.enableSideMode": false,
     "javascript.preferences.useAliasesForRenames": false,
     "typescript.preferences.useAliasesForRenames": false,
-    "diffEditor.renderSideBySide": true,
+    "diffEditor.renderSideBySide": false,
     "gitlens.defaultGravatarsStyle": "mp",
     "gitlens.advanced.telemetry.enabled": false,
     "vim.useSystemClipboard": true,
     "markdown.extension.toc.levels": "2..6",
-    "files.eol": "\n"
+    "files.eol": "\n",
+    "python.languageServer": "Microsoft",
+    "workbench.editor.pinnedTabSizing": "compact",
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "type": "node",
+                "request": "launch",
+                "name": "Launch Current",
+                "envFile": "${workspaceFolder}/.env",
+                "args": [],
+                "program": "${workspaceFolder}/src/server.js"
+            },
+            {
+                "type": "node",
+                "request": "launch",
+                "name": "Launch TypeScript",
+                "envFile": "${workspaceFolder}/.env",
+                "args": [],
+                "program": "${workspaceFolder}/src/server.ts"
+            }
+        ]
+    },
+    "workbench.colorTheme": "Default Light+"
 }
