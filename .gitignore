@@ -19,6 +19,7 @@
 !.screenlayout/
 !.emoji_list
 
+!.config/fontconfig/
 !.config/ranger/
 !.config/sxhkd/
 !.config/alacritty/
