@@ -26,6 +26,5 @@ set -x FZF_DEFAULT_OPTS '--reverse --info=inline'
 
 # start x
 if status is-login
-    exec startx -- -keeptty
+  exec startx -- -keeptty
 end
-

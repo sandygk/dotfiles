@@ -10,23 +10,25 @@
 	 	"body": [
 			"import React from 'react';",
 			"",
-			"const  ${1:componentName}: React.FC = () => {",
+			"/** Props for ${1:componentName}*/",
+			"export interface ${1:componentName}Props {}",
+			"",
+			"/** */",
+			"const  ${1:componentName}: React.FC<${1:componentName}Props> = () => {",
 			"  return <>Hi from ${1:componentName}</>",
 			"};",
 			"",
 			"export default ${1:componentName};",
 	 	],
-	 	"description": "Creates a functitional component"
+	 	"description": "Functional component"
 	},
 
 	"TSDoc documentation": {
 		"prefix": "tsd",
 		"body": [
-		 "/**",
-		 " * $0",
-		 " **/",
+		 "/** $0 */",
 		],
-		"description": "Add TSDoc documentation"
+		"description": "TSDoc documentation"
 	},
 
 	"Disable ESLint": {

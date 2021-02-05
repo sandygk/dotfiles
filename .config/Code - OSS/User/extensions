@@ -1,5 +1,3 @@
-apollographql.vscode-apollo
-bmalehorn.vscode-fish
 dbaeumer.vscode-eslint
 donjayamanne.githistory
 eamodio.gitlens
@@ -7,11 +5,10 @@ esbenp.prettier-vscode
 johnpapa.vscode-peacock
 jpoissonnier.vscode-styled-components
 kisstkondoros.vscode-gutter-preview
+llvm-vs-code-extensions.vscode-clangd
 mhutchie.git-graph
 mikestead.dotenv
-ms-python.python
 msjsdiag.debugger-for-chrome
 naumovs.color-highlight
 PKief.material-icon-theme
 streetsidesoftware.code-spell-checker
-yzhang.markdown-all-in-one

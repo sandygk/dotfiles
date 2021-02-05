@@ -38,7 +38,7 @@ rclone mount remote: ~/sync &
 xfsettingsd &
 
 # set theme
-set_theme --dark
+set_theme --light
 
 # Start status bar
 status --loop &

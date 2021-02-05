@@ -1,0 +1,4 @@
+#!/bin/bash
+
+xsetwacom set "Wacom Intuos PT S Pen stylus" MapToOutput 1920x1080+0+0
+xsetwacom set "Wacom Intuos PT S Pen eraser" MapToOutput 1920x1080+0+0

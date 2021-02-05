@@ -1,8 +1,8 @@
 # APPS
 
 # launch apps
-{_, shift +} super + ctrl + {Return,space,b,c,f,g,k,m,a,p,e}
-  {_, sudo} {$TERM,google-chrome-stable,google-chrome-stable,code,firefox,gimp,krita,arandr,pavucontrol,pinta,pcmanfm}
+{_, shift +} super + ctrl + {Return,space,b,c,f,g,k,m,a,p,i,e}
+  {_, sudo} {$TERM,google-chrome-stable,google-chrome-stable,code,firefox,gimp,krita,arandr,pavucontrol,pinta,PureRef,pcmanfm}
 
 # launch terminal apps
 {_, shift +} super + ctrl + {v,r}
@@ -61,6 +61,8 @@ Print + alt
 # screen brightness up/down
 XF86MonBrightness{Up,Down}
     sudo xbacklight -{inc,dec} 5
+super + XF86Audio{Raise,Lower}Volume
+    sudo xbacklight -{inc,dec} 5
 
 # volume up/down
 XF86Audio{Raise,Lower}Volume
@@ -70,6 +72,11 @@ XF86Audio{Raise,Lower}Volume
 XF86AudioMute
   pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+# media
+XF86Audio{Prev,Play,Next}
+  playerctl {previous,play-pause,next}
+
 # power
 super + ctrl + alt {p,r,s,h,l,q}
   {poweroff,reboot,systemctl suspend,systemctl hibernate,xset s activate,pkill Xorg}
+

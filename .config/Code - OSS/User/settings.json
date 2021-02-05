@@ -130,7 +130,7 @@
     "C_Cpp.updateChannel": "Insiders",
     "javascript.preferences.useAliasesForRenames": false,
     "typescript.preferences.useAliasesForRenames": false,
-    "diffEditor.renderSideBySide": false,
+    "diffEditor.renderSideBySide": true,
     "gitlens.defaultGravatarsStyle": "mp",
     "gitlens.advanced.telemetry.enabled": false,
     "vim.useSystemClipboard": true,
