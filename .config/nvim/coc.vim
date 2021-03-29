@@ -1,6 +1,5 @@
 " prettier command for coc
 let g:coc_global_extensions = [
-  \ 'coc-snippets',
   \ 'coc-prettier',
   \ 'coc-tsserver',
   \ 'coc-eslint',
@@ -8,7 +7,6 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-json',
   \ 'coc-actions',
-  \ 'coc-python',
   \ 'coc-sh',
   \ ]
 

@@ -1,6 +1,5 @@
 {
     "workbench.startupEditor": "none",
-    "window.zoomLevel": 1,
     "files.autoSave": "onFocusChange",
     "editor.tabSize": 2,
     "references.preferredLocation": "view",
@@ -27,6 +26,8 @@
         "hardcode",
         "hardcoded",
         "humanlike",
+        "prebuild",
+        "prestart",
         "skus",
         "tenantid"
     ],
@@ -123,7 +124,6 @@
     "turboConsoleLog.quote": "'",
     "polacode.transparentBackground": true,
     "polacode.target": "snippet",
-    "workbench.activityBar.visible": true,
     "workbench.editor.showTabs": true,
     "zenMode.hideTabs": false,
     "favorites.storageFilePath": ".vscode/.favorites.json",
@@ -159,5 +159,7 @@
             }
         ]
     },
-    "workbench.colorTheme": "Default Light+"
+    "workbench.colorTheme": "Default Dark+",
+    "window.zoomLevel": 2,
+    "editor.detectIndentation": false
 }

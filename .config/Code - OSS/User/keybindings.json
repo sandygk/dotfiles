@@ -60,15 +60,6 @@
     "when": "editorTextFocus && editorLangId == 'c'"
   },
   {
-    "key": "ctrl+shift+w",
-    "command": "-workbench.action.closeWindow"
-  },
-  {
-    "key": "ctrl+w",
-    "command": "-workbench.action.closeWindow",
-    "when": "!editorIsOpen && !multipleEditorGroups"
-  },
-  {
     "key": "ctrl+k e",
     "command": "-workbench.files.action.focusOpenEditorsView",
     "when": "workbench.explorer.openEditorsView.active"
@@ -1198,5 +1189,9 @@
     "key": "ctrl+k shift+enter",
     "command": "-workbench.action.unpinEditor",
     "when": "config.workbench.editor.showTabs && editorSticky"
+  },
+  {
+    "key": "ctrl+shift+w",
+    "command": "-workbench.action.closeWindow"
   }
 ]

@@ -17,7 +17,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'dag/vim-fish'
 
   " intellisense
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " fzf
   Plug 'junegunn/fzf.vim'
@@ -52,7 +52,7 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 map <C-e> :NERDTreeToggle<CR>
 
 " Coc configuration
-source $HOME/.config/nvim/coc.vim
+"source $HOME/.config/nvim/coc.vim
 
 " Open NERDTree automatically when vim starts up on opening a directory
 autocmd StdinReadPre * let s:std_in=1

@@ -31,9 +31,6 @@ flameshot &
 #xss-lock slock & # start slock as a locker when the screensaver is triggered
 #slock & # run locker on start
 
-# sync folders
-rclone mount remote: ~/sync &
-
 # start daemon to switch gtk theme on the fly
 xfsettingsd &
 

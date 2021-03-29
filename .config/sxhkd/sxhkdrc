@@ -1,8 +1,8 @@
 # APPS
 
 # launch apps
-{_, shift +} super + ctrl + {Return,space,b,c,f,g,k,m,a,p,i,e}
-  {_, sudo} {$TERM,google-chrome-stable,google-chrome-stable,code,firefox,gimp,krita,arandr,pavucontrol,pinta,PureRef,pcmanfm}
+{_, shift +} super + ctrl + {Return,space,b,c,f,g,k,m,a,p,i,e,j}
+  {_, sudo} {$TERM,google-chrome-stable,google-chrome-stable,code,firefox,gimp,krita,arandr,pavucontrol,pinta,PureRef,pcmanfm,joplin-desktop}
 
 # launch terminal apps
 {_, shift +} super + ctrl + {v,r}
@@ -11,7 +11,7 @@
 # teams
 super + ctrl + t
   teams
-  #google-crome-stable --app='https://teams.microsoft.com'
+  google-chrome-stable --app='https://teams.microsoft.com'
 
 # cracking the coding interview
 super + ctrl + i
@@ -33,8 +33,8 @@ super + alt + t ; {d,l}
   set_theme_all {--dark,--light}
 
 # screen layout
-super + alt + m ; {l,w,t}
-  ~/.screenlayout/{laptop,work,tv}.sh
+super + alt + m ; {l,t}
+  ~/.screenlayout/{laptop,tv-laptop}.sh
 
 # open projecs
 super + alt + p ; {p,l,g}

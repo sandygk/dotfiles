@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 # add to PATH
-set -x PATH $PATH ~/bin ~/.npm/bin
+set -x PATH $PATH ~/bin ~/.npm/bin ~/.local/bin
 
 # abbreviations and aliases
 for f in ~/.config/fish/abbreviations/*
