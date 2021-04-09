@@ -8,4 +8,9 @@ notifications='[ $(pidof dunst) ] && echo "not: on" || echo "not: off"'
 audio='[ "$(eval $mute)" == true ] && echo "vol: mute" || echo "vol: $(eval $volume)%"'
 battery='echo "bat: $(eval "cat /sys/class/power_supply/BAT0/capacity")%"'
 
-echo "  $(eval $notifications)  | $(eval $audio)  |  $(eval $battery)  |  $(eval $date)  |  $(eval $time)  "
+if [ "$(eval $battery)"  == "bat: %" ]
+then
+   echo " $(eval $notifications)  | $(eval $audio)  |  $(eval $date)  |  $(eval $time)  "
+else
+   echo " $(eval $notifications)  | $(eval $audio)  |  $(eval $battery)  |  $(eval $date)  |  $(eval $time)  "
+fi
