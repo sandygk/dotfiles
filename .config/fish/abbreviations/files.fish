@@ -12,14 +12,14 @@ abbr -g efp  '$EDITOR ~/.config/fish/functions/fish_prompt.fish'
 abbr -g efmp  '$EDITOR ~/.config/fish/functions/fish_mode_prompt.fish'
 abbr -g efaf '$EDITOR ~/.config/fish/abbreviations/files.fish'
 abbr -g efad '$EDITOR ~/.config/fish/abbreviations/directories.fish'
-abbr -g efa  'edit_file_in_dir ~/.config/fish/abbreviations'
-abbr -g eff 'edit_file_in_dir ~/.config/fish/functions'
+abbr -g efa  'open_file_in_dir ~/.config/fish/abbreviations'
+abbr -g eff 'open_file_in_dir ~/.config/fish/functions'
 
 # bash
 abbr -g ebc '$EDITOR ~/.bashrc'
 abbr -g eba '$EDITOR ~/.bash_aliases'
 abbr -g ebp '$EDITOR ~/.bash_profile'
-abbr -g ebs 'edit_file_in_dir ~/bin'
+abbr -g ebs 'open_file_in_dir ~/bin'
 
 # configs
 abbr -g erc '$EDITOR ~/.config/ranger/rc.conf'
@@ -35,10 +35,10 @@ abbr -g evc '$EDITOR ~/.config/nvim/coc.vim'
 abbr -g evp '$EDITOR ~/.config/nvim/plugins.vim'
 
 # scripts
-abbr -g eb 'edit_file_in_dir ~/bin'
+abbr -g eb 'open_file_in_dir ~/bin'
 
 # notes
-abbr -g ewt '$EDITOR ~/notes/todos/work'
-abbr -g ept '$EDITOR ~/notes/todos/personal'
-abbr -g etb '$EDITOR ~/notes/todos/backlog'
-abbr -g esa '$EDITOR ~/notes/ge/std-agenda'
+abbr -g ewt '$EDITOR ~/todos/work.txt'
+abbr -g ept '$EDITOR ~/todos/personal.txt'
+abbr -g etb '$EDITOR ~/todos/backlog.txt'
+abbr -g esa '$EDITOR ~/notes/ge/std-agenda.txt'

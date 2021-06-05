@@ -17,7 +17,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'dag/vim-fish'
 
   " intellisense
-  "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " fzf
   Plug 'junegunn/fzf.vim'
@@ -43,7 +43,7 @@ map <A-p> :GFiles<CR>
 map <C-f> :Rg<space>
 
 " set fzf layout
-let g:fzf_layout = { 'down': '~25%' }
+let g:fzf_layout = { 'down': '~50%' }
 
 " ignore node_modules by using ag
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'

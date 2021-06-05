@@ -11,7 +11,7 @@ function nvm --argument-names cmd v --description "Node version manager"
 
     switch "$cmd"
         case -v --version
-            echo "nvm, version 2.0.1"
+            echo "nvm, version 2.2.2"
         case "" -h --help
             echo "Usage: nvm install <version>    Download and activate the specified Node version"
             echo "       nvm install              Install version from nearest .nvmrc file"
@@ -29,7 +29,7 @@ function nvm --argument-names cmd v --description "Node version manager"
             echo "       nvm_mirror               Set mirror for Node binaries"
             echo "       nvm_default_version      Set the default version for new shells"
         case install
-            _nvm_index_update $nvm_mirror/index.tab $nvm_data/.index || return
+            _nvm_index_update $nvm_mirror $nvm_data/.index || return
 
             string match --entire --regex -- (_nvm_version_match $v) <$nvm_data/.index | read v alias
 
@@ -62,6 +62,10 @@ function nvm --argument-names cmd v --description "Node version manager"
                         set arch x86
                     case x86_64
                         set arch x64
+                    case arm64
+                        if test "$os" = darwin
+                            set arch x64
+                        end
                     case armv6 armv6l
                         set arch armv6l
                     case armv7 armv7l
@@ -141,7 +145,7 @@ function nvm --argument-names cmd v --description "Node version manager"
         case ls list
             _nvm_list | _nvm_list_format (_nvm_current) $argv[2]
         case lsr {ls,list}-remote
-            _nvm_index_update $nvm_mirror/index.tab $nvm_data/.index || return
+            _nvm_index_update $nvm_mirror $nvm_data/.index || return
             _nvm_list | command awk '
                 FILENAME == "-" && (is_local[$1] = FNR == NR) { next } {
                     print $0 (is_local[$1] ? " ✓" : "")
@@ -167,18 +171,17 @@ function _nvm_version_match --argument-names v
         string lower '\b'$v'(?:/\w+)?$'
 end
 
-function _nvm_list_format --argument-names current filter
-    command awk -v current="$current" -v filter="$filter" '
-        $0 ~ filter {
-            len = i++
+function _nvm_list_format --argument-names current regex
+    command awk -v current="$current" -v regex="$regex" '
+        $0 ~ regex {
+            aliases[versions[i++] = $1] = $2 " " $3
             pad = (n = length($1)) > pad ? n : pad
-            versions[len] = $1
-            aliases[len] = $2 " " $3
         }
         END {
+            if (!i) exit 1
             while (i--)
-                printf((current == versions[i] ? " ▶ " : "   ") "%"pad"s %s\n", versions[i], aliases[i])
-            exit (len == 0)
+                printf((current == versions[i] ? " ▶ " : "   ") "%"pad"s %s\n",
+                    versions[i], aliases[versions[i]])
         }
     '
 end

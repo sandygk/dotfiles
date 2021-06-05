@@ -40,5 +40,9 @@ set_theme --light
 # Start status bar
 status --loop &
 
+# set key repeat rate: first delay 280 milisecond, then 40 per sec
+xset r rate 280 40
+
 # window manager
 awesome
+#bspwm

@@ -37,6 +37,9 @@
 # flameshot
 !.config/flameshot/
 
+# krita
+!.config/kritarc
+
 # cheat
 !.config/cheat/
 .config/cheat/cheatsheets/community

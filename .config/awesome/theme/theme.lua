@@ -27,11 +27,11 @@ theme.fg_focus      = theme.fg_normal
 theme.fg_urgent     = theme.fg_normal
 theme.fg_minimize   = theme.fg_normal
 
-theme.border_normal = "#1b1f20" 
+theme.border_normal = "#1b1f20"
 theme.border_focus  = theme.bg_focus
 theme.border_marked = theme.border_normal
 
-theme.wallpaper_color = theme.bg_normal 
+theme.wallpaper_color = "#ffffff"
 
 -- Generate taglist squares
 local taglist_square_size = dpi(4)
@@ -47,7 +47,7 @@ theme.menu_submenu_icon = theme_path.."images/submenu.png"
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
 
--- Awesome icons 
+-- Awesome icons
 theme.layout_floating  = theme_path.."images/floating.png"
 theme.layout_max = theme_path.."images/max.png"
 theme.layout_tile = theme_path.."images/tile.png"

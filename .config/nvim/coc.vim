@@ -11,10 +11,11 @@ let g:coc_global_extensions = [
   \ ]
 
 " Go to definition
-map <F12> <Plug>(coc-definition)
+nmap <F12> <Plug>(coc-definition)
+nmap <leader>d <Plug>(coc-definition)
 
 " Rename symbol
-map <F2> <Plug>(coc-rename)
+nmap <F2> <Plug>(coc-rename)
 
 " Run Prettier on save
 :autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx,*.json :CocCommand prettier.formatFile

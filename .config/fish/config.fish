@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 # add to PATH
-set -x PATH $PATH ~/bin ~/.npm/bin ~/.local/bin
+set -x PATH $PATH ~/bin ~/.npm/bin ~/.local/bin /var/lib/snapd/snap/bin/ ~/.local/share/gem/ruby/3.0.0/bin
 
 # abbreviations and aliases
 for f in ~/.config/fish/abbreviations/*

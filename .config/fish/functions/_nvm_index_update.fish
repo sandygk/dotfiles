@@ -1,5 +1,5 @@
 function _nvm_index_update --argument-names mirror index
-    command curl --location --silent $mirror | command awk -v OFS=\t '
+    command curl --location --silent $mirror/index.tab | command awk -v OFS=\t '
         /v0.9.12/ { exit } # Unsupported
         NR > 1 {
             print $1 (NR == 2  ? " latest" : $10 != "-" ? " lts/" tolower($10) : "")
