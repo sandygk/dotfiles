@@ -1,5 +1,5 @@
 #!/bin/fish
 
 killport 4000
-cd ~/repos/graphiti
+cd ~/repos/ge/graphiti
 npm run watch

@@ -1,3 +1,5 @@
 set page-padding 0
 map J zoom in
 map K zoom out
+map b toggle_statusbar
+map <F11> toggle_statusbar

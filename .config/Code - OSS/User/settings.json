@@ -28,6 +28,7 @@
         "prebuild",
         "prestart",
         "skus",
+        "subcomponents",
         "tcell",
         "tenantid"
     ],
@@ -116,9 +117,8 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.colorDecorators": false,
     "turboConsoleLog.insertEnclosingClass": false,
     "turboConsoleLog.quote": "'",
@@ -137,7 +137,7 @@
     "files.eol": "\n",
     "python.languageServer": "Microsoft",
     "workbench.editor.pinnedTabSizing": "compact",
-    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorTheme": "Default Light+",
     "files.autoSave": "afterDelay",
     "vim.showMarksInGutter": true,
     "vim.easymotion": true,
@@ -159,6 +159,13 @@
         "showGlobalVariables": false,
         "debugAdapter": "legacy"
     },
-    "editor.formatOnSave": true,
-    "window.zoomLevel": 1
+    "launch": {
+        "configurations": [],
+        "compounds": []
+    },
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "redhat.telemetry.enabled": false,
+    "diffEditor.renderSideBySide": false,
+    "window.zoomLevel": 1,
+    "editor.formatOnSave": true
 }

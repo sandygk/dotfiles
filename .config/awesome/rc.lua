@@ -93,7 +93,7 @@ awful.screen.connect_for_each_screen(
     set_wallpaper(s)
 
     -- Set tags per screen
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }, s, awful.layout.layouts[1])
 
     -- Create layout indicator
     s.layoutbox = awful.widget.layoutbox(s)
@@ -214,7 +214,7 @@ globalkeys = gears.table.join(
 for i = 1, #screen.primary.tags do
   globalkeys = gears.table.join(globalkeys,
     -- Select workspace
-    awful.key({ super }, tostring(i),
+    awful.key({ super }, tostring(i%10),
       function()
         local screen = awful.screen.focused( { client = true })
         local tag = screen.tags[i]
@@ -222,7 +222,7 @@ for i = 1, #screen.primary.tags do
       end),
 
     -- Swap workspace
-    awful.key({ super, "Control", "Shift" }, tostring(i),
+    awful.key({ super, "Control", "Shift" }, tostring(i%10),
       function()
         local screen = awful.screen.focused( { client = true })
         local other_tag = screen.tags[i]
@@ -287,7 +287,7 @@ clientkeys = gears.table.join(
 for i = 1, #screen.primary.tags do
     clientkeys = gears.table.join(clientkeys,
       -- Send client to workspace
-      awful.key({ super, "Shift" }, tostring(i),
+      awful.key({ super, "Shift" }, tostring(i%10),
         function(c)
           local tag = c.screen.tags[i]
           c:move_to_tag(tag)

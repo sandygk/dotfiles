@@ -4,6 +4,6 @@ function open_repo
   # - Print only the name of the file followed by a line break
   # - Remove empty lines from the ouput (grep .), this line is generated
   #   by `repos/.`
-  set selection (find ~/repos -maxdepth 1 -printf '%P\n' | grep . | fzf)
+  set selection (find ~/repos -maxdepth 2 -mindepth 2 -printf '%P\n' | grep . | fzf)
   test -n "$selection" && code ~/repos/$selection/
 end

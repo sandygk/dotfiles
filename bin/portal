@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd ~/repos/portal
+cd ~/repos/ge/portal
 npm start
