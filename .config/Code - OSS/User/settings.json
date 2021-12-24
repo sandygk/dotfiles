@@ -176,7 +176,7 @@
     "files.eol": "\n",
     "python.languageServer": "Microsoft",
     "workbench.editor.pinnedTabSizing": "compact",
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "Default Dark+",
     "files.autoSave": "afterDelay",
     "vim.showMarksInGutter": true,
     "vim.easymotion": true,
