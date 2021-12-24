@@ -2,7 +2,7 @@
 
 # launch apps
 {_, shift +} super + ctrl + {Return,space,f,g,c,k,m,a,p,e,s}
-  {_, sudo} {$TERM,brave,firefox,google-chrome-stable,code,krita,arandr,pavucontrol,pinta,pcmanfm,session-desktop}
+  {_, sudo} {$TERM,brave,firefox,google-chrome-stable,code,krita,arandr,pavucontrol,pinta,thunar,session-desktop}
 
 # launch terminal apps
 {_, shift +} super + ctrl + {v,r}

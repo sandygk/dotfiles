@@ -6,7 +6,7 @@ let mapleader=" "
 colorscheme theme
 
 " Autosave
-":au FocusLost * :w
+:au FocusLost * :w
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e

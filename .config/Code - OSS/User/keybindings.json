@@ -1204,5 +1204,37 @@
     "key": "f12",
     "command": "-goToNextReference",
     "when": "inReferenceSearchEditor || referenceSearchVisible"
+  },
+  {
+    "key": "ctrl+shift+i",
+    "command": "-editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "-workbench.action.files.openFileFolder",
+    "when": "isMacNative && openFolderWorkspaceSupport"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "-workbench.action.files.openLocalFile",
+    "when": "remoteFileDialogVisible"
+  },
+  {
+    "key": "ctrl+shift+i",
+    "command": "bookmarks.toggleLabeled"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "bookmarks.listFromAllFiles"
+  },
+  {
+    "key": "ctrl+alt+c",
+    "command": "-search.action.copyPath",
+    "when": "fileMatchOrFolderMatchWithResourceFocus"
+  },
+  {
+    "key": "ctrl+alt+c",
+    "command": "bookmarks.clearFromAllFiles"
   }
 ]

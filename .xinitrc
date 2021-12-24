@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# source the scripts in /etc/X11/xinit/xinitrc.d
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+ for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+  [ -x "$f" ] && . "$f"
+ done
+ unset f
+fi
+
 # key bindings
 sxhkd -t 10 &
 auto_restart_sxhkd &
@@ -41,8 +49,13 @@ set_theme --light
 status --loop &
 
 # set key repeat rate: first delay 280 milisecond, then 40 per sec
-xset r rate 280 40
+xset r rate 280 40 &
+
+# map the Compose key to right alt
+setxkbmap -option compose:ralt &
 
 # window manager
-awesome
-#bspwm
+#Prepending exec will replace the script process with the window manager process,
+#so that X does not exit even if this process forks to the background.
+exec awesome
+#exec bspwm

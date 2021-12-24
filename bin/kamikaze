@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/repos/personal/kamikaze
+yarn start
