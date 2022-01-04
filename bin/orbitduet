@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pkill -USR1 -x pico8
+pico8 -windowed 1 -run "~/.lexaloffle/pico-8/carts/mine/orbit-duet.p8" &

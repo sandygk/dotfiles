@@ -1,6 +1,6 @@
 {
     "workbench.startupEditor": "none",
-    "editor.tabSize": 2,
+    "editor.tabSize": 1,
     "references.preferredLocation": "view",
     "editor.gotoLocation.multiple": "goto",
     "jestrunner.jestCommand": "npm run test --",
@@ -176,8 +176,7 @@
     "files.eol": "\n",
     "python.languageServer": "Microsoft",
     "workbench.editor.pinnedTabSizing": "compact",
-    "workbench.colorTheme": "Default Dark+",
-    "files.autoSave": "afterDelay",
+    "workbench.colorTheme": "Default Light+",
     "vim.showMarksInGutter": true,
     "vim.easymotion": true,
     "vim.leader": "<space>",
@@ -207,5 +206,8 @@
     "bookmarks.sideBar.expanded": true,
     "editor.formatOnSave": true,
     "diffEditor.renderSideBySide": false,
-    "window.zoomLevel": 1
+    "window.zoomLevel": 3,
+    "security.workspace.trust.untrustedFiles": "open",
+    "pico8.executablePath": "pico8",
+    "files.autoSave": "onFocusChange"
 }
