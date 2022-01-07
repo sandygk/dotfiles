@@ -2,6 +2,8 @@
 # VERSION: 3.0
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_k:open
+SETUVAR _fisher_edc_2F_bass_files:/home/sandy/\x2econfig/fish/functions/__bass\x2epy\x1e/home/sandy/\x2econfig/fish/functions/bass\x2efish
+SETUVAR _fisher_plugins:edc/bass
 SETUVAR fish_color_autosuggestion:555
 SETUVAR fish_color_cancel:normal
 SETUVAR fish_color_command:005fd7

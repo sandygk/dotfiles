@@ -206,7 +206,7 @@
     "bookmarks.sideBar.expanded": true,
     "editor.formatOnSave": true,
     "diffEditor.renderSideBySide": false,
-    "window.zoomLevel": 3,
+    "window.zoomLevel": 2,
     "security.workspace.trust.untrustedFiles": "open",
     "pico8.executablePath": "pico8",
     "files.autoSave": "onFocusChange"

@@ -19,7 +19,7 @@ super + ctrl + i
 
 # work todos
 super + ctrl + w
-  $TERM -e fish -c '$EDITOR ~/todos/work.txt'
+  $TERM -e fish -c '$EDITOR ~/repos/personal/todos/work.txt'
 
 # SELECTIONS
 

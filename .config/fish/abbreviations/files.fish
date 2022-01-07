@@ -38,7 +38,5 @@ abbr -g evp '$EDITOR ~/.config/nvim/plugins.vim'
 abbr -g eb 'open_file_in_dir ~/bin'
 
 # notes
-abbr -g ewt '$EDITOR ~/todos/work.txt'
-abbr -g ept '$EDITOR ~/todos/personal.txt'
-abbr -g etb '$EDITOR ~/todos/backlog.txt'
-abbr -g esa '$EDITOR ~/notes/ge/std-agenda.txt'
+abbr -g ewt '$EDITOR ~/repos/personal/todos/work.txt'
+abbr -g ept '$EDITOR ~/repos/personal/todos/personal.txt'

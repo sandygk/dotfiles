@@ -30,6 +30,7 @@
 !.config/fish/
 !.config/zathura/
 !.config/kak/
+!.config/libinput-gestures.conf
 
 # XDG user directories
 !.config/user-dirs.dirs
