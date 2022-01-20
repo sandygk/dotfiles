@@ -1,6 +1,5 @@
 {
     "workbench.startupEditor": "none",
-    "editor.tabSize": 1,
     "references.preferredLocation": "view",
     "editor.gotoLocation.multiple": "goto",
     "jestrunner.jestCommand": "npm run test --",
@@ -204,10 +203,11 @@
     "redhat.telemetry.enabled": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "bookmarks.sideBar.expanded": true,
-    "editor.formatOnSave": true,
     "diffEditor.renderSideBySide": false,
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 1,
     "security.workspace.trust.untrustedFiles": "open",
     "pico8.executablePath": "pico8",
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
 }

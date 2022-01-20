@@ -143,27 +143,27 @@ awful.screen.connect_for_each_screen(
 globalkeys = gears.table.join(
   -- Change next/previous workspace
   awful.key({ super }, "h",  awful.tag.viewprev),
+  awful.key({ super }, "Left", awful.tag.viewprev),
   awful.key({ super }, "l", awful.tag.viewnext),
-  awful.key({ super, "Shift", "Control" }, "l",
-    function()
-      swap_tag(tag_by_relative_index(1))
-    end
-  ),
-  awful.key({ super, "Shift", "Control" }, "h",
-    function()
-      swap_tag(tag_by_relative_index(-1))
-    end
-  ),
+  awful.key({ super }, "Right",  awful.tag.viewnext),
+  awful.key({ super, "Shift", "Control" }, "l", function() swap_tag(tag_by_relative_index(1)) end),
+  awful.key({ super, "Shift", "Control" }, "Right", function() swap_tag(tag_by_relative_index(1)) end),
+  awful.key({ super, "Shift", "Control" }, "h", function() swap_tag(tag_by_relative_index(-1)) end),
+  awful.key({ super, "Shift", "Control" }, "Left", function() swap_tag(tag_by_relative_index(-1)) end),
 
   -- Focus next/previous client
   awful.key({ super }, "j", function() awful.client.focus.byidx( 1) end),
+  awful.key({ super }, "Down", function() awful.client.focus.byidx( 1) end),
   awful.key({ super }, "k", function() awful.client.focus.byidx(-1) end),
+  awful.key({ super }, "Up", function() awful.client.focus.byidx(-1) end),
   awful.key({ super          }, "Tab", function() awful.client.focus.byidx( 1) end),
   awful.key({ super, "Shift" }, "Tab", function() awful.client.focus.byidx(-1) end),
 
   -- Swapt with next/previous client
   awful.key({ super, "Shift" }, "j", function() awful.client.swap.byidx( 1) end),
+  awful.key({ super, "Shift" }, "Up", function() awful.client.swap.byidx( 1) end),
   awful.key({ super, "Shift" }, "k", function() awful.client.swap.byidx(-1) end),
+  awful.key({ super, "Shift" }, "Down", function() awful.client.swap.byidx(-1) end),
 
   -- Reload/quit awesome
   awful.key({ super }, "r", awesome.restart),
@@ -259,19 +259,13 @@ clientkeys = gears.table.join(
   awful.key({ super }, "Return", function(c) c:swap(awful.client.getmaster()) end),
 
   -- Send client to a next/previus workspace
-  awful.key({ super, "Shift" }, "l",
-    function(c)
-        c:move_to_tag(tag_by_relative_index(1))
-    end),
-
-  awful.key({ super, "Shift" }, "h",
-    function(c)
-        c:move_to_tag(tag_by_relative_index(-1))
-    end),
+  awful.key({ super, "Shift" }, "l", function(c) c:move_to_tag(tag_by_relative_index(1)) end),
+  awful.key({ super, "Shift" }, "Right", function(c) c:move_to_tag(tag_by_relative_index(1)) end),
+  awful.key({ super, "Shift" }, "h", function(c) c:move_to_tag(tag_by_relative_index(-1)) end),
+  awful.key({ super, "Shift" }, "Left", function(c) c:move_to_tag(tag_by_relative_index(-1)) end),
 
   -- Send client to a next/previus screen
-  awful.key({ super, "Shift" }, "n",
-    function(c)
+  awful.key({ super, "Shift" }, "n", function(c)
       c:move_to_screen(c.screen.index + 1)
       awful.screen.focus_relative(-1)
     end),
