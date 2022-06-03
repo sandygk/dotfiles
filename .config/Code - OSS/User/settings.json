@@ -16,6 +16,7 @@
         "architecting",
         "autocompletions",
         "Cheatsheet",
+        "chini",
         "COOLDOWN",
         "downlevel",
         "etag",
@@ -24,6 +25,7 @@
         "hardcoded",
         "humanlike",
         "Lumos",
+        "Miguelito",
         "pixi",
         "prebuild",
         "prestart",
@@ -201,13 +203,14 @@
         "compounds": []
     },
     "redhat.telemetry.enabled": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "bookmarks.sideBar.expanded": true,
     "diffEditor.renderSideBySide": false,
     "window.zoomLevel": 1,
     "security.workspace.trust.untrustedFiles": "open",
     "pico8.executablePath": "pico8",
     "files.autoSave": "onFocusChange",
+    "editor.tabSize": 2,
     "editor.formatOnSave": true,
-    "editor.tabSize": 2
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "cSpell.language": "en,en-US,en-GB"
 }

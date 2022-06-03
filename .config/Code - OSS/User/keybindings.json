@@ -1,20 +1,12 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   {
-    "key": "alt+q k",
-    "command": "workbench.action.closeEditorsToTheLeft"
-  },
-  {
     "key": "alt+q a",
     "command": "workbench.action.closeAllEditors"
   },
   {
     "key": "ctrl+k ctrl+w",
     "command": "-workbench.action.closeAllEditors"
-  },
-  {
-    "key": "alt+a j",
-    "command": "workbench.action.closeEditorsToTheRight"
   },
   {
     "key": "alt+q o",
@@ -1236,5 +1228,10 @@
   {
     "key": "ctrl+alt+c",
     "command": "bookmarks.clearFromAllFiles"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "-extension.simpleVim.scrollDownPage",
+    "when": "editorTextFocus && !extension.simpleVim.insertMode"
   }
 ]

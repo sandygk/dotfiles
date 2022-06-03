@@ -1,5 +1,6 @@
 #!/usr/bin/env fish
 
+abbr -g gc 'git clone'
 abbr -g gca 'git commit -am'
 abbr -g gcb 'git checkout -b'
 abbr -g gps 'git push -u origin HEAD'

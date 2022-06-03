@@ -10,8 +10,8 @@
 
 # teams
 super + ctrl + t
+  brave --app='https://teams.microsoft.com'
   teams
-  google-chrome-stable --app='https://teams.microsoft.com'
 
 # cracking the coding interview
 super + ctrl + i
@@ -19,12 +19,12 @@ super + ctrl + i
 
 # work todos
 super + ctrl + w
-  $TERM -e fish -c '$EDITOR ~/repos/personal/todos/work.txt'
+  $TERM -e fish -c '$EDITOR ~/repos/personal/notes/todos/work.txt'
 
 # SELECTIONS
 
 {_, shift +} super + alt + {l,r,w,s,e,b,n,a}
-  {_, sudo} $TERM -e fish -c '{launcher, open_repo, open_wiki, spell_checker, select_emoji, open_bookmark, open_file_in_dir -r ~/notes/, open_file_in_dir -r ~/bookmarks/}'
+  {_, sudo} $TERM -e fish -c '{launcher, python ~/repos/personal/commands/commands.py, open_wiki, spell_checker, select_emoji, open_bookmark, open_file_in_dir -r ~/notes/, open_file_in_dir -r ~/bookmarks/}'
 
 # SEQUENCES
 

@@ -40,10 +40,6 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-" command to rerun config (I run :nohl because for
-" some reason it highlights the linebreaks)
-map <Leader>r :so $MYVIMRC<CR> :nohl<CR>
-
 " Enable mouse
 set mouse=a
 

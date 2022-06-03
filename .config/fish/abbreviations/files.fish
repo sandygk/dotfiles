@@ -38,5 +38,5 @@ abbr -g evp '$EDITOR ~/.config/nvim/plugins.vim'
 abbr -g eb 'open_file_in_dir ~/bin'
 
 # notes
-abbr -g ewt '$EDITOR ~/repos/personal/todos/work.txt'
-abbr -g ept '$EDITOR ~/repos/personal/todos/personal.txt'
+abbr -g ewt '$EDITOR ~/repos/personal/notes/todos/work.txt'
+abbr -g ept '$EDITOR ~/repos/personal/notes/todos/personal.txt'

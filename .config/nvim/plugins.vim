@@ -16,9 +16,6 @@ call plug#begin('~/.vim/plugged')
   " syntax highlight for fish
   Plug 'dag/vim-fish'
 
-  " intellisense
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
   " fzf
   Plug 'junegunn/fzf.vim'
 
