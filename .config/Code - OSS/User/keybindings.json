@@ -1233,5 +1233,30 @@
     "key": "ctrl+f",
     "command": "-extension.simpleVim.scrollDownPage",
     "when": "editorTextFocus && !extension.simpleVim.insertMode"
+  },
+  {
+    "key": "f5",
+    "command": "-workbench.action.debug.start",
+    "when": "debuggersAvailable && debugState == 'inactive'"
+  },
+  {
+    "key": "ctrl+f5",
+    "command": "workbench.action.debug.run",
+    "when": "debuggersAvailable && debugState != 'initializing'"
+  },
+  {
+    "key": "f5",
+    "command": "workbench.action.debug.start",
+    "when": "debuggersAvailable && debugState == 'inactive'"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "workbench.action.debug.start",
+    "when": "debuggersAvailable && debugState == 'inactive'"
+  },
+  {
+    "key": "f5",
+    "command": "workbench.action.debug.start",
+    "when": "debuggersAvailable && debugState == 'inactive'"
   }
 ]

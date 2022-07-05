@@ -30,6 +30,7 @@
 !.config/fish/
 !.config/zathura/
 !.config/kak/
+!.config/vimium/
 
 # XDG user directories
 !.config/user-dirs.dirs

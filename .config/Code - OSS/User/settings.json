@@ -20,10 +20,12 @@
         "COOLDOWN",
         "downlevel",
         "etag",
+        "Fullscreen",
         "graphiti",
         "hardcode",
         "hardcoded",
         "humanlike",
+        "Keymod",
         "Lumos",
         "Miguelito",
         "pixi",
@@ -157,7 +159,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "editor.colorDecorators": false,
     "turboConsoleLog.insertEnclosingClass": false,
@@ -177,7 +179,6 @@
     "files.eol": "\n",
     "python.languageServer": "Microsoft",
     "workbench.editor.pinnedTabSizing": "compact",
-    "workbench.colorTheme": "Default Light+",
     "vim.showMarksInGutter": true,
     "vim.easymotion": true,
     "vim.leader": "<space>",
@@ -206,11 +207,18 @@
     "bookmarks.sideBar.expanded": true,
     "diffEditor.renderSideBySide": false,
     "window.zoomLevel": 1,
-    "security.workspace.trust.untrustedFiles": "open",
     "pico8.executablePath": "pico8",
     "files.autoSave": "onFocusChange",
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "cSpell.language": "en,en-US,en-GB"
+    "cSpell.language": "en,en-US,en-GB",
+    "editor.autoSurround": "never",
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.colorTheme": "Default Light+",
+    "debug.onTaskErrors": "showErrors"
 }
