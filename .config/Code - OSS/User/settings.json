@@ -206,7 +206,6 @@
     "redhat.telemetry.enabled": false,
     "bookmarks.sideBar.expanded": true,
     "diffEditor.renderSideBySide": false,
-    "window.zoomLevel": 1,
     "pico8.executablePath": "pico8",
     "files.autoSave": "onFocusChange",
     "editor.tabSize": 2,
@@ -220,5 +219,6 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "security.workspace.trust.untrustedFiles": "open",
     "workbench.colorTheme": "Default Light+",
-    "debug.onTaskErrors": "showErrors"
+    "debug.onTaskErrors": "showErrors",
+    "window.zoomLevel": 1
 }

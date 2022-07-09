@@ -2,12 +2,14 @@ env:
   WINIT_X11_SCALE_FACTOR: "1.0"
 
 font:
-  size: 16 
+  size: 16
+  normal:
+    family: 'Droid Sans Mono' #This is the vscode font
 
 window:
   padding:
-    x: 8 
-    y: 8 
+    x: 8
+    y: 8
 
 colors:
   # Default colors
