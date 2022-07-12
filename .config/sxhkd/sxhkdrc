@@ -23,8 +23,8 @@ super + ctrl + w
 
 # SELECTIONS
 
-{_, shift +} super + alt + {l,r,w,s,e,b,n,a}
-  {_, sudo} $TERM -e fish -c '{launcher, python ~/repos/personal/commands/commands.py, open_wiki, spell_checker, select_emoji, open_bookmark, open_file_in_dir -r ~/notes/, open_file_in_dir -r ~/bookmarks/}'
+{_, shift +} super + alt + {l,c,e,r,w,s,semicolon,b,n,a}
+  {_, sudo} $TERM -e fish -c '{launcher, menu code, menu thunar, menu ranger, open_wiki, spell_checker, select_emoji, open_bookmark, open_file_in_dir -r ~/notes/, open_file_in_dir -r ~/bookmarks/}'
 
 # SEQUENCES
 

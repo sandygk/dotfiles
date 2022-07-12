@@ -1,0 +1,57 @@
+#!/bin/python
+
+from subprocess import *
+from os import *
+import sys
+
+
+commands = {}
+
+def open_repo():
+  repos_path = '/home/sandy/repos/'
+
+  def repos_paths(root_path):
+    subdirs = [[f.path, f.name] for f in scandir(root_path) if f.is_dir()]
+    repos = []
+    for dir_path, dir_name in list(subdirs):
+      files = [f.path for f in scandir(dir_path) if f.is_file() or f.name == '.git']
+      if files:
+        repos.append(dir_path)
+      else:
+        repos.extend(repos_paths(dir_path))
+    return repos
+
+  for repo_path in repos_paths(repos_path):
+    repo_sub_path = repo_path[len(repos_path):]
+    commands[repo_sub_path] = ['code', repo_path]
+
+def open_dir(file_manager):
+  dir_paths = [
+    '/home/sandy',
+    '/home/sandy/downloads/',
+    '/home/sandy/bin/',
+    '/home/sandy/repos/',
+    '/home/sandy/repos/ge/',
+    '/home/sandy/repos/personal/',
+    '/home/sandy/temp/',
+    '/home/sandy/documents/',
+    '/home/sandy/.config/',
+    'trash:///',
+  ]
+  for path in dir_paths:
+    commands[path] = [file_manager, path]
+
+mode = sys.argv[1]
+if mode == 'thunar':
+  open_dir('thunar')
+elif mode == 'ranger':
+  open_dir('ranger')
+elif mode == 'code':
+  open_repo()
+else:
+  print("Invalid argument", mode)
+  exit()
+
+selection = run(['fzf'], stdout=PIPE, input='\n'.join(commands), encoding='ascii').stdout
+if selection:
+  Popen(commands[selection[:-1]]).wait()

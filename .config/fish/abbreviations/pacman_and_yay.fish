@@ -1,9 +1,9 @@
 #!/usr/bin/env fish
 
-# Install a package.
+# Updates all the packages in the system and install a package.
 # S: S is for synchronize.
-abbr -g pi 'sudo pacman -S'
-abbr -g yi 'yay -S'
+abbr -g pi 'sudo pacman -Syu'
+abbr -g yi 'yay -Syu'
 
 # Remove a package.
 # R: Remove a package.
@@ -18,19 +18,19 @@ abbr -g pr 'sudo pacman -Rns'
 abbr -g pu 'sudo pacman -Syu'
 abbr -g yu 'yay -Syu'
 
-# Search each package in the sync databases for names or descriptions that match regexp. 
+# Search each package in the sync databases for names or descriptions that match regexp.
 # When you include multiple search terms, only packages with descriptions matching ALL
 # of those terms will be returned. If no argument is given it returns all.
-abbr -g ps 'pacman -Ss'  
+abbr -g ps 'pacman -Ss'
 abbr -g ys 'yay'
 
-# Search each locally-installed package for names or descriptions that match regexp. 
-# When including multiple search terms, only packages with descriptions matching ALL 
+# Search each locally-installed package for names or descriptions that match regexp.
+# When including multiple search terms, only packages with descriptions matching ALL
 # of those terms are returned. If no argument is given it returns all.
-abbr -g pq 'pacman -Qs'  
+abbr -g pq 'pacman -Qs'
 
 # List explicitly installed packages.
-abbr -g ple 'pacman -Qe'  
+abbr -g ple 'pacman -Qe'
 
 # List packages explicitly installed by me.
 abbr -g plm 'comm -23 <(pacman -Qeq | sort) <(pacman -Qgq base base-devel | sort)'
