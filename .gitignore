@@ -31,7 +31,20 @@
 !.config/zathura/
 !.config/kak/
 !.config/vimium/
+
+
+#xfce4 keyboard shortcuts
+!.config/xfce4/
+.config/xfce4/*
+!.config/xfce4/xfconf/
+.config/xfce4/xfconf/*
+!.config/xfce4/xfconf/xfce-perchannel-xml/
+.config/xfce4/xfconf/xfce-perchannel-xml/*
+!.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+
+# Thunar
 !.config/Thunar/
+.config/Thunar/renamerrc
 
 # XDG user directories
 !.config/user-dirs.dirs
