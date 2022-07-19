@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $HOSTNAME == 'ace' ]
+then
+  sudo mkdir /media/storage
+  sudo mkdir /media/backup
+  sudo mkdir /media/extra
+
+  sudo mount /dev/sda2 /media/storage
+  sudo mount /dev/sdb2 /media/backup
+  sudo mount /dev/sdd1 /media/extra
+fi
