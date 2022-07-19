@@ -8,10 +8,9 @@
 {_, shift +} super + ctrl + {v,r}
   {_, sudo} $TERM -e {nvim,ranger}
 
-# teams
-super + ctrl + t
-  brave --app='https://teams.microsoft.com'
-  teams
+# website apps
+super + ctrl + {t, j}
+  brave --app={'https://teams.microsoft.com','http://ace:8096/web/index.html#!/home.html'}
 
 # cracking the coding interview
 super + ctrl + i

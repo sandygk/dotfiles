@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [ $HOSTNAME == 'ace' ]
+then
+  rsync -av --delete /media/data/ /media/backup
+fi
