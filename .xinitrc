@@ -19,9 +19,6 @@ picom &
 # notifications
 dunst &
 
-# start dropbox client
-dropbox &
-
 # flameshot
 flameshot &
 

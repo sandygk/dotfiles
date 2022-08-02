@@ -1,0 +1,163 @@
+#!/bin/python
+
+import os
+import sys
+from datetime import datetime
+import json
+
+def display(text):
+  sys.stdout.write('\r')
+  sys.stdout.write(text)
+  sys.stdout.flush()
+
+def displayPercent(title, percent):
+  sys.stdout.write('\r')
+  sys.stdout.write(title + ": [%-20s] %d%%" % ('='*(percent//5), percent))
+  sys.stdout.flush()
+
+def parseInputDir():
+  global inputDir
+  inputDir = sys.argv[2]
+  if not os.path.exists(inputDir):
+    print(f'input directory: "{inputDir}" doesn\'t exist')
+    exit()
+
+def parseOutputDir():
+  global outputDir
+  outputDir = sys.argv[3]
+  if not os.path.exists(outputDir):
+    print(f'outputDir directory: "{outputDir}" doesn\'t exist')
+    exit()
+
+total = 0
+def countFiles():
+  parseInputDir()
+  global total
+  for _, _, files in os.walk(inputDir):
+    for _ in files:
+      total += 1
+      display(f'counting files: {total}')
+  print()
+
+def getExtension(file):
+  return os.path.splitext(file)[-1].lower()
+
+def listExtensions():
+  validateArgCount(3, action)
+  parseInputDir()
+  countFiles()
+  extensions = set()
+  count = 0
+  for _, _, files in os.walk(inputDir):
+    for file in files:
+      count += 1
+      displayPercent('checking extensions', int((count/total)*100))
+      extension = getExtension(file)
+      extensions.add(extension)
+  print()
+  print(sorted([*extensions]))
+
+def organizeDirByDateFromJson():
+  validateArgCount(4, action)
+  parseInputDir()
+  parseOutputDir()
+  countFiles()
+  count = 0
+  for dir, _, files in os.walk(inputDir):
+    for file in files:
+      count += 1
+      displayPercent('setting date from JSON', int((count/total)*100))
+      filePath = os.path.join(dir, file)
+      extension = getExtension(filePath)
+      jsonFilePath = filePath + '.json'
+      if extension == '.mp':
+        jsonFilePath = filePath + '.jpg.json'
+      elif filePath.endswith('-edited.jpg'):
+        jsonFilePath = filePath[:-11] + '.jpg.json'
+      elif filePath.endswith('(1).jpg'):
+        jsonFilePath = filePath[:-7] + '.jpg(1).json'
+      elif filePath.endswith('.MP4'):
+        jsonFilePath = filePath[:-4] + '.jpg.json'
+      if os.path.exists(jsonFilePath):
+        jsonFile = open(jsonFilePath, 'r')
+        jsonObject = json.load(jsonFile)
+        jsonFile.close()
+        time = int(jsonObject['photoTakenTime']['timestamp'])
+        os.utime(filePath, (time, time))
+        organizeFileByDate(filePath)
+
+def organizeDirByDate():
+  validateArgCount(4, action)
+  parseInputDir()
+  parseOutputDir()
+  countFiles()
+  count = 0
+  for dir, _, files in os.walk(inputDir):
+    for file in files:
+      count += 1
+      displayPercent('organizing by date', int((count/total)*100))
+      filePath = os.path.join(dir, file)
+      organizeFileByDate(filePath)
+
+def organizeFileByDate(filePath):
+    mtime = os.stat(filePath).st_mtime
+    date = datetime.fromtimestamp(mtime)
+    dirName = str(date.year)
+    fileName = f'{date.year}-{date.month:02d}-{date.day:02d}_{date.hour:02d}-{date.minute:02d}-{date.second:02d}'
+    extension = getExtension(filePath)
+    dirPath = os.path.join(outputDir, dirName)
+    newFilePath = os.path.join(dirPath, fileName) + extension
+    if not os.path.exists(dirPath):
+      os.makedirs(dirPath)
+    fileVersion = 1
+    while os.path.exists(newFilePath):
+      fileVersion += 1
+      newFilePath = os.path.join(dirPath, f'{fileName}({fileVersion}){extension}')
+    os.rename(filePath, newFilePath)
+
+HELP = 'help'
+LIST_EXTENSIONS = 'list-extensions'
+ORGANIZE_BY_DATE = 'organize-by-date'
+SET_DATE_FROM_JSON = 'organize-by-date-from-json'
+
+def printHelp():
+  print('Usage:')
+  print(f'  photo_manager {HELP}')
+  print(f'    Displays help.')
+  print()
+  print(f'  photo_manager {LIST_EXTENSIONS} <input-dir>')
+  print(f'    Lists all the extensions inside <input-dir> recursively.')
+  print()
+  print(f'  photo_manager {SET_DATE_FROM_JSON} <input-dir>')
+  print(f'    Sets the modification date for each file inside <input-dir> from a .json with the')
+  print(f'    same name if present. This is a utility tool to set the dates from file downloaded')
+  print(f'    from google takeout which come with the wrong modification date.')
+  print()
+  print(f'  photo_manager {ORGANIZE_BY_DATE} <input-dir> <output-dir>')
+  print(f'    Groups all files in input by year, renames them by date, and move them to <output-dir>.')
+
+def validateArgCount(count, action):
+  if len(sys.argv) != count:
+    print(f"Invalid number of arguments for action '{action}'.")
+    printHelp()
+    exit()
+
+if len(sys.argv) == 1:
+  print("Invalid usage, 'action' argument missing.")
+  printHelp()
+  exit()
+
+inputDir = None
+outputDir = None
+action = sys.argv[1]
+if action == HELP:
+  printHelp()
+elif action == LIST_EXTENSIONS:
+  listExtensions()
+elif action == SET_DATE_FROM_JSON:
+  organizeDirByDateFromJson()
+elif action == ORGANIZE_BY_DATE:
+  organizeDirByDate()
+else:
+  print(f"Invalid usage, unsupported action: '{action}'.")
+  printHelp()

@@ -204,6 +204,7 @@
     },
     "redhat.telemetry.enabled": false,
     "bookmarks.sideBar.expanded": true,
+    "diffEditor.renderSideBySide": false,
     "pico8.executablePath": "pico8",
     "files.autoSave": "onFocusChange",
     "editor.tabSize": 2,
@@ -214,14 +215,16 @@
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
+    "diffEditor.ignoreTrimWhitespace": false,
     "security.workspace.trust.untrustedFiles": "open",
     "workbench.colorTheme": "Default Dark+",
     "debug.onTaskErrors": "showErrors",
-    "diffEditor.ignoreTrimWhitespace": false,
-    "diffEditor.renderSideBySide": false,
-    "vim.foldfix": true,
-    "vim.highlightedyank.enable": true,
-    "vim.history": 200,
-    "vim.sneakUseIgnorecaseAndSmartcase": true,
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": true
+    },
+    "terminal.integrated.scrollback": 10000
 }

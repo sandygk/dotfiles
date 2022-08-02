@@ -31,9 +31,10 @@
 !.config/zathura/
 !.config/kak/
 !.config/vimium/
+!.config/xfce4/
 
 
-#xfce4 keyboard shortcuts
+# xfce4 keyboard shortcuts
 !.config/xfce4/
 .config/xfce4/*
 !.config/xfce4/xfconf/
@@ -45,6 +46,7 @@
 # Thunar
 !.config/Thunar/
 .config/Thunar/renamerrc
+.config/Thunar/accels.scm
 
 # XDG user directories
 !.config/user-dirs.dirs
