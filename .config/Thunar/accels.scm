@@ -35,6 +35,7 @@
 ; (gtk_accel_path "<Actions>/ThunarWindow/zoom-out-alt" "<Primary>minus")
 (gtk_accel_path "<Actions>/ThunarActions/uca-action-1658187036027807-1" "<Primary>f")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/select-by-pattern" "<Primary>s")
+; (gtk_accel_path "<Actions>/ThunarBookmarks/2a348584f8f02f4ce2a918ae2a3f0757" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/create-document" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/close-tab" "<Primary>w")
 ; (gtk_accel_path "<Actions>/ThunarWindow/view-side-pane-tree" "<Primary>e")

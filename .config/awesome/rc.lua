@@ -53,9 +53,6 @@ function tag_by_relative_index(index)
   return tag
 end
 
--- Create status widget
-statusbox = awful.widget.watch("status", 0.5)
-
 -- Mouse bindings tag list
 local taglist_buttons = gears.table.join(
   -- Select workspace with click
@@ -85,6 +82,12 @@ local tasklist_buttons = gears.table.join(
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
+
+-- Create status widget
+local statusbox = awful.widget.watch("status", 0.5)
+
+-- Create systray
+local systray = wibox.widget.systray()
 
 -- Initialize each screen
 awful.screen.connect_for_each_screen(
@@ -133,6 +136,7 @@ awful.screen.connect_for_each_screen(
       { -- Right widgets
         layout = wibox.layout.fixed.horizontal,
         statusbox,
+        systray,
         s.layoutbox,
       },
     }
@@ -330,7 +334,7 @@ awful.rules.rules = {
       placement = awful.placement.centered,
       size_hints_honor = false
     }
-  },
+  }
 }
 
 -- Apply theme on focus/unfocus
