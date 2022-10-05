@@ -1,8 +1,8 @@
 # APPS
 
 # launch apps
-{_, shift +} super + ctrl + {Return,space,f,g,c,k,d,m,a,p,e}
-  {_, sudo} {$TERM,brave,firefox,google-chrome-stable,code,krita,marktext,arandr,pavucontrol,pinta,thunar}
+{_, shift +} super + ctrl + {Return,space,b,f,g,c,k,d,m,a,p,e,o}
+  {_, sudo} {$TERM,brave,vivaldi-stable,firefox,godot,code,krita,marktext,arandr,pavucontrol,pinta,thunar,xfce4-appfinder}
 
 # launch terminal apps
 {_, shift +} super + ctrl + {v,r}
@@ -22,8 +22,10 @@ super + ctrl + w
 
 # SELECTIONS
 
-{_, shift +} super + alt + {l,c,e,r,w,s,semicolon,b,n,a}
-  {_, sudo} $TERM -e fish -c '{launcher, menu code, menu thunar, menu ranger, open_wiki, spell_checker, select_emoji, open_bookmark, open_file_in_dir -r ~/notes/, open_file_in_dir -r ~/bookmarks/}'
+
+
+{_, shift +} super + alt + {o,c,e,r,s,semicolon}
+  {_, sudo} $TERM -e fish -c '{launcher, menu code, menu thunar, menu ranger, spell_checker, select_emoji}'
 
 # SEQUENCES
 

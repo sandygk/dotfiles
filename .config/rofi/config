@@ -1,4 +1,0 @@
-rofi.width: 30
-rofi.lines: 10 
-rofi.cycle: true
-rofi.theme: /usr/share/rofi/themes/android_notification.rasi

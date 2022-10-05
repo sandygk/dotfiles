@@ -59,7 +59,7 @@
     "editor.comments.insertSpace": false,
     "editor.foldingHighlight": false,
     "editor.renameOnType": true,
-    "editor.renderWhitespace": "none",
+    "editor.renderWhitespace": "all",
     "editor.tabCompletion": "on",
     "editor.unfoldOnClickAfterEndOfLine": true,
     "editor.find.autoFindInSelection": "multiline",
@@ -179,11 +179,9 @@
     "files.eol": "\n",
     "workbench.editor.pinnedTabSizing": "compact",
     "vim.showMarksInGutter": true,
-    "vim.easymotion": true,
     "vim.leader": "<space>",
     "vim.camelCaseMotion.enable": true,
     "vim.gdefault": true,
-    "vim.sneak": true,
     "vim.sneakReplacesF": true,
     "vim.smartRelativeLine": true,
     "go.delveConfig": {
@@ -215,16 +213,37 @@
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
-    "diffEditor.ignoreTrimWhitespace": false,
     "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorTheme": "Default Light+",
     "debug.onTaskErrors": "showErrors",
-    "window.zoomLevel": 1,
     "github.copilot.enable": {
         "*": true,
         "yaml": false,
         "plaintext": false,
-        "markdown": true
+        "markdown": true,
+        "cpp": true
     },
-    "terminal.integrated.scrollback": 10000
+    "terminal.integrated.scrollback": 10000,
+    "editor.bracketPairColorization.enabled": false,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "editor.inlineSuggest.enabled": true,
+    "hexeditor.columnWidth": 16,
+    "hexeditor.showDecodedText": false,
+    "hexeditor.defaultEndianness": "little",
+    "hexeditor.inspectorType": "aside",
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true,
+        "rules": {
+            "*.mutable": {
+                "underline": false,
+                "bold": true
+            }
+        }
+    },
+    "git.confirmSync": false,
+    "vim.easymotion": true,
+    "window.zoomLevel": 1
 }

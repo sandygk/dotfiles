@@ -1258,5 +1258,9 @@
     "key": "f5",
     "command": "workbench.action.debug.start",
     "when": "debuggersAvailable && debugState == 'inactive'"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "workbench.action.closeActivePinnedEditor"
   }
 ]

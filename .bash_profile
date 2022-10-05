@@ -14,3 +14,4 @@ export QT_QPA_PLATFORMTHEME=gtk2
 
 # start x
 exec startx 
+. "$HOME/.cargo/env"
