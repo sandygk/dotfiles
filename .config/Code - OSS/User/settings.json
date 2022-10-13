@@ -244,6 +244,5 @@
         }
     },
     "git.confirmSync": false,
-    "vim.easymotion": true,
-    "window.zoomLevel": 1
+    "vim.easymotion": true
 }

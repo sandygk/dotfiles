@@ -2,11 +2,21 @@
 
 if [ $HOSTNAME == 'ace' ]
 then
-  sudo mkdir /media/data
-  sudo mkdir /media/backup
-  sudo mkdir /media/extra
+  # drives
+  sudo mount --mkdir /dev/sda2 /media/data
+  sudo mount --mkdir /dev/sdb2 /media/backup
+  sudo mount --mkdir /dev/sdd1 /media/extra
+  # samba shares
+  sudo mount --mkdir -t cifs //woof/home  /media/home-data  -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
+  sudo mount --mkdir -t cifs //1up/data   /media/1up-data  -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
+fi
 
-  sudo mount /dev/sda2 /media/data
-  sudo mount /dev/sdb2 /media/backup
-  sudo mount /dev/sdd1 /media/extra
+if [ $HOSTNAME == 'woof' ]
+then
+  # samba shares
+  sudo mount --mkdir -t cifs //ace/data   /media/ace-data   -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
+  sudo mount --mkdir -t cifs //ace/backup /media/ace-backup -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
+  sudo mount --mkdir -t cifs //ace/home   /media/ace-home   -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
+  sudo mount --mkdir -t cifs //ace/extra  /media/ace-extra  -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
+  sudo mount --mkdir -t cifs //1up/data   /media/1up-data   -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
 fi

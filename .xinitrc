@@ -35,7 +35,7 @@ xset r rate 280 40 &
 setxkbmap -option compose:ralt &
 
 # mount drives
-mount-drives
+sudo mount-drives
 
 # window manager
 awesome
