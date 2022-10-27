@@ -1,22 +1,32 @@
-#!/bin/bash
+#!/bin/fish
 
-if [ $HOSTNAME == 'ace' ]
-then
-  # drives
-  sudo mount --mkdir /dev/sda2 /media/data
-  sudo mount --mkdir /dev/sdb2 /media/backup
-  sudo mount --mkdir /dev/sdd1 /media/extra
-  # samba shares
-  sudo mount --mkdir -t cifs //woof/home  /media/home-data  -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
-  sudo mount --mkdir -t cifs //1up/data   /media/1up-data  -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
-fi
+function mount-helper
+  sudo mkdir -p $argv[2]
 
-if [ $HOSTNAME == 'woof' ]
-then
-  # samba shares
-  sudo mount --mkdir -t cifs //ace/data   /media/ace-data   -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
-  sudo mount --mkdir -t cifs //ace/backup /media/ace-backup -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
-  sudo mount --mkdir -t cifs //ace/home   /media/ace-home   -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
-  sudo mount --mkdir -t cifs //ace/extra  /media/ace-extra  -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
-  sudo mount --mkdir -t cifs //1up/data   /media/1up-data   -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP
-fi
+  # set permisions if empty
+  find $argv[2] -maxdepth 0  -type d -empty -exec sudo chown -R $USER {} \;
+
+  if string match -q '//*' $argv[1]
+
+    sudo mount -t cifs $argv[1] $argv[2] -o credentials=/etc/samba/credentials/share,workgroup=WORKGROUP,uid=$(id -u),gid=$(id -g),forceuid,forcegid
+  else
+    sudo mount $argv[1] $argv[2]
+  end
+end
+
+if test $hostname = 'ace'
+  mount-helper /dev/sda2 /media/data
+  mount-helper /dev/sdb2 /media/backup
+  mount-helper /dev/sdd1 /media/extra
+
+  mount-helper //woof/home /media/woof-home
+  mount-helper //1up/data /media/1up-data
+end
+
+if test $hostname = 'woof'
+  mount-helper //ace/data   /media/ace-data
+  mount-helper //ace/backup /media/ace-backup
+  mount-helper //ace/home   /media/ace-home
+  mount-helper //ace/extra  /media/ace-extra
+  mount-helper //1up/data   /media/1up-data
+end
