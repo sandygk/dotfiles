@@ -1,0 +1,54 @@
+#!/bin/python
+
+import os
+import sys
+from datetime import datetime
+
+theme_path = os.path.expanduser('~')+"/.theme/theme"
+light_time_start = "7:00"
+light_time_end = "18:00"
+
+def set_theme(theme=None):
+  if theme == None:
+    theme = get_theme()
+  os.system(f'set_theme_wallpaper --{theme}')
+  os.system(f'set_theme_vscode --{theme}')
+  os.system(f'set_theme_gtk --{theme}')
+  os.system(f'set_theme_nvim --{theme}')
+  os.system(f'set_theme_alacritty --{theme}')
+  with open(theme_path, 'w') as f: f.write(theme)
+
+def get_theme():
+  theme = None
+  with open(theme_path, 'r') as f: theme = f.readline()
+  return theme
+
+def get_theme_from_time():
+  [current_hour, current_minute] = [int(val) for val in datetime.now().strftime("%H:%M").split(":")]
+  current_time = current_hour * 60 + current_minute
+
+  [light_start_hour, light_start_minute] = [int(val) for val in light_time_start.split(":")]
+  light_start = light_start_hour * 60 + light_start_minute
+
+  [light_end_hour, light_end_minute] = [int(val) for val in light_time_end.split(":")]
+  light_end = light_end_hour* 60 + light_end_minute
+
+  return "light" if light_start <= current_time < light_end else "dark"
+
+def toggle_theme():
+  theme = get_theme()
+  opposite_theme = "light" if theme == "dark" else "dark"
+  set_theme(opposite_theme)
+
+arg = str(sys.argv[1]) if len(sys.argv) == 2 else None
+
+if arg in ["--light", "--dark"]:
+  set_theme("light" if arg == "--light" else "dark")
+elif arg == "--toggle":
+  toggle_theme()
+elif arg == "--time":
+  set_theme(get_theme_from_time())
+elif arg == None:
+  set_theme()
+else:
+  print(f"Invalid argument '{arg}'")

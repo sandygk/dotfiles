@@ -10,8 +10,7 @@ local beautiful = require("beautiful")
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
 -- Aliases for mod keys
-super = "Mod4"
-alt = "Mod1"
+local super = "Mod4"
 
 -- Layouts
 awful.layout.layouts = {
@@ -21,17 +20,20 @@ awful.layout.layouts = {
   awful.layout.suit.max.fullscreen
 }
 
--- Set the wallpaper
-local function set_wallpaper(s)
-  gears.wallpaper.set(beautiful.wallpaper_color)
+-- Set theme based on time on start
+awful.util.spawn('set_theme --time')
+
+-- Set theme
+local function set_theme()
+  awful.util.spawn('set_theme')
 end
 
 -- Swap tags
-function swap_tag(other_tag)
+local function swap_tag(other_tag)
   local screen = awful.screen.focused({ client=true })
-  this_tag = screen.selected_tag
-  other_tag_clients = other_tag:clients()
-  other_tag_layout = other_tag.layout
+  local this_tag = screen.selected_tag
+  local other_tag_clients = other_tag:clients()
+  local other_tag_layout = other_tag.layout
 
   for i, c in ipairs(this_tag:clients()) do
     c:move_to_tag(other_tag)
@@ -46,7 +48,7 @@ function swap_tag(other_tag)
 end
 
 -- Get tag by relative id
-function tag_by_relative_index(index)
+local function tag_by_relative_index(index)
   local screen = awful.screen.focused()
   local tag_index = ((screen.selected_tag.index + index - 1) % #screen.tags) + 1
   local tag = screen.tags[tag_index]
@@ -59,7 +61,7 @@ local taglist_buttons = gears.table.join(
   awful.button({}, 1, function(t) t:view_only() end),
 
   -- Send client to workspace with super + click
-  awful.button({ super }, 1,
+  awful.button({ "Shift" }, 1,
     function(t)
       if client.focus then
         client.focus:move_to_tag(t)
@@ -81,32 +83,13 @@ local tasklist_buttons = gears.table.join(
 )
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", set_wallpaper)
-
--- Create status widget
-local statusbox = awful.widget.watch("status", 0.5)
-
--- Create systray
-local systray = wibox.widget.systray()
+screen.connect_signal("property::geometry", set_theme)
 
 -- Initialize each screen
 awful.screen.connect_for_each_screen(
   function(s)
-    -- Wallpaper
-    set_wallpaper(s)
-
     -- Set tags per screen
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }, s, awful.layout.layouts[1])
-
-    -- Create layout indicator
-    s.layoutbox = awful.widget.layoutbox(s)
-    s.layoutbox:buttons(
-      gears.table.join(
-        -- Change to next/previous layout with left/right click
-        awful.button({}, 1, function() awful.layout.inc( 1) end),
-        awful.button({}, 3, function() awful.layout.inc(-1) end)
-      )
-    )
 
     -- Create a taglist widget
     s.taglist = awful.widget.taglist {
@@ -122,21 +105,43 @@ awful.screen.connect_for_each_screen(
        buttons  = tasklist_buttons
     }
 
+    -- Create status widget
+    s.statusbox = awful.widget.watch("status", 0.5)
+
+    -- Create systray
+    s.systray = wibox.widget.systray()
+
+    -- Create layout indicator
+    s.layoutbox = awful.widget.layoutbox(s)
+    s.layoutbox:buttons(
+      gears.table.join(
+        -- Change to next/previous layout with left/right click
+        awful.button({}, 1, function() awful.layout.inc( 1) end),
+        awful.button({}, 3, function() awful.layout.inc(-1) end)
+      )
+    )
+
     -- Create the wibox
     s.wibox = awful.wibar({ position = "bottom", screen = s })
 
     -- Add widgets to the wibox
     s.wibox:setup {
       layout = wibox.layout.align.horizontal,
-      { -- Left widgets
+
+      -- Left widgets
+      {
         layout = wibox.layout.fixed.horizontal,
         s.taglist,
       },
-      s.tasklist, -- Middle widget
-      { -- Right widgets
+
+      -- Middle widget
+      s.tasklist,
+
+      -- Right widgets
+      {
         layout = wibox.layout.fixed.horizontal,
-        statusbox,
-        systray,
+        s.statusbox,
+        s.systray,
         s.layoutbox,
       },
     }
@@ -144,7 +149,8 @@ awful.screen.connect_for_each_screen(
 )
 
 -- Global key bindings
-globalkeys = gears.table.join(
+local globalkeys = gears.table.join(
+
   -- Change next/previous workspace
   awful.key({ super }, "h",  awful.tag.viewprev),
   awful.key({ super }, "Left", awful.tag.viewprev),
@@ -181,7 +187,7 @@ globalkeys = gears.table.join(
 
   -- Select layout
   awful.key({ super }, "m", function() awful.layout.set(awful.layout.suit.max) end),
-  awful.key({ super }, "t", function() awful.layout.set(awful.layout.suit.tile) end),
+  awful.key({ super }, "s", function() awful.layout.set(awful.layout.suit.tile) end),
   awful.key({ super }, "f", function() awful.layout.set(awful.layout.suit.floating) end),
   awful.key({ super }, "F11", function() awful.layout.set(awful.layout.suit.max.fullscreen) end),
 
@@ -237,7 +243,7 @@ for i = 1, #screen.primary.tags do
 end
 
 -- Client key bindings
-clientkeys = gears.table.join(
+local clientkeys = gears.table.join(
   -- Close client
   awful.key({ super }, "q", function(c) c:kill() end),
 
@@ -295,7 +301,7 @@ for i = 1, #screen.primary.tags do
 end
 
 -- Mouse bindings
-clientbuttons = gears.table.join(
+local clientbuttons = gears.table.join(
   awful.button({}, 1,
     function(c)
       c:emit_signal("request::activate", "mouse_click", { raise = true })

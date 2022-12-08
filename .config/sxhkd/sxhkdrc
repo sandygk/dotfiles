@@ -21,17 +21,10 @@ super + ctrl + w
   $TERM -e fish -c '$EDITOR ~/repos/personal/notes/todos/work.txt'
 
 # SELECTIONS
-
-
-
 {_, shift +} super + alt + {o,c,e,r,s,semicolon}
   {_, sudo} $TERM -e fish -c '{launcher, menu code, menu thunar, menu ranger, spell_checker, select_emoji}'
 
 # SEQUENCES
-
-# set theme
-super + alt + t ; {d,l}
-  set_theme_all {--dark,--light}
 
 # screen layout
 super + alt + m ; {l,t}
@@ -46,6 +39,10 @@ super + alt + p ; {p,l,g}
 # toggle notifications
 super + ctrl + n
   test (pidof dunst) && pkill dunst || dunst &
+
+# toggle theme
+super + t
+  set_theme --toggle
 
 # screenshot
 #   Print +
