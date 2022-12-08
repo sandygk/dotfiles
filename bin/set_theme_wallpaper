@@ -2,10 +2,12 @@
 
 case $1 in
   --dark | -d)
-    hsetroot -solid '#232729' &
+    hsetroot -fill ~/.config/theme/dark.jpg
+    #hsetroot -solid '#232729' &
     ;;
   --light | -l)
-    hsetroot -solid '#FFFFFF' &
+    hsetroot -fill ~/.config/theme/light.jpg
+    #hsetroot -solid '#FFFFFF' &
     ;;
   *)
     echo "Invalid use" 1>&2
