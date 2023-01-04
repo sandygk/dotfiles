@@ -34,6 +34,8 @@
 !.config/xfce4/
 !.config/theme/
 
+# awesome
+.config/awesome/log
 
 # xfce4 keyboard shortcuts
 !.config/xfce4/
