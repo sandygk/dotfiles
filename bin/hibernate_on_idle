@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# hibernate after 10 mins of idle if on battery
+xidlehook \
+  --timer 600 \
+    '
+    if [ $(cat /sys/class/power_supply/BAT0/status) == Discharging ]
+    then
+      notify-send "Idle hibernation" "The system will hibernate in 10 seconds if no action is taken"
+    fi '\
+    ''\
+  --timer 10 \
+    '
+    if [ $(cat /sys/class/power_supply/BAT0/status) == Discharging ]
+    then
+      systemctl hibernate
+    fi'\
+    ''

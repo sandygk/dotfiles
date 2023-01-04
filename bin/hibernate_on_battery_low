@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# hibernate on battery low if not charging
+while sleep 10
+do
+  status=$(cat /sys/class/power_supply/BAT0/status)
+  capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+
+  if [ "$status" = Discharging -a "$capacity" -lt 3 ]; then
+    notify-send "Battery critically low" "Hibernating..."
+    systemctl hibernate
+  fi
+done

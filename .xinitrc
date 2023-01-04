@@ -10,6 +10,10 @@ numlockx &
 # hide mouse if inactive
 unclutter &
 
+# auto hibernate
+hibernate_on_idle &
+hibernate_on_battery_low &
+
 # automount usb
 udiskie &
 
@@ -38,4 +42,5 @@ setxkbmap -option compose:ralt &
 mount-drive &
 
 # window manager
-awesome
+rm ~/.config/awesome/log
+awesome "$@" > ~/.config/awesome/log

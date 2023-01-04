@@ -11,6 +11,7 @@ beautiful.init(gears.filesystem.get_configuration_dir() .. "theme/theme.lua")
 
 -- Aliases for mod keys
 local super = "Mod4"
+local alt = "Mod1"
 
 -- Layouts
 awful.layout.layouts = {
@@ -55,12 +56,69 @@ local function tag_by_relative_index(index)
   return tag
 end
 
+-- send client to other screen
+local function send_to_screen(dir)
+  local screen = awful.screen.focused({ client=true })
+  local other_screen = awful.screen.object.get_next_in_direction(screen, dir)
+  if client.focus then
+    client.focus:move_to_screen(other_screen)
+  end
+  awful.screen.focus(screen)
+end
+
+---swap all tags across screens
+function swap_screen(dir)
+  local screen = awful.screen.focused({ client=true })
+  local other_screen = awful.screen.object.get_next_in_direction(screen, dir)
+  local tags = screen.tags
+  local other_tags = other_screen.tags
+
+  for i, tag in ipairs(tags) do
+    local other_tag = other_tags[i]
+    local tag_clients = tag:clients()
+    local other_tag_clients = other_tag:clients()
+
+    --swap layouts
+    local layout = tag.layout
+    local other_layout = other_tag.layout
+    tag.layout = other_layout
+    other_tag.layout = layout
+
+    --swap clients
+    for _, c in ipairs(tag_clients) do
+      c:move_to_tag(other_tag)
+    end
+    for _, c in ipairs(other_tag_clients) do
+      c:move_to_tag(tag)
+    end
+  end
+
+  --swap selected tags
+  local tag_index = screen.selected_tag.index
+  local other_tag_index = other_screen.selected_tag.index
+  local tag = screen.tags[other_tag_index]
+  tag:view_only()
+  tag = other_screen.tags[tag_index]
+  tag:view_only()
+
+  awful.screen.focus(other_screen)
+end
+
+-- Toggle between max and tile layout
+local function alternate_tile_max()
+  if awful.layout.get() ~= awful.layout.suit.max then
+    awful.layout.set(awful.layout.suit.max)
+  else
+    awful.layout.set(awful.layout.suit.tile)
+  end
+end
+
 -- Mouse bindings tag list
 local taglist_buttons = gears.table.join(
-  -- Select workspace with click
+  -- Select tag with click
   awful.button({}, 1, function(t) t:view_only() end),
 
-  -- Send client to workspace with super + click
+  -- Send client to tag with super + click
   awful.button({ "Shift" }, 1,
     function(t)
       if client.focus then
@@ -92,28 +150,28 @@ awful.screen.connect_for_each_screen(
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }, s, awful.layout.layouts[1])
 
     -- Create a taglist widget
-    s.taglist = awful.widget.taglist {
+    local taglist = awful.widget.taglist {
       screen  = s,
       filter  = awful.widget.taglist.filter.all,
       buttons = taglist_buttons
     }
 
     -- Create a tasklist widget
-     s.tasklist = awful.widget.tasklist {
+     local tasklist = awful.widget.tasklist {
        screen   = s,
        filter   = awful.widget.tasklist.filter.currenttags,
        buttons  = tasklist_buttons
     }
 
     -- Create status widget
-    s.statusbox = awful.widget.watch("status", 0.5)
+    local statusbox = awful.widget.watch("status", 0.5)
 
     -- Create systray
-    s.systray = wibox.widget.systray()
+    local systray = wibox.widget.systray()
 
     -- Create layout indicator
-    s.layoutbox = awful.widget.layoutbox(s)
-    s.layoutbox:buttons(
+    local layoutbox = awful.widget.layoutbox(s)
+    layoutbox:buttons(
       gears.table.join(
         -- Change to next/previous layout with left/right click
         awful.button({}, 1, function() awful.layout.inc( 1) end),
@@ -131,18 +189,18 @@ awful.screen.connect_for_each_screen(
       -- Left widgets
       {
         layout = wibox.layout.fixed.horizontal,
-        s.taglist,
+        taglist,
       },
 
       -- Middle widget
-      s.tasklist,
+      tasklist,
 
       -- Right widgets
       {
         layout = wibox.layout.fixed.horizontal,
-        s.statusbox,
-        s.systray,
-        s.layoutbox,
+        statusbox,
+        systray,
+        layoutbox,
       },
     }
   end
@@ -151,15 +209,15 @@ awful.screen.connect_for_each_screen(
 -- Global key bindings
 local globalkeys = gears.table.join(
 
-  -- Change next/previous workspace
+  -- Change next/previous tag
   awful.key({ super }, "h",  awful.tag.viewprev),
   awful.key({ super }, "Left", awful.tag.viewprev),
   awful.key({ super }, "l", awful.tag.viewnext),
   awful.key({ super }, "Right",  awful.tag.viewnext),
-  awful.key({ super, "Shift", "Control" }, "l", function() swap_tag(tag_by_relative_index(1)) end),
-  awful.key({ super, "Shift", "Control" }, "Right", function() swap_tag(tag_by_relative_index(1)) end),
-  awful.key({ super, "Shift", "Control" }, "h", function() swap_tag(tag_by_relative_index(-1)) end),
-  awful.key({ super, "Shift", "Control" }, "Left", function() swap_tag(tag_by_relative_index(-1)) end),
+  awful.key({ super, "Shift", alt }, "l", function() swap_tag(tag_by_relative_index(1)) end),
+  awful.key({ super, "Shift", alt }, "Right", function() swap_tag(tag_by_relative_index(1)) end),
+  awful.key({ super, "Shift", alt }, "h", function() swap_tag(tag_by_relative_index(-1)) end),
+  awful.key({ super, "Shift", alt }, "Left", function() swap_tag(tag_by_relative_index(-1)) end),
 
   -- Focus next/previous client
   awful.key({ super }, "j", function() awful.client.focus.byidx( 1) end),
@@ -169,7 +227,7 @@ local globalkeys = gears.table.join(
   awful.key({ super          }, "Tab", function() awful.client.focus.byidx( 1) end),
   awful.key({ super, "Shift" }, "Tab", function() awful.client.focus.byidx(-1) end),
 
-  -- Swapt with next/previous client
+  -- Swap with next/previous client
   awful.key({ super, "Shift" }, "j", function() awful.client.swap.byidx( 1) end),
   awful.key({ super, "Shift" }, "Up", function() awful.client.swap.byidx( 1) end),
   awful.key({ super, "Shift" }, "k", function() awful.client.swap.byidx(-1) end),
@@ -179,11 +237,11 @@ local globalkeys = gears.table.join(
   awful.key({ super }, "r", awesome.restart),
 
   -- Change master width
-  awful.key({ super }, "comma", function() awful.tag.incmwfact(-0.01) end),
-  awful.key({ super }, "period", function() awful.tag.incmwfact( 0.01) end),
-  awful.key({ super, "Shift" }, "comma", function() awful.tag.incmwfact(-0.05) end),
-  awful.key({ super, "Shift" }, "period", function() awful.tag.incmwfact( 0.05) end),
-  awful.key({ super }, "slash", function() awful.tag.setmwfact(0.5) end),
+  awful.key({ super }, "z", function() awful.tag.incmwfact(-0.01) end),
+  awful.key({ super }, "x", function() awful.tag.incmwfact( 0.01) end),
+  awful.key({ super, "Shift" }, "z", function() awful.tag.incmwfact(-0.05) end),
+  awful.key({ super, "Shift" }, "x", function() awful.tag.incmwfact( 0.05) end),
+  awful.key({ super }, "c", function() awful.tag.setmwfact(0.5) end),
 
   -- Select layout
   awful.key({ super }, "m", function() awful.layout.set(awful.layout.suit.max) end),
@@ -191,18 +249,11 @@ local globalkeys = gears.table.join(
   awful.key({ super }, "f", function() awful.layout.set(awful.layout.suit.floating) end),
   awful.key({ super }, "F11", function() awful.layout.set(awful.layout.suit.max.fullscreen) end),
 
-  -- Quickly swap between max and tile
-  awful.key({ super }, "grave",
-    function()
-      if awful.layout.get() ~= awful.layout.suit.max then
-        awful.layout.set(awful.layout.suit.max)
-      else
-        awful.layout.set(awful.layout.suit.tile)
-      end
-    end),
+  -- Quickly alternate between max and tile
+  awful.key({ super }, "a", alternate_tile_max),
 
-  -- Unminimize all clients in workspace in focused screen
-  awful.key({ super }, "equal",
+  -- Unminimize all clients in tag in focused screen
+  awful.key({ super }, "b",
     function()
       local clients = awful.screen.focused( { client = true }).selected_tag:clients()
       for _, c in ipairs(clients) do
@@ -215,15 +266,29 @@ local globalkeys = gears.table.join(
       end
     end),
 
-  -- Focus next/previus screen
-  awful.key({ super }, "n", function() awful.screen.focus_relative( 1) end),
-  awful.key({ super }, "p", function() awful.screen.focus_relative(-1) end)
+  -- Focus screen
+  awful.key({ super }, "u", function() awful.screen.focus_bydirection("down") end),
+  awful.key({ super }, "i", function() awful.screen.focus_bydirection("up") end),
+  awful.key({ super }, "y", function() awful.screen.focus_bydirection("left") end),
+  awful.key({ super }, "o", function() awful.screen.focus_bydirection("right") end),
+
+  -- Send to screen
+  awful.key({ super, "Shift" }, "u", function() send_to_screen("down") end),
+  awful.key({ super, "Shift" }, "i", function() send_to_screen("up") end),
+  awful.key({ super, "Shift" }, "y", function() send_to_screen("left") end),
+  awful.key({ super, "Shift" }, "o", function() send_to_screen("right") end),
+
+  -- Swap screen
+  awful.key({ super, "Shift", alt }, "u", function() swap_screen("down") end),
+  awful.key({ super, "Shift", alt }, "i", function() swap_screen("up") end),
+  awful.key({ super, "Shift", alt }, "y", function() swap_screen("left") end),
+  awful.key({ super, "Shift", alt }, "o", function() swap_screen("right") end)
 )
 
--- Global key bindings per workspace
+-- Global key bindings per tag
 for i = 1, #screen.primary.tags do
   globalkeys = gears.table.join(globalkeys,
-    -- Select workspace
+    -- Select tag
     awful.key({ super }, tostring(i%10),
       function()
         local screen = awful.screen.focused( { client = true })
@@ -231,8 +296,8 @@ for i = 1, #screen.primary.tags do
         tag:view_only()
       end),
 
-    -- Swap workspace
-    awful.key({ super, "Control", "Shift" }, tostring(i%10),
+    -- Swap tag
+    awful.key({ super, alt, "Shift" }, tostring(i%10),
       function()
         local screen = awful.screen.focused( { client = true })
         local other_tag = screen.tags[i]
@@ -257,7 +322,7 @@ local clientkeys = gears.table.join(
   ),
 
   -- Minimize client
-  awful.key({ super }, "minus", function(c) c.minimized = true end),
+  awful.key({ super }, "v", function(c) c.minimized = true end),
 
   -- Toggle client's maximized state
   awful.key({ super, "Shift" }, "m", function(c) c.maximized = not c.maximized end),
@@ -268,29 +333,17 @@ local clientkeys = gears.table.join(
   -- Move client to master
   awful.key({ super }, "Return", function(c) c:swap(awful.client.getmaster()) end),
 
-  -- Send client to a next/previus workspace
+  -- Send client to a next/previus tag
   awful.key({ super, "Shift" }, "l", function(c) c:move_to_tag(tag_by_relative_index(1)) end),
   awful.key({ super, "Shift" }, "Right", function(c) c:move_to_tag(tag_by_relative_index(1)) end),
   awful.key({ super, "Shift" }, "h", function(c) c:move_to_tag(tag_by_relative_index(-1)) end),
-  awful.key({ super, "Shift" }, "Left", function(c) c:move_to_tag(tag_by_relative_index(-1)) end),
-
-  -- Send client to a next/previus screen
-  awful.key({ super, "Shift" }, "n", function(c)
-      c:move_to_screen(c.screen.index + 1)
-      awful.screen.focus_relative(-1)
-    end),
-
-  awful.key({ super, "Shift" }, "p",
-    function(c)
-      c:move_to_screen(c.screen.index - 1)
-      awful.screen.focus_relative(1)
-    end)
+  awful.key({ super, "Shift" }, "Left", function(c) c:move_to_tag(tag_by_relative_index(-1)) end)
 )
 
--- Client key bindings per workspace
+-- Client key bindings per tag
 for i = 1, #screen.primary.tags do
     clientkeys = gears.table.join(clientkeys,
-      -- Send client to workspace
+      -- Send client to tag
       awful.key({ super, "Shift" }, tostring(i%10),
         function(c)
           local tag = c.screen.tags[i]

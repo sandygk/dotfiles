@@ -3,14 +3,14 @@
 # Remove all installed vscode extensions
 # and installs the extensions listed in
 # ~/.config/Code - OSS/User/extensions
-# 
-# Note: This is a file I created to be able to sync 
+#
+# Note: This is a file I created to be able to sync
 # vscode extensions across different PCs. This
 # script works in conjunction with the
 # vscode_export_extensions script
 
 # remove all installed extensions
-code --list-extensions | 
+code --list-extensions |
   while read extension; do
     code --uninstall-extension $extension
   done
@@ -18,4 +18,4 @@ code --list-extensions |
 # installs extensions from list
 while read extension; do
   code --install-extension $extension
-done <~/.config/'Code - OSS'/User/extensions
+done <~/bin/data/vscode-extensions

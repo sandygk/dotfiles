@@ -2,10 +2,10 @@
 
 # Save the list of installed vscode extensions to
 # ~/.config/Code - OSS/User/extensions
-# 
-# Note: This is a file I created to be able to sync 
+#
+# Note: This is a file I created to be able to sync
 # vscode extensions across different PCs. This
 # script works in conjunction with the
 # vscode_import_extensions script
 
-code --list-extensions > ~/.config/'Code - OSS'/User/extensions
+code --list-extensions > ~/bin/data/vscode-extensions

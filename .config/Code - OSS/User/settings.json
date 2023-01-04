@@ -208,13 +208,13 @@
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "cSpell.language": "en,en-US,en-GB",
+    "cSpell.language": "en,en-US,en-GB,es,es-ES",
     "editor.autoSurround": "never",
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
     "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorTheme": "Default Light+",
     "debug.onTaskErrors": "showErrors",
     "github.copilot.enable": {
         "*": true,
@@ -246,5 +246,8 @@
     "git.confirmSync": false,
     "vim.easymotion": true,
     "editor.fontSize": 15,
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "Lua.telemetry.enable": false,
+    "editor.detectIndentation": false,
+    "cSpell.useGitignore": false
 }
