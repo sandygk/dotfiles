@@ -214,7 +214,7 @@
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
     "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "Default Dark+",
     "debug.onTaskErrors": "showErrors",
     "github.copilot.enable": {
         "*": true,
