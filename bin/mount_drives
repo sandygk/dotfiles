@@ -1,5 +1,10 @@
 #!/bin/fish
 
+# hack to wait on startup, for some reason the mount fails if it's too soon
+if test "$argv[1]" = '--wait'
+  sleep 10
+end
+
 function mount-helper
   sudo mkdir -p $argv[2]
 

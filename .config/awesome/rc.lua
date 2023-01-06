@@ -140,6 +140,33 @@ local tasklist_buttons = gears.table.join(
     end)
 )
 
+
+--move clients and save desired screen when the screen is disconnected
+tag.connect_signal("request::screen", function(t)
+  local fallback_tag = nil
+
+  for other_screen in screen do
+    if other_screen ~= t.screen then
+      fallback_tag = awful.tag.find_by_name(other_screen, t.name)
+      if fallback_tag ~= nil then
+        break
+      end
+    end
+  end
+
+  if fallback_tag == nil then
+    fallback_tag = awful.tag.find_fallback()
+  end
+
+  if not (fallback_tag == nil) then
+    clients = t:clients()
+    for _, c in ipairs(clients) do
+       c:move_to_tag(fallback_tag)
+    end
+  end
+end)
+
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_theme)
 
@@ -413,3 +440,4 @@ screen.connect_signal("arrange", function (s)
     end
   end
 end)
+

@@ -214,7 +214,7 @@
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
     "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorTheme": "Default Light+",
     "debug.onTaskErrors": "showErrors",
     "github.copilot.enable": {
         "*": true,
@@ -249,5 +249,8 @@
     "window.zoomLevel": 1,
     "Lua.telemetry.enable": false,
     "editor.detectIndentation": false,
-    "cSpell.useGitignore": false
+    "cSpell.useGitignore": false,
+    "cSpell.enableFiletypes": [
+        "lua"
+    ]
 }

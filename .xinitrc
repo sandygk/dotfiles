@@ -39,7 +39,9 @@ xset r rate 280 40 &
 setxkbmap -option compose:ralt &
 
 # mount drives
-mount-drive &
+mount_drives --wait &
+
+launch_keyring
 
 # window manager
 rm ~/.config/awesome/log
