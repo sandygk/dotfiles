@@ -6,8 +6,15 @@ do
   status=$(cat /sys/class/power_supply/BAT0/status)
   capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 
-  if [ "$status" = Discharging -a "$capacity" -lt 3 ]; then
-    notify-send "Battery critically low" "Hibernating..."
-    systemctl hibernate
+  if [ "$status" = Discharging -a "$capacity" -le 5 ]; then
+    notify-send -t 59000 "Battery critically low" "System will hibernate in 1 minute if not plugged in."
+    sleep 60
+
+    status=$(cat /sys/class/power_supply/BAT0/status)
+    capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+    if [ "$status" = Discharging -a "$capacity" -le 5 ]; then
+      notify-send "Battery critically low" "Hibernating..."
+      systemctl hibernate
+    fi
   fi
 done

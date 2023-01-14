@@ -1,18 +1,25 @@
 #!/bin/bash
 
+#!/bin/bash
+
 # hibernate after 10 mins of idle if on battery
-xidlehook \
-  --timer 600 \
-    '
-    if [ $(cat /sys/class/power_supply/BAT0/status) == Discharging ]
-    then
-      notify-send "Idle hibernation" "The system will hibernate in 10 seconds if no action is taken"
-    fi '\
-    ''\
-  --timer 10 \
-    '
-    if [ $(cat /sys/class/power_supply/BAT0/status) == Discharging ]
-    then
-      systemctl hibernate
-    fi'\
-    ''
+idle_time_limit=$((10 * 60000)) #10 minutes
+
+while true; do
+  status=$(cat /sys/class/power_supply/BAT0/status)
+
+  if [[ "$status" == "Discharging" ]]; then
+    idle_time=$(xprintidle)
+    if [[ "$idle_time" -ge $idle_time_limit ]]; then
+      notify-send "The system will hibernate in 10 seconds if not action is taken"
+      sleep 10
+
+      idle_time=$(xprintidle)
+      if [[ "$idle_time" -ge $idle_time_limit ]]; then
+        xdotool mousemove_relative 1 0 # move mouse 1px to reset idle time
+        systemctl hibernate
+      fi
+    fi
+  fi
+  sleep 20
+done

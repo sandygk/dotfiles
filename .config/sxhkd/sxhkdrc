@@ -12,23 +12,19 @@
 super + ctrl + {t, j}
   brave --app={'https://teams.microsoft.com','http://ace:8096/web/index.html#!/home.html'}
 
-# cracking the coding interview
-super + ctrl + i
-  zathura ~/books/cracking-the-coding-interview.pdf
-
 # work todos
 super + ctrl + b
   $TERM -e fish -c '$EDITOR ~/repos/personal/notes/todos/work.txt'
 
 # SELECTIONS
-super + alt + {w,c,e,r,s,semicolon}
-  $TERM -e fish -c '{launcher, menu code, menu thunar, menu ranger, spell_checker, select_emoji}'
+super + alt + {s,semicolon}
+  $TERM -e fish -c '{spell_checker, select_emoji}'
 
-# SEQUENCES
+{_, shift +} super + alt + {r, space, w, e}
+  {_, sudo} {open_repo, open_bookmark, launcher, run}
 
-# screen layout
-super + alt + m ; {l,t}
-  ~/.screenlayout/{laptop,tv-laptop}.sh
+{_, shift +} super + alt + {n, b, c}
+  {_, sudo} open_file_in_dir ~/repos/personal/{notes,bin,configs}
 
 # MISC
 

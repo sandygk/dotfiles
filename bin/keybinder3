@@ -1,0 +1,15 @@
+import os
+import subprocess
+
+def hotkey_detection():
+    keyboard.wait("ctrl+alt+a")
+    hotkey_queue.put("ctrl+alt+a")
+
+hotkey_queue = multiprocessing.Queue()
+hotkey_process = subprocess.Popen(["python", "hotkey_script.py"], preexec_fn=lambda: os.setuid(0))
+
+while True:
+    if not hotkey_queue.empty():
+        hotkey = hotkey_queue.get()
+        if hotkey == "ctrl+alt+a":
+            subprocess.call(["notify-send", "Title", "Message"])

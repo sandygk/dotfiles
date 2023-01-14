@@ -1,0 +1,55 @@
+#!/bin/python
+
+import subprocess
+import os
+import json
+
+# Get the path to the Brave bookmarks file
+bookmarks_file = os.path.expanduser("~/.config/BraveSoftware/Brave-Browser/Default/Bookmarks")
+
+# Open the bookmarks file and parse the JSON data
+with open(bookmarks_file) as f:
+  bookmarks = json.load(f)
+
+# Extract the list of bookmarks from the "roots" object
+bookmarks_list = bookmarks["roots"]["bookmark_bar"]["children"]
+
+# Extract the URLs and titles of the bookmarks
+urls = []
+titles = []
+
+def extract_bookmarks(bookmarks_list, path):
+  for bookmark in bookmarks_list:
+    if "url" in bookmark:
+      urls.append(bookmark["url"])
+      if "name" in bookmark and bookmark["name"]:
+        title = path + "/" + bookmark["name"]
+      else:
+        title = bookmark["url"]
+      titles.append(title)
+    if "children" in bookmark:
+      if "name" in bookmark:
+        new_path = path + "/" + bookmark["name"]
+        extract_bookmarks(bookmark["children"], new_path)
+      else:
+        extract_bookmarks(bookmark["children"], path)
+
+extract_bookmarks(bookmarks_list, "")
+
+# Display the bookmarks titles in Rofi and get the user's selection
+selected_title = subprocess.run(
+  [
+    "rofi",
+    "-dmenu",
+    "-p", "Select a bookmark",
+    "-theme", "/home/sandy/.config/rofi/launchers/type-1/style-1.rasi"
+  ],
+  capture_output=True, text=True, input="\n".join(titles)).stdout.strip()
+
+if selected_title:
+  # Get the selected url
+  index = titles.index(selected_title)
+  selected_url = urls[index]
+
+  # Open the selected bookmark in Brave
+  subprocess.run(["brave", selected_url])

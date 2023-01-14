@@ -1,0 +1,49 @@
+#!/bin/python
+
+import pyxhook
+import subprocess
+import shlex
+
+mapping = {
+    "control_l+alt_l+return": "alacritty",
+    "control_l+alt_l+n": "notify-send 'hello' 'this is a test'"
+    }
+
+def generate_shortcuts(mapping):
+    '''
+    Generate a dictionary of shortcuts from a mapping dictionary.
+    The mapping dictionary should have the following format:
+    {"key1+key2+...+keyN": "command", ...}
+    The mapping dictionary is just a more convenient way to write the shortcuts dictionary.
+    '''
+    shortcuts = {}
+    for combination, command in mapping.items():
+        keys = combination.split("+")
+        shortcuts[frozenset(k.lower() for k in keys)] = shlex.split(command)
+    return shortcuts
+
+shortcuts = generate_shortcuts(mapping)
+pressed_keys = set()
+
+def key_pressed(event):
+    if event.Key.lower() in set().union(*shortcuts):
+        pressed_keys.add(event.Key.lower())
+        for combination, command in shortcuts.items():
+            if all(k in pressed_keys for k in combination) and len(pressed_keys) == len(combination):
+                try:
+                    print(f"Running command '{shlex.join(command)}'")
+                    subprocess.Popen(command, start_new_session=True)
+                    return False
+                except FileNotFoundError:
+                    print(f"Command '{shlex.join(command)}' not found")
+
+
+def key_released(event):
+    if event.Key.lower() in pressed_keys:
+        pressed_keys.remove(event.Key.lower())
+
+hook_manager = pyxhook.HookManager()
+hook_manager.KeyDown = key_pressed
+hook_manager.KeyUp = key_released
+hook_manager.HookKeyboard()
+hook_manager.start()

@@ -1,0 +1,23 @@
+#!/bin/python
+
+from functools import partial
+from pynput import keyboard
+import subprocess
+import shlex
+
+mapping = {
+    "<ctrl>+t": "alacritty",
+    "<ctrl>+<alt>+n": "notify-send 'hello' 'this is a test'",
+}
+
+def run(command):
+    print("running", command)
+    subprocess.Popen(shlex.split(command), start_new_session=True)
+
+hotkeys = {}
+for key, command in mapping.items():
+    print(key, command)
+    hotkeys[key] = partial(run, command)
+
+with keyboard.GlobalHotKeys(hotkeys) as global_hotkeys:
+    global_hotkeys.join()

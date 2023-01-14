@@ -1,0 +1,34 @@
+#!/bin/python
+
+import subprocess
+from os import *
+
+repos_dir = "/home/sandy/repos/"
+
+def open_repo_with_vscode(repo_path):
+  subprocess.run(["code", repo_path])
+
+def list_repos(dir_path):
+  subdirs = [[f.path, f.name] for f in scandir(dir_path) if f.is_dir()]
+  repos = []
+  for dir_path, _ in list(subdirs):
+    is_repo = [f.path for f in scandir(dir_path) if f.is_file() or f.name == '.git']
+    if is_repo:
+      repos.append(dir_path[len(repos_dir):])
+    else:
+      repos.extend(list_repos(dir_path))
+  return repos
+
+def select_repo_with_rofi():
+    repos = list_repos(repos_dir)
+    selected_repo = subprocess.run(["rofi", "-dmenu",
+                                  "-p", "Select a repository",
+                                   "-theme", "/home/sandy/.config/rofi/launchers/type-1/style-1.rasi"],
+                                   input="\n".join(repos),
+                                   capture_output=True,
+                                   text=True)
+    return selected_repo.stdout.strip()
+
+repo_name = select_repo_with_rofi()
+if repo_name:
+  open_repo_with_vscode(f"{repos_dir}{repo_name}")

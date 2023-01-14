@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+import subprocess
+
+# Check if the argument is provided
+if len(sys.argv) != 2:
+    print("Error: Please provide the path to the notes directory as an argument")
+    sys.exit()
+
+# Use the first argument value as the notes directory
+notes_dir = sys.argv[1]
+
+# adding a trailing slash if not present
+if not notes_dir.endswith("/"): notes_dir += "/"
+
+# initializing empty list to store all files
+notes = []
+
+for parent, dirs, files in os.walk(notes_dir):
+    for file in files:
+        notes.append(os.path.join(parent, file)[len(notes_dir):])
+
+# Use Rofi to select the file
+selected_note = subprocess.run(
+  [
+    "rofi",
+    "-dmenu",
+    "-p", "Select a file",
+    "-theme", "/home/sandy/.config/rofi/launchers/type-1/style-1.rasi"
+  ],
+  capture_output=True, text=True, input="\n".join(notes)).stdout.strip()
+
+if selected_note:
+    # Open the selected file with VSCode
+    subprocess.run(["code",'-g', os.path.join(notes_dir,selected_note), notes_dir])
