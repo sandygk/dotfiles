@@ -4,7 +4,7 @@ import os
 import sys
 from datetime import datetime
 
-theme_path = os.path.expanduser('~') + '/.config/theme/theme'
+theme_path = os.path.expanduser('~') + '/bin/data/theme/theme'
 light_time_start = '7:00'
 light_time_end = '18:00'
 

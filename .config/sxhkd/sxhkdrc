@@ -24,7 +24,7 @@ super + alt + {s,semicolon}
   {_, sudo} {open_repo, open_bookmark, launcher, run}
 
 {_, shift +} super + alt + {n, b, c}
-  {_, sudo} open_file_in_dir ~/repos/personal/{notes,bin,configs}
+  {_, sudo} open_file_in_dir ~/repos/personal/{notes "Select note",bin "Select bin file",configs "Select config file"}
 
 # MISC
 

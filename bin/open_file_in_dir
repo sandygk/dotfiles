@@ -5,33 +5,38 @@ import os
 import subprocess
 
 # Check if the argument is provided
-if len(sys.argv) != 2:
-    print("Error: Please provide the path to the notes directory as an argument")
+if len(sys.argv) < 2:
+    print("Error: Please provide the path to the directory as an argument")
     sys.exit()
 
 # Use the first argument value as the notes directory
-notes_dir = sys.argv[1]
+root_dir = sys.argv[1]
+title = sys.argv[2] if len(sys.argv) > 2 else "Select a file"
 
 # adding a trailing slash if not present
-if not notes_dir.endswith("/"): notes_dir += "/"
+if not root_dir.endswith("/"): root_dir += "/"
 
 # initializing empty list to store all files
-notes = []
+listed_files = []
 
-for parent, dirs, files in os.walk(notes_dir):
+for parent, dirs, files in os.walk(root_dir):
     for file in files:
-        notes.append(os.path.join(parent, file)[len(notes_dir):])
+        listed_files.append(os.path.join(parent, file)[len(root_dir):])
+
+# change file names to lowercase
+listed_files_lower = [file.lower() for file in listed_files]
 
 # Use Rofi to select the file
-selected_note = subprocess.run(
+selected_file = subprocess.run(
   [
     "rofi",
     "-dmenu",
-    "-p", "Select a file",
+    "-p", title,
     "-theme", "/home/sandy/.config/rofi/launchers/type-1/style-1.rasi"
   ],
-  capture_output=True, text=True, input="\n".join(notes)).stdout.strip()
+  capture_output=True, text=True, input="\n".join(listed_files_lower)).stdout.strip()
+selected_file = listed_files[listed_files_lower.index(selected_file)]
 
-if selected_note:
+if selected_file:
     # Open the selected file with VSCode
-    subprocess.run(["code",'-g', os.path.join(notes_dir,selected_note), notes_dir])
+    subprocess.run(["code",'-g', os.path.join(root_dir,selected_file), root_dir])

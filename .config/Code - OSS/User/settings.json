@@ -166,7 +166,7 @@
     "turboConsoleLog.quote": "'",
     "polacode.transparentBackground": true,
     "polacode.target": "snippet",
-    "workbench.editor.showTabs": true,
+    "workbench.editor.showTabs": false,
     "zenMode.hideTabs": false,
     "favorites.storageFilePath": ".vscode/.favorites.json",
     "C_Cpp.updateChannel": "Insiders",

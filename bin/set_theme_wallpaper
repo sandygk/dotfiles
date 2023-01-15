@@ -2,11 +2,11 @@
 
 case $1 in
   --dark | -d)
-    hsetroot -fill ~/.config/theme/dark.jpg
+    hsetroot -fill ~/bin/data/theme/dark.jpg
     #hsetroot -solid '#232729' &
     ;;
   --light | -l)
-    hsetroot -fill ~/.config/theme/light.jpg
+    hsetroot -fill ~/bin/data/theme/light.jpg
     #hsetroot -solid '#FFFFFF' &
     ;;
   *)

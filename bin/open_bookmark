@@ -23,7 +23,7 @@ def extract_bookmarks(bookmarks_list, path):
     if "url" in bookmark:
       urls.append(bookmark["url"])
       if "name" in bookmark and bookmark["name"]:
-        title = path + "/" + bookmark["name"]
+        title = path + "/" + bookmark["name"].lower()
       else:
         title = bookmark["url"]
       titles.append(title)

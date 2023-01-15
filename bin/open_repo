@@ -21,13 +21,14 @@ def list_repos(dir_path):
 
 def select_repo_with_rofi():
     repos = list_repos(repos_dir)
+    repos_lower = [repo.lower() for repo in repos]
     selected_repo = subprocess.run(["rofi", "-dmenu",
                                   "-p", "Select a repository",
                                    "-theme", "/home/sandy/.config/rofi/launchers/type-1/style-1.rasi"],
-                                   input="\n".join(repos),
+                                   input="\n".join(repos_lower),
                                    capture_output=True,
                                    text=True)
-    return selected_repo.stdout.strip()
+    return  repos[repos_lower.index(selected_repo.stdout.strip())]
 
 repo_name = select_repo_with_rofi()
 if repo_name:
